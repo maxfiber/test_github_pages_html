@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+
+<html>
+
+<style type="text/css">
+
+body {
+  background-image:url("http://i.imgur.com/Ey2NRqL.jpg");
+  positon: relative; 
+}
+
+#alpha {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  background-color: rgba(255,255,255, 0.8);
+}
+
+</style>
+
+<script type="text/javascript">
+function powerup(value_base, value_powerup){
+	var calc = Number(value_powerup)
+             + Math.ceil(0.02 * value_powerup)
+             + Math.ceil(0.02 * value_base);
+	return calc;
+}
+
+function calc_star(){
+	var ele_hp = document.getElementById("hp_star0");
+	var hp_star1 = powerup(ele_hp.value, ele_hp.value);
+	var hp_star2 = powerup(ele_hp.value, hp_star1);
+	var hp_star3 = powerup(ele_hp.value, hp_star2);
+	var hp_star4 = powerup(ele_hp.value, hp_star3);
+	document.getElementById("hp_star1").innerHTML = hp_star1;
+	document.getElementById("hp_star2").innerHTML = hp_star2;
+	document.getElementById("hp_star3").innerHTML = hp_star3;
+	document.getElementById("hp_star4").innerHTML = hp_star4;
+
+	var ele_mp = document.getElementById("mp_star0");
+	var mp_star1 = powerup(ele_mp.value, ele_mp.value);
+	var mp_star2 = powerup(ele_mp.value, mp_star1);
+	var mp_star3 = powerup(ele_mp.value, mp_star2);
+	var mp_star4 = powerup(ele_mp.value, mp_star3);
+	document.getElementById("mp_star1").innerHTML = mp_star1;
+	document.getElementById("mp_star2").innerHTML = mp_star2;
+	document.getElementById("mp_star3").innerHTML = mp_star3;
+	document.getElementById("mp_star4").innerHTML = mp_star4;
+
+	var ele_atack = document.getElementById("atack_star0");
+	var atack_star1 = powerup(ele_atack.value, ele_atack.value);
+	var atack_star2 = powerup(ele_atack.value, atack_star1);
+	var atack_star3 = powerup(ele_atack.value, atack_star2);
+	var atack_star4 = powerup(ele_atack.value, atack_star3);
+	document.getElementById("atack_star1").innerHTML = atack_star1;
+	document.getElementById("atack_star2").innerHTML = atack_star2;
+	document.getElementById("atack_star3").innerHTML = atack_star3;
+	document.getElementById("atack_star4").innerHTML = atack_star4;
+
+	var ele_defence = document.getElementById("defence_star0");
+	var defence_star1 = powerup(ele_defence.value, ele_defence.value);
+	var defence_star2 = powerup(ele_defence.value, defence_star1);
+	var defence_star3 = powerup(ele_defence.value, defence_star2);
+	var defence_star4 = powerup(ele_defence.value, defence_star3);
+	document.getElementById("defence_star1").innerHTML = defence_star1;
+	document.getElementById("defence_star2").innerHTML = defence_star2;
+	document.getElementById("defence_star3").innerHTML = defence_star3;
+	document.getElementById("defence_star4").innerHTML = defence_star4;
+
+	var ele_speed = document.getElementById("speed_star0");
+	var speed_star1 = powerup(ele_speed.value, ele_speed.value);
+	var speed_star2 = powerup(ele_speed.value, speed_star1);
+	var speed_star3 = powerup(ele_speed.value, speed_star2);
+	var speed_star4 = powerup(ele_speed.value, speed_star3);
+	document.getElementById("speed_star1").innerHTML = speed_star1;
+	document.getElementById("speed_star2").innerHTML = speed_star2;
+	document.getElementById("speed_star3").innerHTML = speed_star3;
+	document.getElementById("speed_star4").innerHTML = speed_star4;
+
+	var ele_intelligence = document.getElementById("intelligence_star0");
+	var intelligence_star1 = powerup(ele_intelligence.value, ele_intelligence.value);
+	var intelligence_star2 = powerup(ele_intelligence.value, intelligence_star1);
+	var intelligence_star3 = powerup(ele_intelligence.value, intelligence_star2);
+	var intelligence_star4 = powerup(ele_intelligence.value, intelligence_star3);
+	document.getElementById("intelligence_star1").innerHTML = intelligence_star1;
+	document.getElementById("intelligence_star2").innerHTML = intelligence_star2;
+	document.getElementById("intelligence_star3").innerHTML = intelligence_star3;
+	document.getElementById("intelligence_star4").innerHTML = intelligence_star4;
+
+}
+
+</script>
+<body>
+<div id="alpha">
+<h3>☆4～☆444444ステータスチェッカー(仮)</h3>
+
+☆0ステータスを入力してね！<br>
+<table border>
+<tr>
+    <td></td>
+    <td>☆0</td>
+    <td>☆1</td>
+    <td>☆2</td>
+    <td>☆3</td>
+    <td>☆4</td>
+</tr>
+<tr>
+    <td>HP</td>
+    <td><input id="hp_star0" size="1" onchange="calc_star();"></td>
+    <td id="hp_star1">0</td>
+    <td id="hp_star2">0</td>
+    <td id="hp_star3">0</td>
+    <td id="hp_star4">0</td>
+</tr>
+<tr>
+    <td>MP</td>
+    <td><input id="mp_star0" size="1" onchange="calc_star();"></td>
+    <td id="mp_star1">0</td>
+    <td id="mp_star2">0</td>
+    <td id="mp_star3">0</td>
+    <td id="mp_star4">0</td>
+</tr>
+<tr>
+    <td>攻撃力</td>
+    <td><input id="atack_star0" size="1" onchange="calc_star();"></td>
+    <td id="atack_star1">0</td>
+    <td id="atack_star2">0</td>
+    <td id="atack_star3">0</td>
+    <td id="atack_star4">0</td>
+</tr>
+<tr>
+    <td>防御力</td>
+    <td><input id="defence_star0" size="1" onchange="calc_star();"></td>
+    <td id="defence_star1">0</td>
+    <td id="defence_star2">0</td>
+    <td id="defence_star3">0</td>
+    <td id="defence_star4">0</td>
+</tr>
+<tr>
+    <td>素早さ</td>
+    <td><input id="speed_star0" size="1" onchange="calc_star();"></td>
+    <td id="speed_star1">0</td>
+    <td id="speed_star2">0</td>
+    <td id="speed_star3">0</td>
+    <td id="speed_star4">0</td>
+</tr>
+<tr>
+    <td>賢さ</td>
+    <td><input id="intelligence_star0" size="1" onchange="calc_star();"></td>
+    <td id="intelligence_star1">0</td>
+    <td id="intelligence_star2">0</td>
+    <td id="intelligence_star3">0</td>
+    <td id="intelligence_star4">0</td>
+</tr>
+</table><br>
+<button onclick="calc_star();">計算！</button>
+
+</div>
+</body>
+</html>
