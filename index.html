@@ -2,15 +2,18 @@
 <html lang="ja-jp">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, maximum-scale=1.0, user-scalable=yes">
   </head>
 
 <html>
 
 <style type="text/css">
-
 body {
   background-image:url("http://i.imgur.com/Ey2NRqL.jpg");
   positon: relative; 
+  width: 300px;
+  height: 300px;
+  -webkit-text-size-adjust: 100%;
 }
 
 #alpha {
@@ -111,7 +114,7 @@ function calc_star(){
 </tr>
 <tr>
     <td>HP</td>
-    <td><input id="hp_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="hp_star0" size="3" onchange="calc_star();"></td>
     <td id="hp_star1">0</td>
     <td id="hp_star2">0</td>
     <td id="hp_star3">0</td>
@@ -119,7 +122,7 @@ function calc_star(){
 </tr>
 <tr>
     <td>MP</td>
-    <td><input id="mp_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="mp_star0" size="3" onchange="calc_star();"></td>
     <td id="mp_star1">0</td>
     <td id="mp_star2">0</td>
     <td id="mp_star3">0</td>
@@ -127,7 +130,7 @@ function calc_star(){
 </tr>
 <tr>
     <td>攻撃力</td>
-    <td><input id="atack_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="atack_star0" size="3" onchange="calc_star();"></td>
     <td id="atack_star1">0</td>
     <td id="atack_star2">0</td>
     <td id="atack_star3">0</td>
@@ -135,7 +138,7 @@ function calc_star(){
 </tr>
 <tr>
     <td>防御力</td>
-    <td><input id="defence_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="defence_star0" size="3" onchange="calc_star();"></td>
     <td id="defence_star1">0</td>
     <td id="defence_star2">0</td>
     <td id="defence_star3">0</td>
@@ -143,7 +146,7 @@ function calc_star(){
 </tr>
 <tr>
     <td>素早さ</td>
-    <td><input id="speed_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="speed_star0" size="3" onchange="calc_star();"></td>
     <td id="speed_star1">0</td>
     <td id="speed_star2">0</td>
     <td id="speed_star3">0</td>
@@ -151,14 +154,13 @@ function calc_star(){
 </tr>
 <tr>
     <td>賢さ</td>
-    <td><input id="intelligence_star0" size="1" onchange="calc_star();"></td>
+    <td><input id="intelligence_star0" size="3" onchange="calc_star();"></td>
     <td id="intelligence_star1">0</td>
     <td id="intelligence_star2">0</td>
     <td id="intelligence_star3">0</td>
     <td id="intelligence_star4">0</td>
 </tr>
-</table><br>
-<button onclick="calc_star();">計算！</button>
+</table>
 
 </div>
 </body>
