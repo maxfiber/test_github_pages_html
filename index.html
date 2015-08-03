@@ -138,17 +138,36 @@ var total_star444444_e = 0;
 var total_star444444_f = 0;
 
 
-function powerup(value_base, value_powerup) {
+function calcPowerupIncrement(value_base, value_powerup) {
 	var calc = Number(value_base)
              + Math.ceil(0.02 * value_base)
              + Math.ceil(0.02 * value_powerup);
 	return calc;
 }
 
-function trans(value_star4, value_star0) {
+function calcPowerupStar4(value_star0) {
+	var value_star1 = calcPowerupIncrement(value_star0, value_star0);
+	var value_star2 = calcPowerupIncrement(value_star1, hp_f_0);
+	var value_star3 = calcPowerupIncrement(value_star2, hp_f_0);
+	var value_star4 = calcPowerupIncrement(value_star3, hp_f_0);
+	return value_star4;
+}
+
+function calcTransIncrement(value_star4, value_star0) {
 	var calc = Math.ceil(0.2 * (value_star4 - value_star0));
 	return calc;
 }
+
+function calcPowerupStar44(base0, before4, before0) {
+	var base_04 = Number(base0) + calcTransIncrement(before4, before0);
+	var base_1 = calcPowerupIncrement(base_04, base0);
+	var base_2 = calcPowerupIncrement(base_1, base0);
+	var base_3 = calcPowerupIncrement(base_2, base0);
+	var base_4 = calcPowerupIncrement(base_3, base0);	
+	return base_4;
+}
+
+
 
 function calc_total() {
 	if (!parseInt(hp_star0) > 0) hp_star0 = Number(0);
@@ -185,10 +204,10 @@ function calc_total() {
 function calc_hp_star() {
 	var ele_hp = document.getElementById("hp_star0");
 	hp_star0 = ele_hp.value;
-	hp_star1 = powerup(hp_star0, hp_star0);
-	hp_star2 = powerup(hp_star1, hp_star0);
-	hp_star3 = powerup(hp_star2, hp_star0);
-	hp_star4 = powerup(hp_star3, hp_star0);
+	hp_star1 = calcPowerupIncrement(hp_star0, hp_star0);
+	hp_star2 = calcPowerupIncrement(hp_star1, hp_star0);
+	hp_star3 = calcPowerupIncrement(hp_star2, hp_star0);
+	hp_star4 = calcPowerupIncrement(hp_star3, hp_star0);
 	document.getElementById("hp_star1").innerHTML = hp_star1;
 	document.getElementById("hp_star2").innerHTML = hp_star2;
 	document.getElementById("hp_star3").innerHTML = hp_star3;
@@ -200,10 +219,10 @@ function calc_hp_star() {
 function calc_mp_star() {
 	var ele_mp = document.getElementById("mp_star0");
 	mp_star0 = ele_mp.value;
-	mp_star1 = powerup(mp_star0, mp_star0);
-	mp_star2 = powerup(mp_star1, mp_star0);
-	mp_star3 = powerup(mp_star2, mp_star0);
-	mp_star4 = powerup(mp_star3, mp_star0);
+	mp_star1 = calcPowerupIncrement(mp_star0, mp_star0);
+	mp_star2 = calcPowerupIncrement(mp_star1, mp_star0);
+	mp_star3 = calcPowerupIncrement(mp_star2, mp_star0);
+	mp_star4 = calcPowerupIncrement(mp_star3, mp_star0);
 	document.getElementById("mp_star1").innerHTML = mp_star1;
 	document.getElementById("mp_star2").innerHTML = mp_star2;
 	document.getElementById("mp_star3").innerHTML = mp_star3;
@@ -215,10 +234,10 @@ function calc_mp_star() {
 function calc_atack_star() {
 	var ele_atack = document.getElementById("atack_star0");
 	atack_star0 = ele_atack.value;
-	atack_star1 = powerup(atack_star0, atack_star0);
-	atack_star2 = powerup(atack_star1, atack_star0);
-	atack_star3 = powerup(atack_star2, atack_star0);
-	atack_star4 = powerup(atack_star3, atack_star0);
+	atack_star1 = calcPowerupIncrement(atack_star0, atack_star0);
+	atack_star2 = calcPowerupIncrement(atack_star1, atack_star0);
+	atack_star3 = calcPowerupIncrement(atack_star2, atack_star0);
+	atack_star4 = calcPowerupIncrement(atack_star3, atack_star0);
 	document.getElementById("atack_star1").innerHTML = atack_star1;
 	document.getElementById("atack_star2").innerHTML = atack_star2;
 	document.getElementById("atack_star3").innerHTML = atack_star3;
@@ -230,10 +249,10 @@ function calc_atack_star() {
 function calc_defen_star() {
 	var ele_defen = document.getElementById("defen_star0");
 	defen_star0 = ele_defen.value;
-	defen_star1 = powerup(defen_star0, defen_star0);
-	defen_star2 = powerup(defen_star1, defen_star0);
-	defen_star3 = powerup(defen_star2, defen_star0);
-	defen_star4 = powerup(defen_star3, defen_star0);
+	defen_star1 = calcPowerupIncrement(defen_star0, defen_star0);
+	defen_star2 = calcPowerupIncrement(defen_star1, defen_star0);
+	defen_star3 = calcPowerupIncrement(defen_star2, defen_star0);
+	defen_star4 = calcPowerupIncrement(defen_star3, defen_star0);
 	document.getElementById("defen_star1").innerHTML = defen_star1;
 	document.getElementById("defen_star2").innerHTML = defen_star2;
 	document.getElementById("defen_star3").innerHTML = defen_star3;
@@ -245,10 +264,10 @@ function calc_defen_star() {
 function calc_speed_star() {
 	var ele_speed = document.getElementById("speed_star0");
 	speed_star0 = ele_speed.value;
-	speed_star1 = powerup(speed_star0, speed_star0);
-	speed_star2 = powerup(speed_star1, speed_star0);
-	speed_star3 = powerup(speed_star2, speed_star0);
-	speed_star4 = powerup(speed_star3, speed_star0);
+	speed_star1 = calcPowerupIncrement(speed_star0, speed_star0);
+	speed_star2 = calcPowerupIncrement(speed_star1, speed_star0);
+	speed_star3 = calcPowerupIncrement(speed_star2, speed_star0);
+	speed_star4 = calcPowerupIncrement(speed_star3, speed_star0);
 	document.getElementById("speed_star1").innerHTML = speed_star1;
 	document.getElementById("speed_star2").innerHTML = speed_star2;
 	document.getElementById("speed_star3").innerHTML = speed_star3;
@@ -260,10 +279,10 @@ function calc_speed_star() {
 function calc_intel_star() {
 	var ele_intel = document.getElementById("intel_star0");
 	intel_star0 = ele_intel.value;
-	intel_star1 = powerup(intel_star0, intel_star0);
-	intel_star2 = powerup(intel_star1, intel_star0);
-	intel_star3 = powerup(intel_star2, intel_star0);
-	intel_star4 = powerup(intel_star3, intel_star0);
+	intel_star1 = calcPowerupIncrement(intel_star0, intel_star0);
+	intel_star2 = calcPowerupIncrement(intel_star1, intel_star0);
+	intel_star3 = calcPowerupIncrement(intel_star2, intel_star0);
+	intel_star4 = calcPowerupIncrement(intel_star3, intel_star0);
 	document.getElementById("intel_star1").innerHTML = intel_star1;
 	document.getElementById("intel_star2").innerHTML = intel_star2;
 	document.getElementById("intel_star3").innerHTML = intel_star3;
@@ -281,68 +300,30 @@ function calc_444444() {
 	var ele_hp_f = document.getElementById("hp_star444444_f0");
 
 	hp_f_0 = ele_hp_f.value;
-	hp_f_1 = powerup(hp_f_0, hp_f_0);
-	hp_f_2 = powerup(hp_f_1, hp_f_0);
-	hp_f_3 = powerup(hp_f_2, hp_f_0);
-	hp_f_4 = powerup(hp_f_3, hp_f_0);
-
+	hp_f_4 = calcPowerupStar4(hp_f_0);
 	hp_e_0 = ele_hp_e.value;
-	hp_e_04 = Number(ele_hp_e.value) + trans(hp_f_4, hp_f_0);
-	hp_e_1 = powerup(hp_e_04, hp_e_0);
-	hp_e_2 = powerup(hp_e_1, hp_e_0);
-	hp_e_3 = powerup(hp_e_2, hp_e_0);
-	hp_e_4 = powerup(hp_e_3, hp_e_0);
-
+	hp_e_4 = calcPowerupStar44(hp_e_0, hp_f_4, hp_f_0);
 	hp_d_0 = ele_hp_d.value;
-	hp_d_04 = Number(ele_hp_d.value) + trans(hp_e_4, hp_e_0);
-	hp_d_1 = powerup(hp_d_04, hp_d_0);
-	hp_d_2 = powerup(hp_d_1, hp_d_0);
-	hp_d_3 = powerup(hp_d_2, hp_d_0);
-	hp_d_4 = powerup(hp_d_3, hp_d_0);
-
+	hp_d_4 = calcPowerupStar44(hp_d_0, hp_e_4, hp_e_0);
 	hp_c_0 = ele_hp_c.value;
-	hp_c_04 = Number(ele_hp_c.value) + trans(hp_d_4, hp_d_0);
-	hp_c_1 = powerup(hp_c_04, hp_c_0);
-	hp_c_2 = powerup(hp_c_1, hp_c_0);
-	hp_c_3 = powerup(hp_c_2, hp_c_0);
-	hp_c_4 = powerup(hp_c_3, hp_c_0);
-
+	hp_c_4 = calcPowerupStar44(hp_c_0, hp_d_4, hp_d_0);
 	hp_b_0 = ele_hp_b.value;
-	hp_b_04 = Number(ele_hp_b.value) + trans(hp_c_4, hp_c_0);
-	hp_b_1 = powerup(hp_b_04, hp_b_0);
-	hp_b_2 = powerup(hp_b_1, hp_b_0);
-	hp_b_3 = powerup(hp_b_2, hp_b_0);
-	hp_b_4 = powerup(hp_b_3, hp_b_0);
-
+	hp_b_4 = calcPowerupStar44(hp_b_0, hp_c_4, hp_c_0);
 	hp_a_0 = ele_hp_a.value;
-	hp_a_04 = Number(ele_hp_a.value) + trans(hp_b_4, hp_b_0);
-	hp_a_1 = powerup(hp_a_04, hp_a_0);
-	hp_a_2 = powerup(hp_a_1, hp_a_0);
-	hp_a_3 = powerup(hp_a_2, hp_a_0);
-	hp_a_4 = powerup(hp_a_3, hp_a_0);
-
+	hp_a_4 = calcPowerupStar44(hp_a_0, hp_b_4, hp_b_0);
 	hp_s_0 = ele_hp_s.value;
-	hp_s_04 = Number(ele_hp_s.value) + trans(hp_a_4, hp_a_0);
-	hp_s_1 = powerup(hp_s_04, hp_s_0);
-	hp_s_2 = powerup(hp_s_1, hp_s_0);
-	hp_s_3 = powerup(hp_s_2, hp_s_0);
-	hp_s_4 = powerup(hp_s_3, hp_s_0);
-
+	hp_s_4 = calcPowerupStar44(hp_s_0, hp_a_4, hp_a_0);
 	hp_ss_0 = ele_hp_ss.value;
-	hp_ss_04 = Number(ele_hp_ss.value) + trans(hp_s_4, hp_s_0);
-	hp_ss_1 = powerup(hp_ss_04, hp_ss_0);
-	hp_ss_2 = powerup(hp_ss_1, hp_ss_0);
-	hp_ss_3 = powerup(hp_ss_2, hp_ss_0);
-	hp_ss_4 = powerup(hp_ss_3, hp_ss_0);
+	hp_ss_4 = calcPowerupStar44(hp_ss_0, hp_s_4, hp_s_0);
 
-	document.getElementById("hp_star444444_f").innerHTML = hp_f_4;
-	document.getElementById("hp_star444444_e").innerHTML = hp_e_4;
-	document.getElementById("hp_star444444_d").innerHTML = hp_d_4;
-	document.getElementById("hp_star444444_c").innerHTML = hp_c_4;
-	document.getElementById("hp_star444444_b").innerHTML = hp_b_4;
-	document.getElementById("hp_star444444_a").innerHTML = hp_a_4;
-	document.getElementById("hp_star444444_s").innerHTML = hp_s_4;
-	document.getElementById("hp_star444444_ss").innerHTML = hp_ss_4;
+	if (hp_f_0 > 0) document.getElementById("hp_star444444_f").innerHTML = hp_f_4;
+	if (hp_e_0 > 0) document.getElementById("hp_star444444_e").innerHTML = hp_e_4;
+	if (hp_d_0 > 0) document.getElementById("hp_star444444_d").innerHTML = hp_d_4;
+	if (hp_c_0 > 0) document.getElementById("hp_star444444_c").innerHTML = hp_c_4;
+	if (hp_b_0 > 0) document.getElementById("hp_star444444_b").innerHTML = hp_b_4;
+	if (hp_a_0 > 0) document.getElementById("hp_star444444_a").innerHTML = hp_a_4;
+	if (hp_s_0 > 0) document.getElementById("hp_star444444_s").innerHTML = hp_s_4;
+	if (hp_ss_0 > 0) document.getElementById("hp_star444444_ss").innerHTML = hp_ss_4;
 }
 
 </script>
