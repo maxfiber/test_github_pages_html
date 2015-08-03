@@ -38,41 +38,15 @@ body {
 </style>
 
 <script type="text/javascript">
-var hp_star0 = 0;
-var hp_star1 = 0;
-var hp_star2 = 0;
-var hp_star3 = 0;
-var hp_star4 = 0;
-var mp_star0 = 0;
-var mp_star1 = 0;
-var mp_star2 = 0;
-var mp_star3 = 0;
-var mp_star4 = 0;
-var atack_star0 = 0;
-var atack_star1 = 0;
-var atack_star2 = 0;
-var atack_star3 = 0;
-var atack_star4 = 0;
-var defen_star0 = 0;
-var defen_star1 = 0;
-var defen_star2 = 0;
-var defen_star3 = 0;
-var defen_star4 = 0;
-var speed_star0 = 0;
-var speed_star1 = 0;
-var speed_star2 = 0;
-var speed_star3 = 0;
-var speed_star4 = 0;
-var intel_star0 = 0;
-var intel_star1 = 0;
-var intel_star2 = 0;
-var intel_star3 = 0;
-var intel_star4 = 0;
-var total_star0 = 0;
-var total_star1 = 0;
-var total_star2 = 0;
-var total_star3 = 0;
-var total_star4 = 0;
+
+              //star 0  1  2  3  4
+var array4       = [[0, 0, 0, 0, 0],  // HP
+                    [0, 0, 0, 0, 0],  // MP
+                    [0, 0, 0, 0, 0],  // atack
+                    [0, 0, 0, 0, 0],  // defen
+                    [0, 0, 0, 0, 0],  // speed
+                    [0, 0, 0, 0, 0],  // intel
+                    [0, 0, 0, 0, 0]]; // total
 
 var hp_star444444_ss = 0;
 var hp_star444444_s = 0;
@@ -170,124 +144,148 @@ function calcPowerupStar44(base0, before4, before0) {
 
 
 function calc_total() {
-	if (!parseInt(hp_star0) > 0) hp_star0 = Number(0);
-	if (!parseInt(mp_star0) > 0) mp_star0 = Number(0);
-	if (!parseInt(atack_star0) > 0) atack_star0 = Number(0);
-	if (!parseInt(defen_star0) > 0) defen_star0 = Number(0);
-	if (!parseInt(speed_star0) > 0) speed_star0 = Number(0);
-	if (!parseInt(intel_star0) > 0) intel_star0 = Number(0);
 
-	var total_star0 = parseInt(hp_star0) + parseInt(mp_star0)
-					+ parseInt(atack_star0) + parseInt(defen_star0)
-					+ parseInt(speed_star0) + parseInt(intel_star0);
-	var total_star1 = parseInt(hp_star1) + parseInt(mp_star1)
-					+ parseInt(atack_star1) + parseInt(defen_star1)
-					+ parseInt(speed_star1) + parseInt(intel_star1);
-	var total_star2 = parseInt(hp_star2) + parseInt(mp_star2)
-					+ parseInt(atack_star2) + parseInt(defen_star2)
-					+ parseInt(speed_star2) + parseInt(intel_star2);
-	var total_star3 = parseInt(hp_star3) + parseInt(mp_star3)
-					+ parseInt(atack_star3) + parseInt(defen_star3)
-					+ parseInt(speed_star3) + parseInt(intel_star3);
-	var total_star4 = parseInt(hp_star4) + parseInt(mp_star4)
-					+ parseInt(atack_star4) + parseInt(defen_star4)
-					+ parseInt(speed_star4) + parseInt(intel_star4);
+	// to number. avoid string.
+	for (var i = 0; i < 6; i++) {
+		if (!parseInt(array4[i][0] > 0)) array4[i][0] = Number(0);
+	}
 
-	document.getElementById("total_star0").innerHTML = total_star0;
-	document.getElementById("total_star1").innerHTML = total_star1;
-	document.getElementById("total_star2").innerHTML = total_star2;
-	document.getElementById("total_star3").innerHTML = total_star3;
-	document.getElementById("total_star4").innerHTML = total_star4;
+	// calc total
+/*
+	for (var j = 0; j < 6; j++) {
+		array4[6][0] += parseInt(array4[j][0]);
+	}
+	for (var j = 0; j < 6; j++) {
+		array4[6][1] += parseInt(array4[j][1]);
+	}
+	for (var j = 0; j < 6; j++) {
+		array4[6][2] += parseInt(array4[j][2]);
+	}
+	for (var j = 0; j < 6; j++) {
+		array4[6][3] += parseInt(array4[j][3]);
+	}
+	for (var j = 0; j < 6; j++) {
+		array4[6][4] += parseInt(array4[j][4]);
+	}
+*/
+
+	array4[6][0] = parseInt(array4[0][0]) + parseInt(array4[1][0])
+				 + parseInt(array4[2][0]) + parseInt(array4[3][0])
+				 + parseInt(array4[4][0]) + parseInt(array4[5][0]); // total star0
+	array4[6][1] = parseInt(array4[0][1]) + parseInt(array4[1][1])
+				 + parseInt(array4[2][1]) + parseInt(array4[3][1])
+				 + parseInt(array4[4][1]) + parseInt(array4[5][1]); // total star1
+	array4[6][2] = parseInt(array4[0][2]) + parseInt(array4[1][2])
+				 + parseInt(array4[2][2]) + parseInt(array4[3][2])
+				 + parseInt(array4[4][2]) + parseInt(array4[5][2]); // total star2
+	array4[6][3] = parseInt(array4[0][3]) + parseInt(array4[1][3])
+				 + parseInt(array4[2][3]) + parseInt(array4[3][3])
+				 + parseInt(array4[4][3]) + parseInt(array4[5][3]); // total star3
+	array4[6][4] = parseInt(array4[0][4]) + parseInt(array4[1][4])
+				 + parseInt(array4[2][4]) + parseInt(array4[3][4])
+				 + parseInt(array4[4][4]) + parseInt(array4[5][4]); // total star4
+
+	document.getElementById("total_star0").innerHTML = array4[6][0];
+	document.getElementById("total_star1").innerHTML = array4[6][1];
+	document.getElementById("total_star2").innerHTML = array4[6][2];
+	document.getElementById("total_star3").innerHTML = array4[6][3];
+	document.getElementById("total_star4").innerHTML = array4[6][4];
 }
 
 
 function calc_hp_star() {
 	var ele_hp = document.getElementById("hp_star0");
-	hp_star0 = ele_hp.value;
-	hp_star1 = calcPowerupIncrement(hp_star0, hp_star0);
-	hp_star2 = calcPowerupIncrement(hp_star1, hp_star0);
-	hp_star3 = calcPowerupIncrement(hp_star2, hp_star0);
-	hp_star4 = calcPowerupIncrement(hp_star3, hp_star0);
-	document.getElementById("hp_star1").innerHTML = hp_star1;
-	document.getElementById("hp_star2").innerHTML = hp_star2;
-	document.getElementById("hp_star3").innerHTML = hp_star3;
-	document.getElementById("hp_star4").innerHTML = hp_star4;
+	array4[0][0] = ele_hp.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[0][i+1] = calcPowerupIncrement(array4[0][i], array4[0][0]);
+	}
+
+	document.getElementById("hp_star1").innerHTML = array4[0][1];
+	document.getElementById("hp_star2").innerHTML = array4[0][2];
+	document.getElementById("hp_star3").innerHTML = array4[0][3];
+	document.getElementById("hp_star4").innerHTML = array4[0][4];
 
 	calc_total();
 }
 
 function calc_mp_star() {
 	var ele_mp = document.getElementById("mp_star0");
-	mp_star0 = ele_mp.value;
-	mp_star1 = calcPowerupIncrement(mp_star0, mp_star0);
-	mp_star2 = calcPowerupIncrement(mp_star1, mp_star0);
-	mp_star3 = calcPowerupIncrement(mp_star2, mp_star0);
-	mp_star4 = calcPowerupIncrement(mp_star3, mp_star0);
-	document.getElementById("mp_star1").innerHTML = mp_star1;
-	document.getElementById("mp_star2").innerHTML = mp_star2;
-	document.getElementById("mp_star3").innerHTML = mp_star3;
-	document.getElementById("mp_star4").innerHTML = mp_star4;
+	array4[1][0] = ele_mp.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[1][i+1] = calcPowerupIncrement(array4[1][i], array4[1][0]);
+	}
+
+	document.getElementById("mp_star1").innerHTML = array4[1][1];
+	document.getElementById("mp_star2").innerHTML = array4[1][2];
+	document.getElementById("mp_star3").innerHTML = array4[1][3];
+	document.getElementById("mp_star4").innerHTML = array4[1][4];
 
 	calc_total();
 }
 
 function calc_atack_star() {
 	var ele_atack = document.getElementById("atack_star0");
-	atack_star0 = ele_atack.value;
-	atack_star1 = calcPowerupIncrement(atack_star0, atack_star0);
-	atack_star2 = calcPowerupIncrement(atack_star1, atack_star0);
-	atack_star3 = calcPowerupIncrement(atack_star2, atack_star0);
-	atack_star4 = calcPowerupIncrement(atack_star3, atack_star0);
-	document.getElementById("atack_star1").innerHTML = atack_star1;
-	document.getElementById("atack_star2").innerHTML = atack_star2;
-	document.getElementById("atack_star3").innerHTML = atack_star3;
-	document.getElementById("atack_star4").innerHTML = atack_star4;
+	array4[2][0] = ele_atack.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[2][i+1] = calcPowerupIncrement(array4[2][i], array4[2][0]);
+	}
+
+	document.getElementById("atack_star1").innerHTML = array4[2][1];
+	document.getElementById("atack_star2").innerHTML = array4[2][2];
+	document.getElementById("atack_star3").innerHTML = array4[2][3];
+	document.getElementById("atack_star4").innerHTML = array4[2][4];
 
 	calc_total();
 }
 
 function calc_defen_star() {
 	var ele_defen = document.getElementById("defen_star0");
-	defen_star0 = ele_defen.value;
-	defen_star1 = calcPowerupIncrement(defen_star0, defen_star0);
-	defen_star2 = calcPowerupIncrement(defen_star1, defen_star0);
-	defen_star3 = calcPowerupIncrement(defen_star2, defen_star0);
-	defen_star4 = calcPowerupIncrement(defen_star3, defen_star0);
-	document.getElementById("defen_star1").innerHTML = defen_star1;
-	document.getElementById("defen_star2").innerHTML = defen_star2;
-	document.getElementById("defen_star3").innerHTML = defen_star3;
-	document.getElementById("defen_star4").innerHTML = defen_star4;
+	array4[3][0] = ele_defen.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[3][i+1] = calcPowerupIncrement(array4[3][i], array4[3][0]);
+	}
+
+	document.getElementById("defen_star1").innerHTML = array4[3][1];
+	document.getElementById("defen_star2").innerHTML = array4[3][2];
+	document.getElementById("defen_star3").innerHTML = array4[3][3];
+	document.getElementById("defen_star4").innerHTML = array4[3][4];
 
 	calc_total();
 }
 
 function calc_speed_star() {
 	var ele_speed = document.getElementById("speed_star0");
-	speed_star0 = ele_speed.value;
-	speed_star1 = calcPowerupIncrement(speed_star0, speed_star0);
-	speed_star2 = calcPowerupIncrement(speed_star1, speed_star0);
-	speed_star3 = calcPowerupIncrement(speed_star2, speed_star0);
-	speed_star4 = calcPowerupIncrement(speed_star3, speed_star0);
-	document.getElementById("speed_star1").innerHTML = speed_star1;
-	document.getElementById("speed_star2").innerHTML = speed_star2;
-	document.getElementById("speed_star3").innerHTML = speed_star3;
-	document.getElementById("speed_star4").innerHTML = speed_star4;
+	array4[4][0] = ele_speed.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[4][i+1] = calcPowerupIncrement(array4[4][i], array4[4][0]);
+	}
+	document.getElementById("speed_star1").innerHTML = array4[4][1];
+	document.getElementById("speed_star2").innerHTML = array4[4][2];
+	document.getElementById("speed_star3").innerHTML = array4[4][3];
+	document.getElementById("speed_star4").innerHTML = array4[4][4];
 
 	calc_total();
 }
 
 function calc_intel_star() {
 	var ele_intel = document.getElementById("intel_star0");
-	intel_star0 = ele_intel.value;
-	intel_star1 = calcPowerupIncrement(intel_star0, intel_star0);
-	intel_star2 = calcPowerupIncrement(intel_star1, intel_star0);
-	intel_star3 = calcPowerupIncrement(intel_star2, intel_star0);
-	intel_star4 = calcPowerupIncrement(intel_star3, intel_star0);
-	document.getElementById("intel_star1").innerHTML = intel_star1;
-	document.getElementById("intel_star2").innerHTML = intel_star2;
-	document.getElementById("intel_star3").innerHTML = intel_star3;
-	document.getElementById("intel_star4").innerHTML = intel_star4;
+	array4[5][0] = ele_intel.value;
+
+	for (var i = 0; i < 5; i++) {
+		array4[5][i+1] = calcPowerupIncrement(array4[5][i], array4[5][0]);
+	}
+	document.getElementById("intel_star1").innerHTML = array4[5][1];
+	document.getElementById("intel_star2").innerHTML = array4[5][2];
+	document.getElementById("intel_star3").innerHTML = array4[5][3];
+	document.getElementById("intel_star4").innerHTML = array4[5][4];
 }
+
+
 
 function calc_444444() {
 	var ele_hp_ss = document.getElementById("hp_star444444_ss0");
