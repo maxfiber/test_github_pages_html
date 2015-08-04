@@ -37,6 +37,17 @@ body {
 }
 </style>
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65925312-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 <script type="text/javascript">
 
               //star 0  1  2  3  4
@@ -48,69 +59,23 @@ var array4       = [[0, 0, 0, 0, 0],  // HP
                     [0, 0, 0, 0, 0],  // intel
                     [0, 0, 0, 0, 0]]; // total
 
-var hp_star444444_ss = 0;
-var hp_star444444_s = 0;
-var hp_star444444_a = 0;
-var hp_star444444_b = 0;
-var hp_star444444_c = 0;
-var hp_star444444_d = 0;
-var hp_star444444_e = 0;
-var hp_star444444_f = 0;
+             //rank SS  S  A  B  C  D  E  F
+var input444444  = [[0, 0, 0, 0, 0, 0, 0, 0],  // HP
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // MP
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // atack
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // defen
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // speed
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // intel
+                    [0, 0, 0, 0, 0, 0, 0, 0]]; // total
 
-var mp_star444444_ss = 0;
-var mp_star444444_s = 0;
-var mp_star444444_a = 0;
-var mp_star444444_b = 0;
-var mp_star444444_c = 0;
-var mp_star444444_d = 0;
-var mp_star444444_e = 0;
-var mp_star444444_f = 0;
-
-var atack_star444444_ss = 0;
-var atack_star444444_s = 0;
-var atack_star444444_a = 0;
-var atack_star444444_b = 0;
-var atack_star444444_c = 0;
-var atack_star444444_d = 0;
-var atack_star444444_e = 0;
-var atack_star444444_f = 0;
-
-var defen_star444444_ss = 0;
-var defen_star444444_s = 0;
-var defen_star444444_a = 0;
-var defen_star444444_b = 0;
-var defen_star444444_c = 0;
-var defen_star444444_d = 0;
-var defen_star444444_e = 0;
-var defen_star444444_f = 0;
-
-var speed_star444444_ss = 0;
-var speed_star444444_s = 0;
-var speed_star444444_a = 0;
-var speed_star444444_b = 0;
-var speed_star444444_c = 0;
-var speed_star444444_d = 0;
-var speed_star444444_e = 0;
-var speed_star444444_f = 0;
-
-var intel_star444444_ss = 0;
-var intel_star444444_s = 0;
-var intel_star444444_a = 0;
-var intel_star444444_b = 0;
-var intel_star444444_c = 0;
-var intel_star444444_d = 0;
-var intel_star444444_e = 0;
-var intel_star444444_f = 0;
-
-var total_star444444_ss = 0;
-var total_star444444_s = 0;
-var total_star444444_a = 0;
-var total_star444444_b = 0;
-var total_star444444_c = 0;
-var total_star444444_d = 0;
-var total_star444444_e = 0;
-var total_star444444_f = 0;
-
+             //rank SS  S  A  B  C  D  E  F
+var result444444 = [[0, 0, 0, 0, 0, 0, 0, 0],  // HP
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // MP
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // atack
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // defen
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // speed
+                    [0, 0, 0, 0, 0, 0, 0, 0],  // intel
+                    [0, 0, 0, 0, 0, 0, 0, 0]]; // total
 
 function calcPowerupIncrement(value_base, value_powerup) {
 	var calc = Number(value_base)
@@ -121,9 +86,9 @@ function calcPowerupIncrement(value_base, value_powerup) {
 
 function calcPowerupStar4(value_star0) {
 	var value_star1 = calcPowerupIncrement(value_star0, value_star0);
-	var value_star2 = calcPowerupIncrement(value_star1, hp_f_0);
-	var value_star3 = calcPowerupIncrement(value_star2, hp_f_0);
-	var value_star4 = calcPowerupIncrement(value_star3, hp_f_0);
+	var value_star2 = calcPowerupIncrement(value_star1, value_star0);
+	var value_star3 = calcPowerupIncrement(value_star2, value_star0);
+	var value_star4 = calcPowerupIncrement(value_star3, value_star0);
 	return value_star4;
 }
 
@@ -137,7 +102,7 @@ function calcPowerupStar44(base0, before4, before0) {
 	var base_1 = calcPowerupIncrement(base_04, base0);
 	var base_2 = calcPowerupIncrement(base_1, base0);
 	var base_3 = calcPowerupIncrement(base_2, base0);
-	var base_4 = calcPowerupIncrement(base_3, base0);	
+	var base_4 = calcPowerupIncrement(base_3, base0);
 	return base_4;
 }
 
@@ -288,6 +253,7 @@ function calc_intel_star() {
 
 
 function calc_444444() {
+	// for HP
 	var ele_hp_ss = document.getElementById("hp_star444444_ss0");
 	var ele_hp_s = document.getElementById("hp_star444444_s0");
 	var ele_hp_a = document.getElementById("hp_star444444_a0");
@@ -297,31 +263,39 @@ function calc_444444() {
 	var ele_hp_e = document.getElementById("hp_star444444_e0");
 	var ele_hp_f = document.getElementById("hp_star444444_f0");
 
-	hp_f_0 = ele_hp_f.value;
-	hp_f_4 = calcPowerupStar4(hp_f_0);
-	hp_e_0 = ele_hp_e.value;
-	hp_e_4 = calcPowerupStar44(hp_e_0, hp_f_4, hp_f_0);
-	hp_d_0 = ele_hp_d.value;
-	hp_d_4 = calcPowerupStar44(hp_d_0, hp_e_4, hp_e_0);
-	hp_c_0 = ele_hp_c.value;
-	hp_c_4 = calcPowerupStar44(hp_c_0, hp_d_4, hp_d_0);
-	hp_b_0 = ele_hp_b.value;
-	hp_b_4 = calcPowerupStar44(hp_b_0, hp_c_4, hp_c_0);
-	hp_a_0 = ele_hp_a.value;
-	hp_a_4 = calcPowerupStar44(hp_a_0, hp_b_4, hp_b_0);
-	hp_s_0 = ele_hp_s.value;
-	hp_s_4 = calcPowerupStar44(hp_s_0, hp_a_4, hp_a_0);
-	hp_ss_0 = ele_hp_ss.value;
-	hp_ss_4 = calcPowerupStar44(hp_ss_0, hp_s_4, hp_s_0);
+	input444444[0][7] = ele_hp_f.value;
+	input444444[0][6] = ele_hp_e.value;
+	input444444[0][5] = ele_hp_d.value;
+	input444444[0][4] = ele_hp_c.value;
+	input444444[0][3] = ele_hp_b.value;
+	input444444[0][2] = ele_hp_a.value;
+	input444444[0][1] = ele_hp_s.value;
+	input444444[0][0] = ele_hp_ss.value;
 
-	if (hp_f_0 > 0) document.getElementById("hp_star444444_f").innerHTML = hp_f_4;
-	if (hp_e_0 > 0) document.getElementById("hp_star444444_e").innerHTML = hp_e_4;
-	if (hp_d_0 > 0) document.getElementById("hp_star444444_d").innerHTML = hp_d_4;
-	if (hp_c_0 > 0) document.getElementById("hp_star444444_c").innerHTML = hp_c_4;
-	if (hp_b_0 > 0) document.getElementById("hp_star444444_b").innerHTML = hp_b_4;
-	if (hp_a_0 > 0) document.getElementById("hp_star444444_a").innerHTML = hp_a_4;
-	if (hp_s_0 > 0) document.getElementById("hp_star444444_s").innerHTML = hp_s_4;
-	if (hp_ss_0 > 0) document.getElementById("hp_star444444_ss").innerHTML = hp_ss_4;
+	result444444[0][7] = calcPowerupStar4(input444444[0][7]);
+
+	for (var i = 0; i < 7; i++) {
+		result444444[0][6-i] = calcPowerupStar44(input444444[0][6-i], result444444[0][7-i], input444444[0][7-i]);
+	}
+
+/*
+	result444444[0][6] = calcPowerupStar44(input444444[0][6], result444444[0][7], input444444[0][7]);
+	result444444[0][5] = calcPowerupStar44(input444444[0][5], result444444[0][6], input444444[0][6]);
+	result444444[0][4] = calcPowerupStar44(input444444[0][4], result444444[0][5], input444444[0][5]);
+	result444444[0][3] = calcPowerupStar44(input444444[0][3], result444444[0][4], input444444[0][4]);
+	result444444[0][2] = calcPowerupStar44(input444444[0][2], result444444[0][3], input444444[0][3]);
+	result444444[0][1] = calcPowerupStar44(input444444[0][1], result444444[0][2], input444444[0][2]);
+	result444444[0][0] = calcPowerupStar44(input444444[0][0], result444444[0][1], input444444[0][1]);
+*/
+
+	if (input444444[0][7] > 0) document.getElementById("hp_star444444_f").innerHTML = result444444[0][7];
+	if (input444444[0][6] > 0) document.getElementById("hp_star444444_e").innerHTML = result444444[0][6];
+	if (input444444[0][5] > 0) document.getElementById("hp_star444444_d").innerHTML = result444444[0][5];
+	if (input444444[0][4] > 0) document.getElementById("hp_star444444_c").innerHTML = result444444[0][4];
+	if (input444444[0][3] > 0) document.getElementById("hp_star444444_b").innerHTML = result444444[0][3];
+	if (input444444[0][2] > 0) document.getElementById("hp_star444444_a").innerHTML = result444444[0][2];
+	if (input444444[0][1] > 0) document.getElementById("hp_star444444_s").innerHTML = result444444[0][1];
+	if (input444444[0][0] > 0) document.getElementById("hp_star444444_ss").innerHTML = result444444[0][0];
 }
 
 </script>
@@ -414,7 +388,7 @@ function calc_444444() {
 </tr>
 <tr>
 
-
+計算したいランクの☆0ステータスを入力してね！<br>
     <td>HP</td>
     <td><input class="input" id="hp_star444444_ss0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="hp_star444444_s0" type="number" min="0" max="9999"></td>
