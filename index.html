@@ -233,6 +233,14 @@ function calc_intel_star() {
 
 
 function calc_444444() {
+	// init
+	for (var i = 0; i < 7; i++) {
+		for (var j = 0; j < 8; j++) {
+			result444444[i][j] = 0;
+			input444444[i][j]  = 0;
+		}
+	}
+
 	// for HP
 	var ele_hp_ss = document.getElementById("hp_star444444_ss0");
 	var ele_hp_s = document.getElementById("hp_star444444_s0");
@@ -464,6 +472,17 @@ function calc_444444() {
 	}
 */
 	for (var i = 0; i < 6; i++) {
+		// ☆0の合計値計算
+		input444444[6][0] += Number(input444444[i][0]);
+		input444444[6][1] += Number(input444444[i][1]);
+		input444444[6][2] += Number(input444444[i][2]);
+		input444444[6][3] += Number(input444444[i][3]);
+		input444444[6][4] += Number(input444444[i][4]);
+		input444444[6][5] += Number(input444444[i][5]);
+		input444444[6][6] += Number(input444444[i][6]);
+		input444444[6][7] += Number(input444444[i][7]);
+
+		// ☆4~444444の合計値計算
 		result444444[6][0] += result444444[i][0];
 		result444444[6][1] += result444444[i][1];
 		result444444[6][2] += result444444[i][2];
@@ -472,26 +491,51 @@ function calc_444444() {
 		result444444[6][5] += result444444[i][5];
 		result444444[6][6] += result444444[i][6];
 		result444444[6][7] += result444444[i][7];
-
-		input444444[6][0] += input444444[i][0];
-		input444444[6][1] += input444444[i][1];
-		input444444[6][2] += input444444[i][2];
-		input444444[6][3] += input444444[i][3];
-		input444444[6][4] += input444444[i][4];
-		input444444[6][5] += input444444[i][5];
-		input444444[6][6] += input444444[i][6];
-		input444444[6][7] += input444444[i][7];
 	}
 
-	// ランク毎に、入力されている場合のみ結果を表示
-	if (input444444[6][0] > 0) document.getElementById("total_star444444_ss").innerHTML = result444444[6][0];
-	if (input444444[6][1] > 0) document.getElementById("total_star444444_s").innerHTML  = result444444[6][1];
-	if (input444444[6][2] > 0) document.getElementById("total_star444444_a").innerHTML  = result444444[6][2];
-	if (input444444[6][3] > 0) document.getElementById("total_star444444_b").innerHTML  = result444444[6][3];
-	if (input444444[6][4] > 0) document.getElementById("total_star444444_c").innerHTML  = result444444[6][4];
-	if (input444444[6][5] > 0) document.getElementById("total_star444444_d").innerHTML  = result444444[6][5];
-	if (input444444[6][6] > 0) document.getElementById("total_star444444_e").innerHTML  = result444444[6][6];
-	if (input444444[6][7] > 0) document.getElementById("total_star444444_f").innerHTML  = result444444[6][7];
+	// ☆4の合計値表示。ランク毎に入力されている場合のみ結果を表示
+	if (input444444[6][0] > 0) document.getElementById("total_star444444_ss0").innerHTML = input444444[6][0];
+	if (input444444[6][1] > 0) document.getElementById("total_star444444_s0").innerHTML  = input444444[6][1];
+	if (input444444[6][2] > 0) document.getElementById("total_star444444_a0").innerHTML  = input444444[6][2];
+	if (input444444[6][3] > 0) document.getElementById("total_star444444_b0").innerHTML  = input444444[6][3];
+	if (input444444[6][4] > 0) document.getElementById("total_star444444_c0").innerHTML  = input444444[6][4];
+	if (input444444[6][5] > 0) document.getElementById("total_star444444_d0").innerHTML  = input444444[6][5];
+	if (input444444[6][6] > 0) document.getElementById("total_star444444_e0").innerHTML  = input444444[6][6];
+	if (input444444[6][7] > 0) document.getElementById("total_star444444_f0").innerHTML  = input444444[6][7];
+
+	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
+	if (input444444[6][0] > 0) {
+		document.getElementById("total_star444444_ss").innerHTML = 
+			result444444[6][0] + "(+" + (result444444[6][0] - input444444[6][0]) + ")";
+	}
+	if (input444444[6][1] > 0) {
+		document.getElementById("total_star444444_s").innerHTML  = 
+			result444444[6][1] + "(+" + (result444444[6][1] - input444444[6][1]) + ")";
+	}
+	if (input444444[6][2] > 0) {
+		document.getElementById("total_star444444_a").innerHTML  = 
+			result444444[6][2] + "(+" + (result444444[6][2] - input444444[6][2]) + ")";
+	}
+	if (input444444[6][3] > 0) {
+		document.getElementById("total_star444444_b").innerHTML  = 
+			result444444[6][3] + "(+" + (result444444[6][3] - input444444[6][3]) + ")";
+	}
+	if (input444444[6][4] > 0) {
+		document.getElementById("total_star444444_c").innerHTML  = 
+			result444444[6][4] + "(+" + (result444444[6][4] - input444444[6][4]) + ")";
+	}
+	if (input444444[6][5] > 0) {
+		document.getElementById("total_star444444_d").innerHTML  = 
+			result444444[6][5] + "(+" + (result444444[6][5] - input444444[6][5]) + ")";
+	}
+	if (input444444[6][6] > 0) {
+		document.getElementById("total_star444444_e").innerHTML  = 
+			result444444[6][6] + "(+" + (result444444[6][6] - input444444[6][6]) + ")";
+	}
+	if (input444444[6][7] > 0) {
+		document.getElementById("total_star444444_f").innerHTML  = 
+			result444444[6][7] + "(+" + (result444444[6][7] - input444444[6][7]) + ")";
+	}
 }
 
 function debug_dorakie() {
@@ -693,6 +737,16 @@ function debug_dorakie() {
     <td><input class="input" id="intel_star444444_d0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="intel_star444444_e0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="intel_star444444_f0"  type="number" min="0" max="9999"></td>
+</tr>
+    <td>合計</td>
+    <td id="total_star444444_ss0"></td>
+    <td id="total_star444444_s0"></td>
+    <td id="total_star444444_a0"></td>
+    <td id="total_star444444_b0"></td>
+    <td id="total_star444444_c0"></td>
+    <td id="total_star444444_d0"></td>
+    <td id="total_star444444_e0"></td>
+    <td id="total_star444444_f0"></td>
 </tr>
 </table>
 
