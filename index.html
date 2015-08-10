@@ -115,9 +115,16 @@ function calc_total() {
 		if (!parseInt(array4[i][0] > 0)) array4[i][0] = Number(0);
 	}
 
-	array4[6][0] = parseInt(array4[0][0]) + parseInt(array4[1][0])
-				 + parseInt(array4[2][0]) + parseInt(array4[3][0])
-				 + parseInt(array4[4][0]) + parseInt(array4[5][0]); // total star0
+	array4[0][0] = document.getElementById("hp_star0").value;
+	array4[1][0] = document.getElementById("mp_star0").value;
+	array4[2][0] = document.getElementById("atack_star0").value;
+	array4[3][0] = document.getElementById("defen_star0").value;
+	array4[4][0] = document.getElementById("speed_star0").value;
+	array4[5][0] = document.getElementById("intel_star0").value;
+
+	array4[6][0] = Number(array4[0][0]) + Number(array4[1][0])
+				 + Number(array4[2][0]) + Number(array4[3][0])
+				 + Number(array4[4][0]) + Number(array4[5][0]); // total star0
 	array4[6][1] = parseInt(array4[0][1]) + parseInt(array4[1][1])
 				 + parseInt(array4[2][1]) + parseInt(array4[3][1])
 				 + parseInt(array4[4][1]) + parseInt(array4[5][1]); // total star1
@@ -139,8 +146,11 @@ function calc_total() {
 }
 
 function calc_hp_star() {
+/*
 	var ele_hp = document.getElementById("hp_star0");
 	array4[0][0] = ele_hp.value;
+*/
+	array4[0][0] = document.getElementById("hp_star0").value;
 
 	for (var i = 0; i < 5; i++) {
 		array4[0][i+1] = calcPowerupIncrement(array4[0][i], array4[0][0]);
