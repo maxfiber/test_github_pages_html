@@ -585,8 +585,7 @@ function debug_dorakie() {
 </script>
 <body>
 <div id="alpha">
-<h3>☆4～☆444444ステータスチェッカー(仮)</h3>
-
+<h3>☆4ステータスシミュレータ</h3>
 ☆0ステータスを入力してね！<br>
 <table border>
 <tr>
@@ -655,9 +654,10 @@ function debug_dorakie() {
 </tr>
 </table>
 
-<br><br><br>
-<button onclick="show_star444444()">☆44～☆444444まで広げる！</button>
-
+<br><br>
+<!--<button onclick="show_star444444()">☆44～☆444444まで広げる！</button> -->
+<h3>☆444444ステータスシミュレータ</h3>
+<div id="star444444">
 <table border>
 <tr>
     <td>☆0ステ</td>
@@ -672,7 +672,8 @@ function debug_dorakie() {
 </tr>
 <tr>
 
-計算したいランクの☆0ステータスを入力してね！<br>
+☆0ステータスを入力してね！<br>
+全て入力しなくても良いよ！<br>
     <td>HP</td>
     <td><input class="input" id="hp_star444444_ss0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="hp_star444444_s0" type="number" min="0" max="9999"></td>
@@ -750,8 +751,10 @@ function debug_dorakie() {
 </tr>
 </table>
 
+<br/>
+
 <button onclick="calc_444444()">☆44～☆444444計算！</button>
-<button onclick="debug_dorakie()">ドラキー☆444444を計算！</button>
+<button onclick="debug_dorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
 
 <table border>
 <tr>
@@ -843,6 +846,7 @@ function debug_dorakie() {
     <td id="total_star444444_f">0</td>
 </tr>
 </table>
+</div><!-- id="star444444" -->
 
 
 
