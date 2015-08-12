@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
   <head>
+    <title>DQMSLツール集</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="DQMSL(ドラゴンクエストモンスターズスーパーライト)のツール集です。">
+    <meta name="keywords" content="DQMSL,ドラゴンクエストモンスターズスーパーライト,ツール,☆4,ステータスチェッカー,計算機">
   </head>
 
 <html>
@@ -125,24 +128,28 @@ function calc_total() {
 	array4[6][0] = Number(array4[0][0]) + Number(array4[1][0])
 				 + Number(array4[2][0]) + Number(array4[3][0])
 				 + Number(array4[4][0]) + Number(array4[5][0]); // total star0
-	array4[6][1] = parseInt(array4[0][1]) + parseInt(array4[1][1])
-				 + parseInt(array4[2][1]) + parseInt(array4[3][1])
-				 + parseInt(array4[4][1]) + parseInt(array4[5][1]); // total star1
-	array4[6][2] = parseInt(array4[0][2]) + parseInt(array4[1][2])
-				 + parseInt(array4[2][2]) + parseInt(array4[3][2])
-				 + parseInt(array4[4][2]) + parseInt(array4[5][2]); // total star2
-	array4[6][3] = parseInt(array4[0][3]) + parseInt(array4[1][3])
-				 + parseInt(array4[2][3]) + parseInt(array4[3][3])
-				 + parseInt(array4[4][3]) + parseInt(array4[5][3]); // total star3
-	array4[6][4] = parseInt(array4[0][4]) + parseInt(array4[1][4])
-				 + parseInt(array4[2][4]) + parseInt(array4[3][4])
-				 + parseInt(array4[4][4]) + parseInt(array4[5][4]); // total star4
+	array4[6][1] = Number(array4[0][1]) + Number(array4[1][1])
+				 + Number(array4[2][1]) + Number(array4[3][1])
+				 + Number(array4[4][1]) + Number(array4[5][1]); // total star1
+	array4[6][2] = Number(array4[0][2]) + Number(array4[1][2])
+				 + Number(array4[2][2]) + Number(array4[3][2])
+				 + Number(array4[4][2]) + Number(array4[5][2]); // total star2
+	array4[6][3] = Number(array4[0][3]) + Number(array4[1][3])
+				 + Number(array4[2][3]) + Number(array4[3][3])
+				 + Number(array4[4][3]) + Number(array4[5][3]); // total star3
+	array4[6][4] = Number(array4[0][4]) + Number(array4[1][4])
+				 + Number(array4[2][4]) + Number(array4[3][4])
+				 + Number(array4[4][4]) + Number(array4[5][4]); // total star4
 
 	document.getElementById("total_star0").innerHTML = array4[6][0];
-	document.getElementById("total_star1").innerHTML = array4[6][1];
-	document.getElementById("total_star2").innerHTML = array4[6][2];
-	document.getElementById("total_star3").innerHTML = array4[6][3];
-	document.getElementById("total_star4").innerHTML = array4[6][4];
+	document.getElementById("total_star1").innerHTML = Number(array4[6][1]) + "<br>(+"
+													 + Number(array4[6][1] - array4[6][0]) + ")";
+	document.getElementById("total_star2").innerHTML = Number(array4[6][2]) + "<br>(+"
+													 + Number(array4[6][2] - array4[6][0]) + ")";
+	document.getElementById("total_star3").innerHTML = Number(array4[6][3]) + "<br>(+"
+													 + Number(array4[6][3] - array4[6][0]) + ")";
+	document.getElementById("total_star4").innerHTML = Number(array4[6][4]) + "<br>(+"
+													 + Number(array4[6][4] - array4[6][0]) + ")";
 }
 
 function calc_hp_star() {
@@ -277,16 +284,6 @@ function calc_444444() {
 	for (var i = 0; i < 7; i++) {
 		result444444[0][6-i] = calcPowerupStar44(input444444[0][6-i], result444444[0][7-i], input444444[0][7-i]);
 	}
-
-/*
-	result444444[0][6] = calcPowerupStar44(input444444[0][6], result444444[0][7], input444444[0][7]);
-	result444444[0][5] = calcPowerupStar44(input444444[0][5], result444444[0][6], input444444[0][6]);
-	result444444[0][4] = calcPowerupStar44(input444444[0][4], result444444[0][5], input444444[0][5]);
-	result444444[0][3] = calcPowerupStar44(input444444[0][3], result444444[0][4], input444444[0][4]);
-	result444444[0][2] = calcPowerupStar44(input444444[0][2], result444444[0][3], input444444[0][3]);
-	result444444[0][1] = calcPowerupStar44(input444444[0][1], result444444[0][2], input444444[0][2]);
-	result444444[0][0] = calcPowerupStar44(input444444[0][0], result444444[0][1], input444444[0][1]);
-*/
 
 	if (input444444[0][7] > 0) document.getElementById("hp_star444444_f").innerHTML = result444444[0][7];
 	if (input444444[0][6] > 0) document.getElementById("hp_star444444_e").innerHTML = result444444[0][6];
@@ -597,6 +594,7 @@ function debug_dorakie() {
 </script>
 <body>
 <div id="alpha">
+<h1>DQMSLツール集</h1>
 <br>
 <h3>☆4ステータスシミュレータ</h3>
 ☆0ステータスを入力してね！<br>
