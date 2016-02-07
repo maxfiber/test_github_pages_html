@@ -40,6 +40,8 @@ body {
 }
 </style>
 
+<script type="text/javascript" src="./monster.js"></script>
+
 <script>
 // Google Analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -52,7 +54,6 @@ body {
 </script>
 
 <script type="text/javascript">
-
               //star 0  1  2  3  4
 var array4       = [[0, 0, 0, 0, 0],  // HP
                     [0, 0, 0, 0, 0],  // MP
@@ -548,49 +549,50 @@ function calc_444444() {
 }
 
 function debug_dorakie() {
-	document.getElementById("hp_star444444_a0").value    = 445;
-	document.getElementById("mp_star444444_a0").value    = 210;
-	document.getElementById("atack_star444444_a0").value = 264;
-	document.getElementById("defen_star444444_a0").value = 301;
-	document.getElementById("speed_star444444_a0").value = 320;
-	document.getElementById("intel_star444444_a0").value = 326;
+	var obj = JSON.parse(monsterData);
 
-	document.getElementById("hp_star444444_b0").value    = 349;
-	document.getElementById("mp_star444444_b0").value    = 142;
-	document.getElementById("atack_star444444_b0").value = 241;
-	document.getElementById("defen_star444444_b0").value = 224;
-	document.getElementById("speed_star444444_b0").value = 275;
-	document.getElementById("intel_star444444_b0").value = 247;
+	document.getElementById("hp_star444444_a0").value    = obj.monster[5].HP;
+	document.getElementById("mp_star444444_a0").value    = obj.monster[5].MP;
+	document.getElementById("atack_star444444_a0").value = obj.monster[5].ST;
+	document.getElementById("defen_star444444_a0").value = obj.monster[5].DF;
+	document.getElementById("speed_star444444_a0").value = obj.monster[5].SP;
+	document.getElementById("intel_star444444_a0").value = obj.monster[5].IN;
 
-	document.getElementById("hp_star444444_c0").value    = 237;
-	document.getElementById("mp_star444444_c0").value    = 113;
-	document.getElementById("atack_star444444_c0").value = 160;
-	document.getElementById("defen_star444444_c0").value = 152;
-	document.getElementById("speed_star444444_c0").value = 216;
-	document.getElementById("intel_star444444_c0").value = 198;
+	document.getElementById("hp_star444444_b0").value    = obj.monster[4].HP;
+	document.getElementById("mp_star444444_b0").value    = obj.monster[4].MP;
+	document.getElementById("atack_star444444_b0").value = obj.monster[4].ST;
+	document.getElementById("defen_star444444_b0").value = obj.monster[4].DF;
+	document.getElementById("speed_star444444_b0").value = obj.monster[4].SP;
+	document.getElementById("intel_star444444_b0").value = obj.monster[4].IN;
 
-	document.getElementById("hp_star444444_d0").value    = 147;
-	document.getElementById("mp_star444444_d0").value    =  94;
-	document.getElementById("atack_star444444_d0").value = 138;
-	document.getElementById("defen_star444444_d0").value = 125;
-	document.getElementById("speed_star444444_d0").value = 150;
-	document.getElementById("intel_star444444_d0").value = 133;
+	document.getElementById("hp_star444444_c0").value    = obj.monster[3].HP;
+	document.getElementById("mp_star444444_c0").value    = obj.monster[3].MP;
+	document.getElementById("atack_star444444_c0").value = obj.monster[3].ST;
+	document.getElementById("defen_star444444_c0").value = obj.monster[3].DF;
+	document.getElementById("speed_star444444_c0").value = obj.monster[3].SP;
+	document.getElementById("intel_star444444_c0").value = obj.monster[3].IN;
 
-	document.getElementById("hp_star444444_e0").value    = 83;
-	document.getElementById("mp_star444444_e0").value    = 46;
-	document.getElementById("atack_star444444_e0").value = 58;
-	document.getElementById("defen_star444444_e0").value = 53;
-	document.getElementById("speed_star444444_e0").value = 86;
-	document.getElementById("intel_star444444_e0").value = 71;
+	document.getElementById("hp_star444444_d0").value    = obj.monster[2].HP;
+	document.getElementById("mp_star444444_d0").value    = obj.monster[2].MP;
+	document.getElementById("atack_star444444_d0").value = obj.monster[2].ST;
+	document.getElementById("defen_star444444_d0").value = obj.monster[2].DF;
+	document.getElementById("speed_star444444_d0").value = obj.monster[2].SP;
+	document.getElementById("intel_star444444_d0").value = obj.monster[2].IN;
 
-	document.getElementById("hp_star444444_f0").value    = 53;
-	document.getElementById("mp_star444444_f0").value    = 23;
-	document.getElementById("atack_star444444_f0").value = 56;
-	document.getElementById("defen_star444444_f0").value = 56;
-	document.getElementById("speed_star444444_f0").value = 66;
-	document.getElementById("intel_star444444_f0").value = 53;
+	document.getElementById("hp_star444444_e0").value    = obj.monster[1].HP;
+	document.getElementById("mp_star444444_e0").value    = obj.monster[1].MP;
+	document.getElementById("atack_star444444_e0").value = obj.monster[1].ST;
+	document.getElementById("defen_star444444_e0").value = obj.monster[1].DF;
+	document.getElementById("speed_star444444_e0").value = obj.monster[1].SP;
+	document.getElementById("intel_star444444_e0").value = obj.monster[1].IN;
+
+	document.getElementById("hp_star444444_f0").value    = obj.monster[0].HP;
+	document.getElementById("mp_star444444_f0").value    = obj.monster[0].MP;
+	document.getElementById("atack_star444444_f0").value = obj.monster[0].ST;
+	document.getElementById("defen_star444444_f0").value = obj.monster[0].DF;
+	document.getElementById("speed_star444444_f0").value = obj.monster[0].SP;
+	document.getElementById("intel_star444444_f0").value = obj.monster[0].IN;
 }
-
 </script>
 <body>
 <div id="alpha">
