@@ -97,7 +97,7 @@ function calcPowerupIncrement(statusBase, statusEsa) {
 	return increment;
 }
 
-// from Star0 to Star4
+// calc from Star0 to Star4
 // ☆4計算(=☆0ステから☆4ステ計算)
 function calcPowerupStar4(star0Status) {
 	var star1Status = calcPowerupIncrement(star0Status, star0Status);
@@ -107,12 +107,14 @@ function calcPowerupStar4(star0Status) {
 	return star4Status;
 }
 
+// calc Tensei Increment
 // 転生による増分計算(=☆4ステと☆0ステの20%)
 function calcTransIncrement(star4Status, star0Status) {
 	var calc = Math.ceil(0.2 * (star4Status - star0Status));
 	return calc;
 }
 
+// calc from Star0 to Star44
 // ☆44計算(=転生前モンスター☆0☆4と転生後☆0から、転生後☆44ステ計算)
 function calcPowerupStar44(base0, before4, before0) {
 	var base_04 = Number(base0) + calcTransIncrement(before4, before0);
@@ -123,6 +125,7 @@ function calcPowerupStar44(base0, before4, before0) {
 	return base_4;
 }
 
+// ☆4シミュレータ合計値計算
 function showStar4StatusTotal() {
 	// to number. avoid string.
 	for (var i = 0; i < 6; i++) {
@@ -163,6 +166,7 @@ function showStar4StatusTotal() {
 													 + Number(star4Calc[6][4] - star4Calc[6][0]) + ")";
 }
 
+// ☆4シミュレータ：HP
 function showStar4StatusHP() {
 /*
 	var ele_hp = document.getElementById("hp_star0");
@@ -182,6 +186,7 @@ function showStar4StatusHP() {
 	showStar4StatusTotal();
 }
 
+// ☆4シミュレータ：MP
 function showStar4StatusMP() {
 	var ele_mp = document.getElementById("mp_star0");
 	star4Calc[1][0] = ele_mp.value;
@@ -198,6 +203,7 @@ function showStar4StatusMP() {
 	showStar4StatusTotal();
 }
 
+// ☆4シミュレータ：攻撃
 function showStar4StatusAtack() {
 	var ele_atack = document.getElementById("atack_star0");
 	star4Calc[2][0] = ele_atack.value;
@@ -214,6 +220,7 @@ function showStar4StatusAtack() {
 	showStar4StatusTotal();
 }
 
+// ☆4シミュレータ：防御
 function showStar4StatusDefen() {
 	var ele_defen = document.getElementById("defen_star0");
 	star4Calc[3][0] = ele_defen.value;
@@ -230,6 +237,7 @@ function showStar4StatusDefen() {
 	showStar4StatusTotal();
 }
 
+// ☆4シミュレータ：素早さ
 function showStar4StatusSpeed() {
 	var ele_speed = document.getElementById("speed_star0");
 	star4Calc[4][0] = ele_speed.value;
@@ -245,6 +253,7 @@ function showStar4StatusSpeed() {
 	showStar4StatusTotal();
 }
 
+// ☆4シミュレータ：賢さ
 function showStar4StatusIntel() {
 	var ele_intel = document.getElementById("intel_star0");
 	star4Calc[5][0] = ele_intel.value;
@@ -260,8 +269,7 @@ function showStar4StatusIntel() {
 	showStar4StatusTotal();
 }
 
-
-
+// ☆444444シミュレータ
 function calc_444444() {
 	// init
 	for (var i = 0; i < 7; i++) {
