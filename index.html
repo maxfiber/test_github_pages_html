@@ -132,12 +132,12 @@ function showStar4StatusTotal() {
 		if (!parseInt(star4Calc[i][0] > 0)) star4Calc[i][0] = Number(0);
 	}
 
-	star4Calc[0][0] = Number($("#hp_star0").val());
-	star4Calc[1][0] = Number($("#mp_star0").val());
-	star4Calc[2][0] = Number($("#atack_star0").val());
-	star4Calc[3][0] = Number($("#defen_star0").val());
-	star4Calc[4][0] = Number($("#speed_star0").val());
-	star4Calc[5][0] = Number($("#intel_star0").val());
+	star4Calc[0][0] = Number($("#star4Hp0").val());
+	star4Calc[1][0] = Number($("#star4Mp").val());
+	star4Calc[2][0] = Number($("#star4Atack0").val());
+	star4Calc[3][0] = Number($("#star4Defen0").val());
+	star4Calc[4][0] = Number($("#star4Speed0").val());
+	star4Calc[5][0] = Number($("#star4Intel0").val());
 
 	star4Calc[6][0] = Number(star4Calc[0][0]) + Number(star4Calc[1][0])
 					+ Number(star4Calc[2][0]) + Number(star4Calc[3][0])
@@ -156,26 +156,26 @@ function showStar4StatusTotal() {
 					+ Number(star4Calc[4][4]) + Number(star4Calc[5][4]); // total star4
 
 	// show result
-	$("#total_star0").html(star4Calc[6][0]);
+	$("#star4Total0").html(star4Calc[6][0]);
 
 	var tmpStr;
 	tmpStr = star4Calc[6][1] + "<br>(+" + Number(star4Calc[6][1] - star4Calc[6][0]) + ")";
-	$("#total_star1").html(tmpStr);
+	$("#star4Total1").html(tmpStr);
 
 	tmpStr = star4Calc[6][2] + "<br>(+" + Number(star4Calc[6][2] - star4Calc[6][0]) + ")";
-	$("#total_star2").html(tmpStr);
+	$("#star4Total2").html(tmpStr);
 
 	tmpStr = star4Calc[6][3] + "<br>(+" + Number(star4Calc[6][3] - star4Calc[6][0]) + ")";
-	$("#total_star3").html(tmpStr);
+	$("#star4Total3").html(tmpStr);
 
 	tmpStr = star4Calc[6][4] + "<br>(+" + Number(star4Calc[6][4] - star4Calc[6][0]) + ")";
-	$("#total_star4").html(tmpStr);
+	$("#star4Total4").html(tmpStr);
 }
 
 // ☆4シミュレータ：HP
 function showStar4StatusHP() {
 	// get
-	star4Calc[0][0] = $("#hp_star0").val();
+	star4Calc[0][0] = $("#star4Hp0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -183,17 +183,17 @@ function showStar4StatusHP() {
 	}
 
 	// show
-	$("#hp_star1").html(star4Calc[0][1]);
-	$("#hp_star2").html(star4Calc[0][2]);
-	$("#hp_star3").html(star4Calc[0][3]);
-	$("#hp_star4").html(star4Calc[0][4]);
+	$("#star4Hp1").html(star4Calc[0][1]);
+	$("#star4Hp2").html(star4Calc[0][2]);
+	$("#star4Hp3").html(star4Calc[0][3]);
+	$("#star4Hp4").html(star4Calc[0][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：MP
 function showStar4StatusMP() {
 	// get
-	star4Calc[1][0] = $("#mp_star0").val();
+	star4Calc[1][0] = $("#star4Mp").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -201,17 +201,17 @@ function showStar4StatusMP() {
 	}
 
 	// show
-	$("#mp_star1").html(star4Calc[1][1]);
-	$("#mp_star2").html(star4Calc[1][2]);
-	$("#mp_star3").html(star4Calc[1][3]);
-	$("#mp_star4").html(star4Calc[1][4]);
+	$("#star4Mp1").html(star4Calc[1][1]);
+	$("#star4Mp2").html(star4Calc[1][2]);
+	$("#star4Mp3").html(star4Calc[1][3]);
+	$("#star4Mp4").html(star4Calc[1][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：攻撃
 function showStar4StatusAtack() {
 	// get
-	star4Calc[2][0] = $("#atack_star0").val();
+	star4Calc[2][0] = $("#star4Atack0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -219,17 +219,17 @@ function showStar4StatusAtack() {
 	}
 
 	// show
-	$("#atack_star1").html(star4Calc[2][1]);
-	$("#atack_star2").html(star4Calc[2][2]);
-	$("#atack_star3").html(star4Calc[2][3]);
-	$("#atack_star4").html(star4Calc[2][4]);
+	$("#star4Atack1").html(star4Calc[2][1]);
+	$("#star4Atack2").html(star4Calc[2][2]);
+	$("#star4Atack3").html(star4Calc[2][3]);
+	$("#star4Atack4").html(star4Calc[2][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：防御
 function showStar4StatusDefen() {
 	// get
-	star4Calc[3][0] = $("#defen_star0").val();
+	star4Calc[3][0] = $("#star4Defen0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -237,17 +237,17 @@ function showStar4StatusDefen() {
 	}
 
 	// show
-	$("#defen_star1").html(star4Calc[3][1]);
-	$("#defen_star2").html(star4Calc[3][2]);
-	$("#defen_star3").html(star4Calc[3][3]);
-	$("#defen_star4").html(star4Calc[3][4]);
+	$("#star4Defen1").html(star4Calc[3][1]);
+	$("#star4Defen2").html(star4Calc[3][2]);
+	$("#star4Defen3").html(star4Calc[3][3]);
+	$("#star4Defen4").html(star4Calc[3][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：素早さ
 function showStar4StatusSpeed() {
 	// get
-	star4Calc[4][0] = $("#speed_star0").val();
+	star4Calc[4][0] = $("#star4Speed0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -255,17 +255,17 @@ function showStar4StatusSpeed() {
 	}
 
 	// show
-	$("#speed_star1").html(star4Calc[4][1]);
-	$("#speed_star2").html(star4Calc[4][2]);
-	$("#speed_star3").html(star4Calc[4][3]);
-	$("#speed_star4").html(star4Calc[4][4]);
+	$("#star4Speed1").html(star4Calc[4][1]);
+	$("#star4Speed2").html(star4Calc[4][2]);
+	$("#star4Speed3").html(star4Calc[4][3]);
+	$("#star4Speed4").html(star4Calc[4][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：賢さ
 function showStar4StatusIntel() {
 	// get
-	star4Calc[5][0] = $("#intel_star0").val();
+	star4Calc[5][0] = $("#star4Intel0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -273,10 +273,10 @@ function showStar4StatusIntel() {
 	}
 
 	// show
-	$("#intel_star1").html(star4Calc[5][1]);
-	$("#intel_star2").html(star4Calc[5][2]);
-	$("#intel_star3").html(star4Calc[5][3]);
-	$("#intel_star4").html(star4Calc[5][4]);
+	$("#star4Intel1").html(star4Calc[5][1]);
+	$("#star4Intel2").html(star4Calc[5][2]);
+	$("#star4Intel3").html(star4Calc[5][3]);
+	$("#star4Intel4").html(star4Calc[5][4]);
 	showStar4StatusTotal();
 }
 
@@ -291,23 +291,23 @@ function calc_444444() {
 	}
 
 	// for HP
-	var ele_hp_ss = document.getElementById("hp_star444444_ss0");
-	var ele_hp_s = document.getElementById("hp_star444444_s0");
-	var ele_hp_a = document.getElementById("hp_star444444_a0");
-	var ele_hp_b = document.getElementById("hp_star444444_b0");
-	var ele_hp_c = document.getElementById("hp_star444444_c0");
-	var ele_hp_d = document.getElementById("hp_star444444_d0");
-	var ele_hp_e = document.getElementById("hp_star444444_e0");
-	var ele_hp_f = document.getElementById("hp_star444444_f0");
+	var ele_hpRankSS = document.getElementById("star444444HpRankSS0");
+	var ele_hpRankS = document.getElementById("star444444HpRankS0");
+	var ele_hpRankA = document.getElementById("star444444HpRankA0");
+	var ele_hpRankB = document.getElementById("star444444HpRankB0");
+	var ele_hpRankC = document.getElementById("star444444HpRankC0");
+	var ele_hpRankD = document.getElementById("star444444HpRankD0");
+	var ele_hpRankE = document.getElementById("star444444HpRankE0");
+	var ele_hpRankF = document.getElementById("star444444HpRankF0");
 
-	star444444CalcIn[0][7] = ele_hp_f.value;
-	star444444CalcIn[0][6] = ele_hp_e.value;
-	star444444CalcIn[0][5] = ele_hp_d.value;
-	star444444CalcIn[0][4] = ele_hp_c.value;
-	star444444CalcIn[0][3] = ele_hp_b.value;
-	star444444CalcIn[0][2] = ele_hp_a.value;
-	star444444CalcIn[0][1] = ele_hp_s.value;
-	star444444CalcIn[0][0] = ele_hp_ss.value;
+	star444444CalcIn[0][7] = ele_hpRankF.value;
+	star444444CalcIn[0][6] = ele_hpRankE.value;
+	star444444CalcIn[0][5] = ele_hpRankD.value;
+	star444444CalcIn[0][4] = ele_hpRankC.value;
+	star444444CalcIn[0][3] = ele_hpRankB.value;
+	star444444CalcIn[0][2] = ele_hpRankA.value;
+	star444444CalcIn[0][1] = ele_hpRankS.value;
+	star444444CalcIn[0][0] = ele_hpRankSS.value;
 
 	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
 
@@ -315,34 +315,34 @@ function calc_444444() {
 		star444444CalcOut[0][6-i] = calcPowerupStar44(star444444CalcIn[0][6-i], star444444CalcOut[0][7-i], star444444CalcIn[0][7-i]);
 	}
 
-	if (star444444CalcIn[0][7] > 0) document.getElementById("hp_star444444_f").innerHTML = star444444CalcOut[0][7];
-	if (star444444CalcIn[0][6] > 0) document.getElementById("hp_star444444_e").innerHTML = star444444CalcOut[0][6];
-	if (star444444CalcIn[0][5] > 0) document.getElementById("hp_star444444_d").innerHTML = star444444CalcOut[0][5];
-	if (star444444CalcIn[0][4] > 0) document.getElementById("hp_star444444_c").innerHTML = star444444CalcOut[0][4];
-	if (star444444CalcIn[0][3] > 0) document.getElementById("hp_star444444_b").innerHTML = star444444CalcOut[0][3];
-	if (star444444CalcIn[0][2] > 0) document.getElementById("hp_star444444_a").innerHTML = star444444CalcOut[0][2];
-	if (star444444CalcIn[0][1] > 0) document.getElementById("hp_star444444_s").innerHTML = star444444CalcOut[0][1];
-	if (star444444CalcIn[0][0] > 0) document.getElementById("hp_star444444_ss").innerHTML = star444444CalcOut[0][0];
+	if (star444444CalcIn[0][7] > 0) document.getElementById("star444444HpRankF").innerHTML = star444444CalcOut[0][7];
+	if (star444444CalcIn[0][6] > 0) document.getElementById("star444444HpRankE").innerHTML = star444444CalcOut[0][6];
+	if (star444444CalcIn[0][5] > 0) document.getElementById("star444444HpRankD").innerHTML = star444444CalcOut[0][5];
+	if (star444444CalcIn[0][4] > 0) document.getElementById("star444444HpRankC").innerHTML = star444444CalcOut[0][4];
+	if (star444444CalcIn[0][3] > 0) document.getElementById("star444444HpRankB").innerHTML = star444444CalcOut[0][3];
+	if (star444444CalcIn[0][2] > 0) document.getElementById("star444444HpRankA").innerHTML = star444444CalcOut[0][2];
+	if (star444444CalcIn[0][1] > 0) document.getElementById("star444444HpRankS").innerHTML = star444444CalcOut[0][1];
+	if (star444444CalcIn[0][0] > 0) document.getElementById("star444444HpRankSS").innerHTML = star444444CalcOut[0][0];
 
 
 	// for MP
-	var ele_mp_ss = document.getElementById("mp_star444444_ss0");
-	var ele_mp_s  = document.getElementById("mp_star444444_s0");
-	var ele_mp_a  = document.getElementById("mp_star444444_a0");
-	var ele_mp_b  = document.getElementById("mp_star444444_b0");
-	var ele_mp_c  = document.getElementById("mp_star444444_c0");
-	var ele_mp_d  = document.getElementById("mp_star444444_d0");
-	var ele_mp_e  = document.getElementById("mp_star444444_e0");
-	var ele_mp_f  = document.getElementById("mp_star444444_f0");
+	var ele_mpRankSS = document.getElementById("star444444MpRankSS0");
+	var ele_mpRankS  = document.getElementById("star444444MpRankS0");
+	var ele_mpRankA  = document.getElementById("star444444MpRankA0");
+	var ele_mpRankB  = document.getElementById("star444444MpRankB0");
+	var ele_mpRankC  = document.getElementById("star444444MpRankC0");
+	var ele_mpRankD  = document.getElementById("star444444MpRankD0");
+	var ele_mpRankE  = document.getElementById("star444444MpRankE0");
+	var ele_mpRankF  = document.getElementById("star444444MpRankF0");
 
-	star444444CalcIn[1][7] = ele_mp_f.value;
-	star444444CalcIn[1][6] = ele_mp_e.value;
-	star444444CalcIn[1][5] = ele_mp_d.value;
-	star444444CalcIn[1][4] = ele_mp_c.value;
-	star444444CalcIn[1][3] = ele_mp_b.value;
-	star444444CalcIn[1][2] = ele_mp_a.value;
-	star444444CalcIn[1][1] = ele_mp_s.value;
-	star444444CalcIn[1][0] = ele_mp_ss.value;
+	star444444CalcIn[1][7] = ele_mpRankF.value;
+	star444444CalcIn[1][6] = ele_mpRankE.value;
+	star444444CalcIn[1][5] = ele_mpRankD.value;
+	star444444CalcIn[1][4] = ele_mpRankC.value;
+	star444444CalcIn[1][3] = ele_mpRankB.value;
+	star444444CalcIn[1][2] = ele_mpRankA.value;
+	star444444CalcIn[1][1] = ele_mpRankS.value;
+	star444444CalcIn[1][0] = ele_mpRankSS.value;
 
 	star444444CalcOut[1][7] = calcPowerupStar4(star444444CalcIn[1][7]);
 
@@ -350,35 +350,35 @@ function calc_444444() {
 		star444444CalcOut[1][6-i] = calcPowerupStar44(star444444CalcIn[1][6-i], star444444CalcOut[1][7-i], star444444CalcIn[1][7-i]);
 	}
 
-	if (star444444CalcIn[1][7] > 0) document.getElementById("mp_star444444_f").innerHTML  = star444444CalcOut[1][7];
-	if (star444444CalcIn[1][6] > 0) document.getElementById("mp_star444444_e").innerHTML  = star444444CalcOut[1][6];
-	if (star444444CalcIn[1][5] > 0) document.getElementById("mp_star444444_d").innerHTML  = star444444CalcOut[1][5];
-	if (star444444CalcIn[1][4] > 0) document.getElementById("mp_star444444_c").innerHTML  = star444444CalcOut[1][4];
-	if (star444444CalcIn[1][3] > 0) document.getElementById("mp_star444444_b").innerHTML  = star444444CalcOut[1][3];
-	if (star444444CalcIn[1][2] > 0) document.getElementById("mp_star444444_a").innerHTML  = star444444CalcOut[1][2];
-	if (star444444CalcIn[1][1] > 0) document.getElementById("mp_star444444_s").innerHTML  = star444444CalcOut[1][1];
-	if (star444444CalcIn[1][0] > 0) document.getElementById("mp_star444444_ss").innerHTML = star444444CalcOut[1][0];
+	if (star444444CalcIn[1][7] > 0) document.getElementById("star444444MpRankF").innerHTML  = star444444CalcOut[1][7];
+	if (star444444CalcIn[1][6] > 0) document.getElementById("star444444MpRankE").innerHTML  = star444444CalcOut[1][6];
+	if (star444444CalcIn[1][5] > 0) document.getElementById("star444444MpRankD").innerHTML  = star444444CalcOut[1][5];
+	if (star444444CalcIn[1][4] > 0) document.getElementById("star444444MpRankC").innerHTML  = star444444CalcOut[1][4];
+	if (star444444CalcIn[1][3] > 0) document.getElementById("star444444MpRankB").innerHTML  = star444444CalcOut[1][3];
+	if (star444444CalcIn[1][2] > 0) document.getElementById("star444444MpRankA").innerHTML  = star444444CalcOut[1][2];
+	if (star444444CalcIn[1][1] > 0) document.getElementById("star444444MpRankS").innerHTML  = star444444CalcOut[1][1];
+	if (star444444CalcIn[1][0] > 0) document.getElementById("star444444MpRankSS").innerHTML = star444444CalcOut[1][0];
 
 
 
 	// for attack
-	var ele_atack_ss = document.getElementById("atack_star444444_ss0");
-	var ele_atack_s  = document.getElementById("atack_star444444_s0");
-	var ele_atack_a  = document.getElementById("atack_star444444_a0");
-	var ele_atack_b  = document.getElementById("atack_star444444_b0");
-	var ele_atack_c  = document.getElementById("atack_star444444_c0");
-	var ele_atack_d  = document.getElementById("atack_star444444_d0");
-	var ele_atack_e  = document.getElementById("atack_star444444_e0");
-	var ele_atack_f  = document.getElementById("atack_star444444_f0");
+	var eleRankAtackRankSS = document.getElementById("star444444AtackRankSS0");
+	var eleRankAtackRankS  = document.getElementById("star444444AtackRankS0");
+	var eleRankAtackRankA  = document.getElementById("star444444AtackRankA0");
+	var eleRankAtackRankB  = document.getElementById("star444444AtackRankB0");
+	var eleRankAtackRankC  = document.getElementById("star444444AtackRankC0");
+	var eleRankAtackRankD  = document.getElementById("star444444AtackRankD0");
+	var eleRankAtackRankE  = document.getElementById("star444444AtackRankE0");
+	var eleRankAtackRankF  = document.getElementById("star444444AtackRankF0");
 
-	star444444CalcIn[2][7] = ele_atack_f.value;
-	star444444CalcIn[2][6] = ele_atack_e.value;
-	star444444CalcIn[2][5] = ele_atack_d.value;
-	star444444CalcIn[2][4] = ele_atack_c.value;
-	star444444CalcIn[2][3] = ele_atack_b.value;
-	star444444CalcIn[2][2] = ele_atack_a.value;
-	star444444CalcIn[2][1] = ele_atack_s.value;
-	star444444CalcIn[2][0] = ele_atack_ss.value;
+	star444444CalcIn[2][7] = eleRankAtackRankF.value;
+	star444444CalcIn[2][6] = eleRankAtackRankE.value;
+	star444444CalcIn[2][5] = eleRankAtackRankD.value;
+	star444444CalcIn[2][4] = eleRankAtackRankC.value;
+	star444444CalcIn[2][3] = eleRankAtackRankB.value;
+	star444444CalcIn[2][2] = eleRankAtackRankA.value;
+	star444444CalcIn[2][1] = eleRankAtackRankS.value;
+	star444444CalcIn[2][0] = eleRankAtackRankSS.value;
 
 	star444444CalcOut[2][7] = calcPowerupStar4(star444444CalcIn[2][7]);
 
@@ -386,34 +386,34 @@ function calc_444444() {
 		star444444CalcOut[2][6-i] = calcPowerupStar44(star444444CalcIn[2][6-i], star444444CalcOut[2][7-i], star444444CalcIn[2][7-i]);
 	}
 
-	if (star444444CalcIn[2][7] > 0) document.getElementById("atack_star444444_f").innerHTML  = star444444CalcOut[2][7];
-	if (star444444CalcIn[2][6] > 0) document.getElementById("atack_star444444_e").innerHTML  = star444444CalcOut[2][6];
-	if (star444444CalcIn[2][5] > 0) document.getElementById("atack_star444444_d").innerHTML  = star444444CalcOut[2][5];
-	if (star444444CalcIn[2][4] > 0) document.getElementById("atack_star444444_c").innerHTML  = star444444CalcOut[2][4];
-	if (star444444CalcIn[2][3] > 0) document.getElementById("atack_star444444_b").innerHTML  = star444444CalcOut[2][3];
-	if (star444444CalcIn[2][2] > 0) document.getElementById("atack_star444444_a").innerHTML  = star444444CalcOut[2][2];
-	if (star444444CalcIn[2][1] > 0) document.getElementById("atack_star444444_s").innerHTML  = star444444CalcOut[2][1];
-	if (star444444CalcIn[2][0] > 0) document.getElementById("atack_star444444_ss").innerHTML = star444444CalcOut[2][0];
+	if (star444444CalcIn[2][7] > 0) document.getElementById("star444444AtackRankF").innerHTML  = star444444CalcOut[2][7];
+	if (star444444CalcIn[2][6] > 0) document.getElementById("star444444AtackRankE").innerHTML  = star444444CalcOut[2][6];
+	if (star444444CalcIn[2][5] > 0) document.getElementById("star444444AtackRankD").innerHTML  = star444444CalcOut[2][5];
+	if (star444444CalcIn[2][4] > 0) document.getElementById("star444444AtackRankC").innerHTML  = star444444CalcOut[2][4];
+	if (star444444CalcIn[2][3] > 0) document.getElementById("star444444AtackRankB").innerHTML  = star444444CalcOut[2][3];
+	if (star444444CalcIn[2][2] > 0) document.getElementById("star444444AtackRankA").innerHTML  = star444444CalcOut[2][2];
+	if (star444444CalcIn[2][1] > 0) document.getElementById("star444444AtackRankS").innerHTML  = star444444CalcOut[2][1];
+	if (star444444CalcIn[2][0] > 0) document.getElementById("star444444AtackRankSS").innerHTML = star444444CalcOut[2][0];
 
 
 	//  for defen
-	var ele_defen_ss = document.getElementById("defen_star444444_ss0");
-	var ele_defen_s  = document.getElementById("defen_star444444_s0");
-	var ele_defen_a  = document.getElementById("defen_star444444_a0");
-	var ele_defen_b  = document.getElementById("defen_star444444_b0");
-	var ele_defen_c  = document.getElementById("defen_star444444_c0");
-	var ele_defen_d  = document.getElementById("defen_star444444_d0");
-	var ele_defen_e  = document.getElementById("defen_star444444_e0");
-	var ele_defen_f  = document.getElementById("defen_star444444_f0");
+	var eleRankDefenRankSS = document.getElementById("star444444DefenRankSS0");
+	var eleRankDefenRankS  = document.getElementById("star444444DefenRankS0");
+	var eleRankDefenRankA  = document.getElementById("star444444DefenRankA0");
+	var eleRankDefenRankB  = document.getElementById("star444444DefenRankB0");
+	var eleRankDefenRankC  = document.getElementById("star444444DefenRankC0");
+	var eleRankDefenRankD  = document.getElementById("star444444DefenRankD0");
+	var eleRankDefenRankE  = document.getElementById("star444444DefenRankE0");
+	var eleRankDefenRankF  = document.getElementById("star444444DefenRankF0");
 
-	star444444CalcIn[3][7] = ele_defen_f.value;
-	star444444CalcIn[3][6] = ele_defen_e.value;
-	star444444CalcIn[3][5] = ele_defen_d.value;
-	star444444CalcIn[3][4] = ele_defen_c.value;
-	star444444CalcIn[3][3] = ele_defen_b.value;
-	star444444CalcIn[3][2] = ele_defen_a.value;
-	star444444CalcIn[3][1] = ele_defen_s.value;
-	star444444CalcIn[3][0] = ele_defen_ss.value;
+	star444444CalcIn[3][7] = eleRankDefenRankF.value;
+	star444444CalcIn[3][6] = eleRankDefenRankE.value;
+	star444444CalcIn[3][5] = eleRankDefenRankD.value;
+	star444444CalcIn[3][4] = eleRankDefenRankC.value;
+	star444444CalcIn[3][3] = eleRankDefenRankB.value;
+	star444444CalcIn[3][2] = eleRankDefenRankA.value;
+	star444444CalcIn[3][1] = eleRankDefenRankS.value;
+	star444444CalcIn[3][0] = eleRankDefenRankSS.value;
 
 	star444444CalcOut[3][7] = calcPowerupStar4(star444444CalcIn[3][7]);
 
@@ -421,34 +421,34 @@ function calc_444444() {
 		star444444CalcOut[3][6-i] = calcPowerupStar44(star444444CalcIn[3][6-i], star444444CalcOut[3][7-i], star444444CalcIn[3][7-i]);
 	}
 
-	if (star444444CalcIn[3][7] > 0) document.getElementById("defen_star444444_f").innerHTML  = star444444CalcOut[3][7];
-	if (star444444CalcIn[3][6] > 0) document.getElementById("defen_star444444_e").innerHTML  = star444444CalcOut[3][6];
-	if (star444444CalcIn[3][5] > 0) document.getElementById("defen_star444444_d").innerHTML  = star444444CalcOut[3][5];
-	if (star444444CalcIn[3][4] > 0) document.getElementById("defen_star444444_c").innerHTML  = star444444CalcOut[3][4];
-	if (star444444CalcIn[3][3] > 0) document.getElementById("defen_star444444_b").innerHTML  = star444444CalcOut[3][3];
-	if (star444444CalcIn[3][2] > 0) document.getElementById("defen_star444444_a").innerHTML  = star444444CalcOut[3][2];
-	if (star444444CalcIn[3][1] > 0) document.getElementById("defen_star444444_s").innerHTML  = star444444CalcOut[3][1];
-	if (star444444CalcIn[3][0] > 0) document.getElementById("defen_star444444_ss").innerHTML = star444444CalcOut[3][0];
+	if (star444444CalcIn[3][7] > 0) document.getElementById("star444444DefenRankF").innerHTML  = star444444CalcOut[3][7];
+	if (star444444CalcIn[3][6] > 0) document.getElementById("star444444DefenRankE").innerHTML  = star444444CalcOut[3][6];
+	if (star444444CalcIn[3][5] > 0) document.getElementById("star444444DefenRankD").innerHTML  = star444444CalcOut[3][5];
+	if (star444444CalcIn[3][4] > 0) document.getElementById("star444444DefenRankC").innerHTML  = star444444CalcOut[3][4];
+	if (star444444CalcIn[3][3] > 0) document.getElementById("star444444DefenRankB").innerHTML  = star444444CalcOut[3][3];
+	if (star444444CalcIn[3][2] > 0) document.getElementById("star444444DefenRankA").innerHTML  = star444444CalcOut[3][2];
+	if (star444444CalcIn[3][1] > 0) document.getElementById("star444444DefenRankS").innerHTML  = star444444CalcOut[3][1];
+	if (star444444CalcIn[3][0] > 0) document.getElementById("star444444DefenRankSS").innerHTML = star444444CalcOut[3][0];
 
 
 	//  for speed
-	var ele_speed_ss = document.getElementById("speed_star444444_ss0");
-	var ele_speed_s  = document.getElementById("speed_star444444_s0");
-	var ele_speed_a  = document.getElementById("speed_star444444_a0");
-	var ele_speed_b  = document.getElementById("speed_star444444_b0");
-	var ele_speed_c  = document.getElementById("speed_star444444_c0");
-	var ele_speed_d  = document.getElementById("speed_star444444_d0");
-	var ele_speed_e  = document.getElementById("speed_star444444_e0");
-	var ele_speed_f  = document.getElementById("speed_star444444_f0");
+	var eleRankSpeedRankSS = document.getElementById("star444444SpeedRankSS0");
+	var eleRankSpeedRankS  = document.getElementById("star444444SpeedRankS0");
+	var eleRankSpeedRankA  = document.getElementById("star444444SpeedRankA0");
+	var eleRankSpeedRankB  = document.getElementById("star444444SpeedRankB0");
+	var eleRankSpeedRankC  = document.getElementById("star444444SpeedRankC0");
+	var eleRankSpeedRankD  = document.getElementById("star444444SpeedRankD0");
+	var eleRankSpeedRankE  = document.getElementById("star444444SpeedRankE0");
+	var eleRankSpeedRankF  = document.getElementById("star444444SpeedRankF0");
 
-	star444444CalcIn[4][7] = ele_speed_f.value;
-	star444444CalcIn[4][6] = ele_speed_e.value;
-	star444444CalcIn[4][5] = ele_speed_d.value;
-	star444444CalcIn[4][4] = ele_speed_c.value;
-	star444444CalcIn[4][3] = ele_speed_b.value;
-	star444444CalcIn[4][2] = ele_speed_a.value;
-	star444444CalcIn[4][1] = ele_speed_s.value;
-	star444444CalcIn[4][0] = ele_speed_ss.value;
+	star444444CalcIn[4][7] = eleRankSpeedRankF.value;
+	star444444CalcIn[4][6] = eleRankSpeedRankE.value;
+	star444444CalcIn[4][5] = eleRankSpeedRankD.value;
+	star444444CalcIn[4][4] = eleRankSpeedRankC.value;
+	star444444CalcIn[4][3] = eleRankSpeedRankB.value;
+	star444444CalcIn[4][2] = eleRankSpeedRankA.value;
+	star444444CalcIn[4][1] = eleRankSpeedRankS.value;
+	star444444CalcIn[4][0] = eleRankSpeedRankSS.value;
 
 	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
 
@@ -456,34 +456,34 @@ function calc_444444() {
 		star444444CalcOut[4][6-i] = calcPowerupStar44(star444444CalcIn[4][6-i], star444444CalcOut[4][7-i], star444444CalcIn[4][7-i]);
 	}
 
-	if (star444444CalcIn[4][7] > 0) document.getElementById("speed_star444444_f").innerHTML  = star444444CalcOut[4][7];
-	if (star444444CalcIn[4][6] > 0) document.getElementById("speed_star444444_e").innerHTML  = star444444CalcOut[4][6];
-	if (star444444CalcIn[4][5] > 0) document.getElementById("speed_star444444_d").innerHTML  = star444444CalcOut[4][5];
-	if (star444444CalcIn[4][4] > 0) document.getElementById("speed_star444444_c").innerHTML  = star444444CalcOut[4][4];
-	if (star444444CalcIn[4][3] > 0) document.getElementById("speed_star444444_b").innerHTML  = star444444CalcOut[4][3];
-	if (star444444CalcIn[4][2] > 0) document.getElementById("speed_star444444_a").innerHTML  = star444444CalcOut[4][2];
-	if (star444444CalcIn[4][1] > 0) document.getElementById("speed_star444444_s").innerHTML  = star444444CalcOut[4][1];
-	if (star444444CalcIn[4][0] > 0) document.getElementById("speed_star444444_ss").innerHTML = star444444CalcOut[4][0];
+	if (star444444CalcIn[4][7] > 0) document.getElementById("star444444SpeedRankF").innerHTML  = star444444CalcOut[4][7];
+	if (star444444CalcIn[4][6] > 0) document.getElementById("star444444SpeedRankE").innerHTML  = star444444CalcOut[4][6];
+	if (star444444CalcIn[4][5] > 0) document.getElementById("star444444SpeedRankD").innerHTML  = star444444CalcOut[4][5];
+	if (star444444CalcIn[4][4] > 0) document.getElementById("star444444SpeedRankC").innerHTML  = star444444CalcOut[4][4];
+	if (star444444CalcIn[4][3] > 0) document.getElementById("star444444SpeedRankB").innerHTML  = star444444CalcOut[4][3];
+	if (star444444CalcIn[4][2] > 0) document.getElementById("star444444SpeedRankA").innerHTML  = star444444CalcOut[4][2];
+	if (star444444CalcIn[4][1] > 0) document.getElementById("star444444SpeedRankS").innerHTML  = star444444CalcOut[4][1];
+	if (star444444CalcIn[4][0] > 0) document.getElementById("star444444SpeedRankSS").innerHTML = star444444CalcOut[4][0];
 
 
 	//  for intel
-	var ele_intel_ss = document.getElementById("intel_star444444_ss0");
-	var ele_intel_s  = document.getElementById("intel_star444444_s0");
-	var ele_intel_a  = document.getElementById("intel_star444444_a0");
-	var ele_intel_b  = document.getElementById("intel_star444444_b0");
-	var ele_intel_c  = document.getElementById("intel_star444444_c0");
-	var ele_intel_d  = document.getElementById("intel_star444444_d0");
-	var ele_intel_e  = document.getElementById("intel_star444444_e0");
-	var ele_intel_f  = document.getElementById("intel_star444444_f0");
+	var ele_intelRankSS = document.getElementById("star444444IntelRankSS0");
+	var ele_intelRankS  = document.getElementById("star444444IntelRankS0");
+	var ele_intelRankA  = document.getElementById("star444444IntelRankA0");
+	var ele_intelRankB  = document.getElementById("star444444IntelRankB0");
+	var ele_intelRankC  = document.getElementById("star444444IntelRankC0");
+	var ele_intelRankD  = document.getElementById("star444444IntelRankD0");
+	var ele_intelRankE  = document.getElementById("star444444IntelRankE0");
+	var ele_intelRankF  = document.getElementById("star444444IntelRankF0");
 
-	star444444CalcIn[5][7] = ele_intel_f.value;
-	star444444CalcIn[5][6] = ele_intel_e.value;
-	star444444CalcIn[5][5] = ele_intel_d.value;
-	star444444CalcIn[5][4] = ele_intel_c.value;
-	star444444CalcIn[5][3] = ele_intel_b.value;
-	star444444CalcIn[5][2] = ele_intel_a.value;
-	star444444CalcIn[5][1] = ele_intel_s.value;
-	star444444CalcIn[5][0] = ele_intel_ss.value;
+	star444444CalcIn[5][7] = ele_intelRankF.value;
+	star444444CalcIn[5][6] = ele_intelRankE.value;
+	star444444CalcIn[5][5] = ele_intelRankD.value;
+	star444444CalcIn[5][4] = ele_intelRankC.value;
+	star444444CalcIn[5][3] = ele_intelRankB.value;
+	star444444CalcIn[5][2] = ele_intelRankA.value;
+	star444444CalcIn[5][1] = ele_intelRankS.value;
+	star444444CalcIn[5][0] = ele_intelRankSS.value;
 
 	star444444CalcOut[5][7] = calcPowerupStar4(star444444CalcIn[5][7]);
 
@@ -491,14 +491,14 @@ function calc_444444() {
 		star444444CalcOut[5][6-i] = calcPowerupStar44(star444444CalcIn[5][6-i], star444444CalcOut[5][7-i], star444444CalcIn[5][7-i]);
 	}
 
-	if (star444444CalcIn[5][7] > 0) document.getElementById("intel_star444444_f").innerHTML  = star444444CalcOut[5][7];
-	if (star444444CalcIn[5][6] > 0) document.getElementById("intel_star444444_e").innerHTML  = star444444CalcOut[5][6];
-	if (star444444CalcIn[5][5] > 0) document.getElementById("intel_star444444_d").innerHTML  = star444444CalcOut[5][5];
-	if (star444444CalcIn[5][4] > 0) document.getElementById("intel_star444444_c").innerHTML  = star444444CalcOut[5][4];
-	if (star444444CalcIn[5][3] > 0) document.getElementById("intel_star444444_b").innerHTML  = star444444CalcOut[5][3];
-	if (star444444CalcIn[5][2] > 0) document.getElementById("intel_star444444_a").innerHTML  = star444444CalcOut[5][2];
-	if (star444444CalcIn[5][1] > 0) document.getElementById("intel_star444444_s").innerHTML  = star444444CalcOut[5][1];
-	if (star444444CalcIn[5][0] > 0) document.getElementById("intel_star444444_ss").innerHTML = star444444CalcOut[5][0];
+	if (star444444CalcIn[5][7] > 0) document.getElementById("star444444IntelRankF").innerHTML  = star444444CalcOut[5][7];
+	if (star444444CalcIn[5][6] > 0) document.getElementById("star444444IntelRankE").innerHTML  = star444444CalcOut[5][6];
+	if (star444444CalcIn[5][5] > 0) document.getElementById("star444444IntelRankD").innerHTML  = star444444CalcOut[5][5];
+	if (star444444CalcIn[5][4] > 0) document.getElementById("star444444IntelRankC").innerHTML  = star444444CalcOut[5][4];
+	if (star444444CalcIn[5][3] > 0) document.getElementById("star444444IntelRankB").innerHTML  = star444444CalcOut[5][3];
+	if (star444444CalcIn[5][2] > 0) document.getElementById("star444444IntelRankA").innerHTML  = star444444CalcOut[5][2];
+	if (star444444CalcIn[5][1] > 0) document.getElementById("star444444IntelRankS").innerHTML  = star444444CalcOut[5][1];
+	if (star444444CalcIn[5][0] > 0) document.getElementById("star444444IntelRankSS").innerHTML = star444444CalcOut[5][0];
 
 
 
@@ -533,106 +533,106 @@ function calc_444444() {
 	}
 
 	// ☆4の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	if (star444444CalcIn[6][0] > 0) document.getElementById("total_star444444_ss0").innerHTML = star444444CalcIn[6][0];
-	if (star444444CalcIn[6][1] > 0) document.getElementById("total_star444444_s0").innerHTML  = star444444CalcIn[6][1];
-	if (star444444CalcIn[6][2] > 0) document.getElementById("total_star444444_a0").innerHTML  = star444444CalcIn[6][2];
-	if (star444444CalcIn[6][3] > 0) document.getElementById("total_star444444_b0").innerHTML  = star444444CalcIn[6][3];
-	if (star444444CalcIn[6][4] > 0) document.getElementById("total_star444444_c0").innerHTML  = star444444CalcIn[6][4];
-	if (star444444CalcIn[6][5] > 0) document.getElementById("total_star444444_d0").innerHTML  = star444444CalcIn[6][5];
-	if (star444444CalcIn[6][6] > 0) document.getElementById("total_star444444_e0").innerHTML  = star444444CalcIn[6][6];
-	if (star444444CalcIn[6][7] > 0) document.getElementById("total_star444444_f0").innerHTML  = star444444CalcIn[6][7];
+	if (star444444CalcIn[6][0] > 0) document.getElementById("star444444TotalRankSS0").innerHTML = star444444CalcIn[6][0];
+	if (star444444CalcIn[6][1] > 0) document.getElementById("star444444TotalRankS0").innerHTML  = star444444CalcIn[6][1];
+	if (star444444CalcIn[6][2] > 0) document.getElementById("star444444TotalRankA0").innerHTML  = star444444CalcIn[6][2];
+	if (star444444CalcIn[6][3] > 0) document.getElementById("star444444TotalRankB0").innerHTML  = star444444CalcIn[6][3];
+	if (star444444CalcIn[6][4] > 0) document.getElementById("star444444TotalRankC0").innerHTML  = star444444CalcIn[6][4];
+	if (star444444CalcIn[6][5] > 0) document.getElementById("star444444TotalRankD0").innerHTML  = star444444CalcIn[6][5];
+	if (star444444CalcIn[6][6] > 0) document.getElementById("star444444TotalRankE0").innerHTML  = star444444CalcIn[6][6];
+	if (star444444CalcIn[6][7] > 0) document.getElementById("star444444TotalRankF0").innerHTML  = star444444CalcIn[6][7];
 
 	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
 	if (star444444CalcIn[6][0] > 0) {
-		document.getElementById("total_star444444_ss").innerHTML = 
+		document.getElementById("star444444TotalRankSS").innerHTML = 
 			star444444CalcOut[6][0] + "<br>" + "(+" + (star444444CalcOut[6][0] - star444444CalcIn[6][0]) + ")";
 	}
 	if (star444444CalcIn[6][1] > 0) {
-		document.getElementById("total_star444444_s").innerHTML  = 
+		document.getElementById("star444444TotalRankS").innerHTML  = 
 			star444444CalcOut[6][1] + "<br>" + "(+" + (star444444CalcOut[6][1] - star444444CalcIn[6][1]) + ")";
 	}
 	if (star444444CalcIn[6][2] > 0) {
-		document.getElementById("total_star444444_a").innerHTML  = 
+		document.getElementById("star444444TotalRankA").innerHTML  = 
 			star444444CalcOut[6][2] + "<br>" + "(+" + (star444444CalcOut[6][2] - star444444CalcIn[6][2]) + ")";
 	}
 	if (star444444CalcIn[6][3] > 0) {
-		document.getElementById("total_star444444_b").innerHTML  = 
+		document.getElementById("star444444TotalRankB").innerHTML  = 
 			star444444CalcOut[6][3] + "<br>" + "(+" + (star444444CalcOut[6][3] - star444444CalcIn[6][3]) + ")";
 	}
 	if (star444444CalcIn[6][4] > 0) {
-		document.getElementById("total_star444444_c").innerHTML  = 
+		document.getElementById("star444444TotalRankC").innerHTML  = 
 			star444444CalcOut[6][4] + "<br>" + "(+" + (star444444CalcOut[6][4] - star444444CalcIn[6][4]) + ")";
 	}
 	if (star444444CalcIn[6][5] > 0) {
-		document.getElementById("total_star444444_d").innerHTML  = 
+		document.getElementById("star444444TotalRankD").innerHTML  = 
 			star444444CalcOut[6][5] + "<br>" + "(+" + (star444444CalcOut[6][5] - star444444CalcIn[6][5]) + ")";
 	}
 	if (star444444CalcIn[6][6] > 0) {
-		document.getElementById("total_star444444_e").innerHTML  = 
+		document.getElementById("star444444TotalRankE").innerHTML  = 
 			star444444CalcOut[6][6] + "<br>" + "(+" + (star444444CalcOut[6][6] - star444444CalcIn[6][6]) + ")";
 	}
 	if (star444444CalcIn[6][7] > 0) {
-		document.getElementById("total_star444444_f").innerHTML  = 
+		document.getElementById("star444444TotalRankF").innerHTML  = 
 			star444444CalcOut[6][7] + "<br>" + "(+" + (star444444CalcOut[6][7] - star444444CalcIn[6][7]) + ")";
 	}
 }
 
-function debug_dorakie() {
+function debugRankDorakie() {
 	var monster = $.parseJSON(monsterJson);
 	var index;
 	var newLines = monster.monster.filter(function(item, index){
 		if((item.No) == 902){
-			document.getElementById("hp_star444444_a0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_a0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_a0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_a0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_a0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_a0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankA0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankA0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankA0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankA0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankA0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankA0").value = monster.monster[index].IN;
 			return true;
 		}
 		if((item.No) == 901){
-			document.getElementById("hp_star444444_b0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_b0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_b0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_b0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_b0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_b0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankB0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankB0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankB0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankB0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankB0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankB0").value = monster.monster[index].IN;
 			return true;
 		}
 		if((item.No) == 850){
-			document.getElementById("hp_star444444_c0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_c0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_c0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_c0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_c0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_c0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankC0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankC0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankC0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankC0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankC0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankC0").value = monster.monster[index].IN;
 			return true;
 		}
 		if((item.No) == 302){
-			document.getElementById("hp_star444444_d0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_d0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_d0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_d0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_d0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_d0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankD0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankD0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankD0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankD0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankD0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankD0").value = monster.monster[index].IN;
 			return true;
 		}
 		if((item.No) == 322){
-			document.getElementById("hp_star444444_e0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_e0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_e0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_e0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_e0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_e0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankE0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankE0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankE0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankE0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankE0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankE0").value = monster.monster[index].IN;
 			return true;
 		}
 		if((item.No) == 301){
-			document.getElementById("hp_star444444_f0").value    = monster.monster[index].HP;
-			document.getElementById("mp_star444444_f0").value    = monster.monster[index].MP;
-			document.getElementById("atack_star444444_f0").value = monster.monster[index].ST;
-			document.getElementById("defen_star444444_f0").value = monster.monster[index].DF;
-			document.getElementById("speed_star444444_f0").value = monster.monster[index].SP;
-			document.getElementById("intel_star444444_f0").value = monster.monster[index].IN;
+			document.getElementById("star444444HpRankF0").value    = monster.monster[index].HP;
+			document.getElementById("star444444MpRankF0").value    = monster.monster[index].MP;
+			document.getElementById("star444444AtackRankF0").value = monster.monster[index].ST;
+			document.getElementById("star444444DefenRankF0").value = monster.monster[index].DF;
+			document.getElementById("star444444SpeedRankF0").value = monster.monster[index].SP;
+			document.getElementById("star444444IntelRankF0").value = monster.monster[index].IN;
 			return true;
 		}
 	});
@@ -665,64 +665,64 @@ $(document).ready(function(){
 </tr>
 <tr>
     <td>HP</td>
-    <td><input class="input" id="hp_star0" type="number" min="1" onchange="showStar4StatusHP();"></td>
-    <td id="hp_star1">0</td>
-    <td id="hp_star2">0</td>
-    <td id="hp_star3">0</td>
-    <td id="hp_star4">0</td>
+    <td><input class="input" id="star4Hp0" type="number" min="1" onchange="showStar4StatusHP();"></td>
+    <td id="star4Hp1">0</td>
+    <td id="star4Hp2">0</td>
+    <td id="star4Hp3">0</td>
+    <td id="star4Hp4">0</td>
 </tr>
 <tr>
     <td>MP</td>
-    <td><input class="input" id="mp_star0" type="number" min="1" max="9999" onchange="showStar4StatusMP();"></td>
-    <td id="mp_star1">0</td>
-    <td id="mp_star2">0</td>
-    <td id="mp_star3">0</td>
-    <td id="mp_star4">0</td>
+    <td><input class="input" id="star4Mp" type="number" min="1" max="9999" onchange="showStar4StatusMP();"></td>
+    <td id="star4Mp1">0</td>
+    <td id="star4Mp2">0</td>
+    <td id="star4Mp3">0</td>
+    <td id="star4Mp4">0</td>
 </tr>
 <tr>
     <td>攻撃力</td>
-    <td><input class="input" id="atack_star0" type="number" min="1" max="9999" onchange="showStar4StatusAtack();"></td>
-    <td id="atack_star1">0</td>
-    <td id="atack_star2">0</td>
-    <td id="atack_star3">0</td>
-    <td id="atack_star4">0</td>
+    <td><input class="input" id="star4Atack0" type="number" min="1" max="9999" onchange="showStar4StatusAtack();"></td>
+    <td id="star4Atack1">0</td>
+    <td id="star4Atack2">0</td>
+    <td id="star4Atack3">0</td>
+    <td id="star4Atack4">0</td>
 </tr>
 <tr>
     <td>防御力</td>
-    <td><input class="input" id="defen_star0" type="number" min="1" max="9999" onchange="showStar4StatusDefen();"></td>
-    <td id="defen_star1">0</td>
-    <td id="defen_star2">0</td>
-    <td id="defen_star3">0</td>
-    <td id="defen_star4">0</td>
+    <td><input class="input" id="star4Defen0" type="number" min="1" max="9999" onchange="showStar4StatusDefen();"></td>
+    <td id="star4Defen1">0</td>
+    <td id="star4Defen2">0</td>
+    <td id="star4Defen3">0</td>
+    <td id="star4Defen4">0</td>
 </tr>
 <tr>
     <td>素早さ</td>
-    <td><input class="input" id="speed_star0" type="number" min="1" max="9999" onchange="showStar4StatusSpeed();"></td>
-    <td id="speed_star1">0</td>
-    <td id="speed_star2">0</td>
-    <td id="speed_star3">0</td>
-    <td id="speed_star4">0</td>
+    <td><input class="input" id="star4Speed0" type="number" min="1" max="9999" onchange="showStar4StatusSpeed();"></td>
+    <td id="star4Speed1">0</td>
+    <td id="star4Speed2">0</td>
+    <td id="star4Speed3">0</td>
+    <td id="star4Speed4">0</td>
 </tr>
 <tr>
     <td>賢さ</td>
-    <td><input class="input" id="intel_star0" type="number" min="1" max="9999" onchange="showStar4StatusIntel();"></td>
-    <td id="intel_star1">0</td>
-    <td id="intel_star2">0</td>
-    <td id="intel_star3">0</td>
-    <td id="intel_star4">0</td>
+    <td><input class="input" id="star4Intel0" type="number" min="1" max="9999" onchange="showStar4StatusIntel();"></td>
+    <td id="star4Intel1">0</td>
+    <td id="star4Intel2">0</td>
+    <td id="star4Intel3">0</td>
+    <td id="star4Intel4">0</td>
 </tr>
 <tr>
     <td>合計</td>
-    <td id="total_star0">0</td>
-    <td id="total_star1">0</td>
-    <td id="total_star2">0</td>
-    <td id="total_star3">0</td>
-    <td id="total_star4">0</td>
+    <td id="star4Total0">0</td>
+    <td id="star4Total1">0</td>
+    <td id="star4Total2">0</td>
+    <td id="star4Total3">0</td>
+    <td id="star4Total4">0</td>
 </tr>
 </table>
 
 <br><br>
-<!--<button onclick="show_star444444()">☆44～☆444444まで広げる！</button> -->
+<!--<button onclick="showRankStar444444()">☆44～☆444444まで広げる！</button> -->
 <h3>☆4～444444ステータスシミュレータ</h3>
 <div id="star444444">
 <table border>
@@ -742,86 +742,86 @@ $(document).ready(function(){
 ☆0ステータスを入力してね！<br>
 全て入力しなくても良いよ！<br>
     <td>HP</td>
-    <td><input class="input" id="hp_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_s0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_a0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_b0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_c0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_d0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_e0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="hp_star444444_f0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankA0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankB0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankC0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankD0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankE0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444HpRankF0" type="number" min="0" max="9999"></td>
 </tr>
 <tr>
     <td>MP</td>
-    <td><input class="input" id="mp_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_s0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_a0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_b0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_c0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_d0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_e0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="mp_star444444_f0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankS0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankA0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankB0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankC0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankD0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankE0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444MpRankF0"  type="number" min="0" max="9999"></td>
 </tr>
 <tr>
     <td>攻撃力</td>
-    <td><input class="input" id="atack_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_s0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_a0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_b0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_c0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_d0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_e0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="atack_star444444_f0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankS0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankA0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankB0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankC0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankD0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankE0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444AtackRankF0"  type="number" min="0" max="9999"></td>
 </tr>
 <tr>
     <td>防御力</td>
-    <td><input class="input" id="defen_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_s0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_a0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_b0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_c0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_d0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_e0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="defen_star444444_f0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankS0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankA0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankB0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankC0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankD0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankE0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444DefenRankF0"  type="number" min="0" max="9999"></td>
 </tr>
 <tr>
     <td>素早さ</td>
-    <td><input class="input" id="speed_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_s0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_a0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_b0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_c0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_d0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_e0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="speed_star444444_f0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankS0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankA0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankB0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankC0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankD0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankE0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444SpeedRankF0"  type="number" min="0" max="9999"></td>
 </tr>
 <tr>
     <td>賢さ</td>
-    <td><input class="input" id="intel_star444444_ss0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_s0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_a0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_b0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_c0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_d0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_e0"  type="number" min="0" max="9999"></td>
-    <td><input class="input" id="intel_star444444_f0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankSS0" type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankS0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankA0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankB0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankC0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankD0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankE0"  type="number" min="0" max="9999"></td>
+    <td><input class="input" id="star444444IntelRankF0"  type="number" min="0" max="9999"></td>
 </tr>
     <td>合計</td>
-    <td id="total_star444444_ss0"></td>
-    <td id="total_star444444_s0"></td>
-    <td id="total_star444444_a0"></td>
-    <td id="total_star444444_b0"></td>
-    <td id="total_star444444_c0"></td>
-    <td id="total_star444444_d0"></td>
-    <td id="total_star444444_e0"></td>
-    <td id="total_star444444_f0"></td>
+    <td id="star444444TotalRankSS0"></td>
+    <td id="star444444TotalRankS0"></td>
+    <td id="star444444TotalRankA0"></td>
+    <td id="star444444TotalRankB0"></td>
+    <td id="star444444TotalRankC0"></td>
+    <td id="star444444TotalRankD0"></td>
+    <td id="star444444TotalRankE0"></td>
+    <td id="star444444TotalRankF0"></td>
 </tr>
 </table>
 
 <br/>
 
 <button onclick="calc_444444()">☆4～444444計算！</button>
-<button onclick="debug_dorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
+<button onclick="debugRankDorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
 
 <table border>
 <tr>
@@ -837,80 +837,80 @@ $(document).ready(function(){
 </tr>
 <tr>
     <td>HP</td>
-    <td id="hp_star444444_ss">0</td>
-    <td id="hp_star444444_s">0</td>
-    <td id="hp_star444444_a">0</td>
-    <td id="hp_star444444_b">0</td>
-    <td id="hp_star444444_c">0</td>
-    <td id="hp_star444444_d">0</td>
-    <td id="hp_star444444_e">0</td>
-    <td id="hp_star444444_f">0</td>
+    <td id="star444444HpRankSS">0</td>
+    <td id="star444444HpRankS">0</td>
+    <td id="star444444HpRankA">0</td>
+    <td id="star444444HpRankB">0</td>
+    <td id="star444444HpRankC">0</td>
+    <td id="star444444HpRankD">0</td>
+    <td id="star444444HpRankE">0</td>
+    <td id="star444444HpRankF">0</td>
 </tr>
 <tr>
     <td>MP</td>
-    <td id="mp_star444444_ss">0</td>
-    <td id="mp_star444444_s">0</td>
-    <td id="mp_star444444_a">0</td>
-    <td id="mp_star444444_b">0</td>
-    <td id="mp_star444444_c">0</td>
-    <td id="mp_star444444_d">0</td>
-    <td id="mp_star444444_e">0</td>
-    <td id="mp_star444444_f">0</td>
+    <td id="star444444MpRankSS">0</td>
+    <td id="star444444MpRankS">0</td>
+    <td id="star444444MpRankA">0</td>
+    <td id="star444444MpRankB">0</td>
+    <td id="star444444MpRankC">0</td>
+    <td id="star444444MpRankD">0</td>
+    <td id="star444444MpRankE">0</td>
+    <td id="star444444MpRankF">0</td>
 </tr>
 <tr>
     <td>攻撃力</td>
-    <td id="atack_star444444_ss">0</td>
-    <td id="atack_star444444_s">0</td>
-    <td id="atack_star444444_a">0</td>
-    <td id="atack_star444444_b">0</td>
-    <td id="atack_star444444_c">0</td>
-    <td id="atack_star444444_d">0</td>
-    <td id="atack_star444444_e">0</td>
-    <td id="atack_star444444_f">0</td>
+    <td id="star444444AtackRankSS">0</td>
+    <td id="star444444AtackRankS">0</td>
+    <td id="star444444AtackRankA">0</td>
+    <td id="star444444AtackRankB">0</td>
+    <td id="star444444AtackRankC">0</td>
+    <td id="star444444AtackRankD">0</td>
+    <td id="star444444AtackRankE">0</td>
+    <td id="star444444AtackRankF">0</td>
 </tr>
 <tr>
     <td>防御力</td>
-    <td id="defen_star444444_ss">0</td>
-    <td id="defen_star444444_s">0</td>
-    <td id="defen_star444444_a">0</td>
-    <td id="defen_star444444_b">0</td>
-    <td id="defen_star444444_c">0</td>
-    <td id="defen_star444444_d">0</td>
-    <td id="defen_star444444_e">0</td>
-    <td id="defen_star444444_f">0</td>
+    <td id="star444444DefenRankSS">0</td>
+    <td id="star444444DefenRankS">0</td>
+    <td id="star444444DefenRankA">0</td>
+    <td id="star444444DefenRankB">0</td>
+    <td id="star444444DefenRankC">0</td>
+    <td id="star444444DefenRankD">0</td>
+    <td id="star444444DefenRankE">0</td>
+    <td id="star444444DefenRankF">0</td>
 </tr>
 <tr>
     <td>素早さ</td>
-    <td id="speed_star444444_ss">0</td>
-    <td id="speed_star444444_s">0</td>
-    <td id="speed_star444444_a">0</td>
-    <td id="speed_star444444_b">0</td>
-    <td id="speed_star444444_c">0</td>
-    <td id="speed_star444444_d">0</td>
-    <td id="speed_star444444_e">0</td>
-    <td id="speed_star444444_f">0</td>
+    <td id="star444444SpeedRankSS">0</td>
+    <td id="star444444SpeedRankS">0</td>
+    <td id="star444444SpeedRankA">0</td>
+    <td id="star444444SpeedRankB">0</td>
+    <td id="star444444SpeedRankC">0</td>
+    <td id="star444444SpeedRankD">0</td>
+    <td id="star444444SpeedRankE">0</td>
+    <td id="star444444SpeedRankF">0</td>
 </tr>
 <tr>
     <td>賢さ</td>
-    <td id="intel_star444444_ss">0</td>
-    <td id="intel_star444444_s">0</td>
-    <td id="intel_star444444_a">0</td>
-    <td id="intel_star444444_b">0</td>
-    <td id="intel_star444444_c">0</td>
-    <td id="intel_star444444_d">0</td>
-    <td id="intel_star444444_e">0</td>
-    <td id="intel_star444444_f">0</td>
+    <td id="star444444IntelRankSS">0</td>
+    <td id="star444444IntelRankS">0</td>
+    <td id="star444444IntelRankA">0</td>
+    <td id="star444444IntelRankB">0</td>
+    <td id="star444444IntelRankC">0</td>
+    <td id="star444444IntelRankD">0</td>
+    <td id="star444444IntelRankE">0</td>
+    <td id="star444444IntelRankF">0</td>
 </tr>
 <tr>
     <td>合計</td>
-    <td id="total_star444444_ss">0</td>
-    <td id="total_star444444_s">0</td>
-    <td id="total_star444444_a">0</td>
-    <td id="total_star444444_b">0</td>
-    <td id="total_star444444_c">0</td>
-    <td id="total_star444444_d">0</td>
-    <td id="total_star444444_e">0</td>
-    <td id="total_star444444_f">0</td>
+    <td id="star444444TotalRankSS">0</td>
+    <td id="star444444TotalRankS">0</td>
+    <td id="star444444TotalRankA">0</td>
+    <td id="star444444TotalRankB">0</td>
+    <td id="star444444TotalRankC">0</td>
+    <td id="star444444TotalRankD">0</td>
+    <td id="star444444TotalRankE">0</td>
+    <td id="star444444TotalRankF">0</td>
 </tr>
 </table>
 </div><!-- id="star444444" -->
