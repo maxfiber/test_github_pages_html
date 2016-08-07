@@ -132,12 +132,12 @@ function showStar4StatusTotal() {
 		if (!parseInt(star4Calc[i][0] > 0)) star4Calc[i][0] = Number(0);
 	}
 
-	star4Calc[0][0] = document.getElementById("hp_star0").value;
-	star4Calc[1][0] = document.getElementById("mp_star0").value;
-	star4Calc[2][0] = document.getElementById("atack_star0").value;
-	star4Calc[3][0] = document.getElementById("defen_star0").value;
-	star4Calc[4][0] = document.getElementById("speed_star0").value;
-	star4Calc[5][0] = document.getElementById("intel_star0").value;
+	star4Calc[0][0] = Number($("#hp_star0").val());
+	star4Calc[1][0] = Number($("#mp_star0").val());
+	star4Calc[2][0] = Number($("#atack_star0").val());
+	star4Calc[3][0] = Number($("#defen_star0").val());
+	star4Calc[4][0] = Number($("#speed_star0").val());
+	star4Calc[5][0] = Number($("#intel_star0").val());
 
 	star4Calc[6][0] = Number(star4Calc[0][0]) + Number(star4Calc[1][0])
 					+ Number(star4Calc[2][0]) + Number(star4Calc[3][0])
@@ -155,117 +155,128 @@ function showStar4StatusTotal() {
 					+ Number(star4Calc[2][4]) + Number(star4Calc[3][4])
 					+ Number(star4Calc[4][4]) + Number(star4Calc[5][4]); // total star4
 
-	document.getElementById("total_star0").innerHTML = star4Calc[6][0];
-	document.getElementById("total_star1").innerHTML = Number(star4Calc[6][1]) + "<br>(+"
-													 + Number(star4Calc[6][1] - star4Calc[6][0]) + ")";
-	document.getElementById("total_star2").innerHTML = Number(star4Calc[6][2]) + "<br>(+"
-													 + Number(star4Calc[6][2] - star4Calc[6][0]) + ")";
-	document.getElementById("total_star3").innerHTML = Number(star4Calc[6][3]) + "<br>(+"
-													 + Number(star4Calc[6][3] - star4Calc[6][0]) + ")";
-	document.getElementById("total_star4").innerHTML = Number(star4Calc[6][4]) + "<br>(+"
-													 + Number(star4Calc[6][4] - star4Calc[6][0]) + ")";
+	// show result
+	$("#total_star0").html(star4Calc[6][0]);
+
+	var tmpStr;
+	tmpStr = star4Calc[6][1] + "<br>(+" + Number(star4Calc[6][1] - star4Calc[6][0]) + ")";
+	$("#total_star1").html(tmpStr);
+
+	tmpStr = star4Calc[6][2] + "<br>(+" + Number(star4Calc[6][2] - star4Calc[6][0]) + ")";
+	$("#total_star2").html(tmpStr);
+
+	tmpStr = star4Calc[6][3] + "<br>(+" + Number(star4Calc[6][3] - star4Calc[6][0]) + ")";
+	$("#total_star3").html(tmpStr);
+
+	tmpStr = star4Calc[6][4] + "<br>(+" + Number(star4Calc[6][4] - star4Calc[6][0]) + ")";
+	$("#total_star4").html(tmpStr);
 }
 
 // ☆4シミュレータ：HP
 function showStar4StatusHP() {
-/*
-	var ele_hp = document.getElementById("hp_star0");
-	star4Calc[0][0] = ele_hp.value;
-*/
-	star4Calc[0][0] = document.getElementById("hp_star0").value;
+	// get
+	star4Calc[0][0] = $("#hp_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[0][i+1] = calcPowerupIncrement(star4Calc[0][i], star4Calc[0][0]);
 	}
 
-	document.getElementById("hp_star1").innerHTML = star4Calc[0][1];
-	document.getElementById("hp_star2").innerHTML = star4Calc[0][2];
-	document.getElementById("hp_star3").innerHTML = star4Calc[0][3];
-	document.getElementById("hp_star4").innerHTML = star4Calc[0][4];
-
+	// show
+	$("#hp_star1").html(star4Calc[0][1]);
+	$("#hp_star2").html(star4Calc[0][2]);
+	$("#hp_star3").html(star4Calc[0][3]);
+	$("#hp_star4").html(star4Calc[0][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：MP
 function showStar4StatusMP() {
-	var ele_mp = document.getElementById("mp_star0");
-	star4Calc[1][0] = ele_mp.value;
+	// get
+	star4Calc[1][0] = $("#mp_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[1][i+1] = calcPowerupIncrement(star4Calc[1][i], star4Calc[1][0]);
 	}
 
-	document.getElementById("mp_star1").innerHTML = star4Calc[1][1];
-	document.getElementById("mp_star2").innerHTML = star4Calc[1][2];
-	document.getElementById("mp_star3").innerHTML = star4Calc[1][3];
-	document.getElementById("mp_star4").innerHTML = star4Calc[1][4];
-
+	// show
+	$("#mp_star1").html(star4Calc[1][1]);
+	$("#mp_star2").html(star4Calc[1][2]);
+	$("#mp_star3").html(star4Calc[1][3]);
+	$("#mp_star4").html(star4Calc[1][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：攻撃
 function showStar4StatusAtack() {
-	var ele_atack = document.getElementById("atack_star0");
-	star4Calc[2][0] = ele_atack.value;
+	// get
+	star4Calc[2][0] = $("#atack_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[2][i+1] = calcPowerupIncrement(star4Calc[2][i], star4Calc[2][0]);
 	}
 
-	document.getElementById("atack_star1").innerHTML = star4Calc[2][1];
-	document.getElementById("atack_star2").innerHTML = star4Calc[2][2];
-	document.getElementById("atack_star3").innerHTML = star4Calc[2][3];
-	document.getElementById("atack_star4").innerHTML = star4Calc[2][4];
-
+	// show
+	$("#atack_star1").html(star4Calc[2][1]);
+	$("#atack_star2").html(star4Calc[2][2]);
+	$("#atack_star3").html(star4Calc[2][3]);
+	$("#atack_star4").html(star4Calc[2][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：防御
 function showStar4StatusDefen() {
-	var ele_defen = document.getElementById("defen_star0");
-	star4Calc[3][0] = ele_defen.value;
+	// get
+	star4Calc[3][0] = $("#defen_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[3][i+1] = calcPowerupIncrement(star4Calc[3][i], star4Calc[3][0]);
 	}
 
-	document.getElementById("defen_star1").innerHTML = star4Calc[3][1];
-	document.getElementById("defen_star2").innerHTML = star4Calc[3][2];
-	document.getElementById("defen_star3").innerHTML = star4Calc[3][3];
-	document.getElementById("defen_star4").innerHTML = star4Calc[3][4];
-
+	// show
+	$("#defen_star1").html(star4Calc[3][1]);
+	$("#defen_star2").html(star4Calc[3][2]);
+	$("#defen_star3").html(star4Calc[3][3]);
+	$("#defen_star4").html(star4Calc[3][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：素早さ
 function showStar4StatusSpeed() {
-	var ele_speed = document.getElementById("speed_star0");
-	star4Calc[4][0] = ele_speed.value;
+	// get
+	star4Calc[4][0] = $("#speed_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[4][i+1] = calcPowerupIncrement(star4Calc[4][i], star4Calc[4][0]);
 	}
-	document.getElementById("speed_star1").innerHTML = star4Calc[4][1];
-	document.getElementById("speed_star2").innerHTML = star4Calc[4][2];
-	document.getElementById("speed_star3").innerHTML = star4Calc[4][3];
-	document.getElementById("speed_star4").innerHTML = star4Calc[4][4];
 
+	// show
+	$("#speed_star1").html(star4Calc[4][1]);
+	$("#speed_star2").html(star4Calc[4][2]);
+	$("#speed_star3").html(star4Calc[4][3]);
+	$("#speed_star4").html(star4Calc[4][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：賢さ
 function showStar4StatusIntel() {
-	var ele_intel = document.getElementById("intel_star0");
-	star4Calc[5][0] = ele_intel.value;
+	// get
+	star4Calc[5][0] = $("#intel_star0").val();
 
+	// calc
 	for (var i = 0; i < 5; i++) {
 		star4Calc[5][i+1] = calcPowerupIncrement(star4Calc[5][i], star4Calc[5][0]);
 	}
-	document.getElementById("intel_star1").innerHTML = star4Calc[5][1];
-	document.getElementById("intel_star2").innerHTML = star4Calc[5][2];
-	document.getElementById("intel_star3").innerHTML = star4Calc[5][3];
-	document.getElementById("intel_star4").innerHTML = star4Calc[5][4];
 
+	// show
+	$("#intel_star1").html(star4Calc[5][1]);
+	$("#intel_star2").html(star4Calc[5][2]);
+	$("#intel_star3").html(star4Calc[5][3]);
+	$("#intel_star4").html(star4Calc[5][4]);
 	showStar4StatusTotal();
 }
 
