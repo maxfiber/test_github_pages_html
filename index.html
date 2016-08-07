@@ -291,214 +291,172 @@ function calc_444444() {
 	}
 
 	// for HP
-	var ele_hpRankSS = document.getElementById("star444444HpRankSS0");
-	var ele_hpRankS = document.getElementById("star444444HpRankS0");
-	var ele_hpRankA = document.getElementById("star444444HpRankA0");
-	var ele_hpRankB = document.getElementById("star444444HpRankB0");
-	var ele_hpRankC = document.getElementById("star444444HpRankC0");
-	var ele_hpRankD = document.getElementById("star444444HpRankD0");
-	var ele_hpRankE = document.getElementById("star444444HpRankE0");
-	var ele_hpRankF = document.getElementById("star444444HpRankF0");
+	// get
+	star444444CalcIn[0][1] = $("#star444444HpRankS0").val();
+	star444444CalcIn[0][2] = $("#star444444HpRankA0").val();
+	star444444CalcIn[0][3] = $("#star444444HpRankB0").val();
+	star444444CalcIn[0][4] = $("#star444444HpRankC0").val();
+	star444444CalcIn[0][5] = $("#star444444HpRankD0").val();
+	star444444CalcIn[0][6] = $("#star444444HpRankE0").val();
+	star444444CalcIn[0][7] = $("#star444444HpRankF0").val();
+	star444444CalcIn[0][0] = $("#star444444HpRankSS0").val();
 
-	star444444CalcIn[0][7] = ele_hpRankF.value;
-	star444444CalcIn[0][6] = ele_hpRankE.value;
-	star444444CalcIn[0][5] = ele_hpRankD.value;
-	star444444CalcIn[0][4] = ele_hpRankC.value;
-	star444444CalcIn[0][3] = ele_hpRankB.value;
-	star444444CalcIn[0][2] = ele_hpRankA.value;
-	star444444CalcIn[0][1] = ele_hpRankS.value;
-	star444444CalcIn[0][0] = ele_hpRankSS.value;
-
+	// calc
 	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
 
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[0][6-i] = calcPowerupStar44(star444444CalcIn[0][6-i], star444444CalcOut[0][7-i], star444444CalcIn[0][7-i]);
 	}
 
-	if (star444444CalcIn[0][7] > 0) document.getElementById("star444444HpRankF").innerHTML = star444444CalcOut[0][7];
-	if (star444444CalcIn[0][6] > 0) document.getElementById("star444444HpRankE").innerHTML = star444444CalcOut[0][6];
-	if (star444444CalcIn[0][5] > 0) document.getElementById("star444444HpRankD").innerHTML = star444444CalcOut[0][5];
-	if (star444444CalcIn[0][4] > 0) document.getElementById("star444444HpRankC").innerHTML = star444444CalcOut[0][4];
-	if (star444444CalcIn[0][3] > 0) document.getElementById("star444444HpRankB").innerHTML = star444444CalcOut[0][3];
-	if (star444444CalcIn[0][2] > 0) document.getElementById("star444444HpRankA").innerHTML = star444444CalcOut[0][2];
-	if (star444444CalcIn[0][1] > 0) document.getElementById("star444444HpRankS").innerHTML = star444444CalcOut[0][1];
-	if (star444444CalcIn[0][0] > 0) document.getElementById("star444444HpRankSS").innerHTML = star444444CalcOut[0][0];
+	// show
+	if (star444444CalcIn[0][7] > 0) $("#star444444HpRankF").html(star444444CalcOut[0][7]);
+	if (star444444CalcIn[0][6] > 0) $("#star444444HpRankE").html(star444444CalcOut[0][6]);
+	if (star444444CalcIn[0][5] > 0) $("#star444444HpRankD").html(star444444CalcOut[0][5]);
+	if (star444444CalcIn[0][4] > 0) $("#star444444HpRankC").html(star444444CalcOut[0][4]);
+	if (star444444CalcIn[0][3] > 0) $("#star444444HpRankB").html(star444444CalcOut[0][3]);
+	if (star444444CalcIn[0][2] > 0) $("#star444444HpRankA").html(star444444CalcOut[0][2]);
+	if (star444444CalcIn[0][1] > 0) $("#star444444HpRankS").html(star444444CalcOut[0][1]);
+	if (star444444CalcIn[0][0] > 0) $("#star444444HpRankSS").html(star444444CalcOut[0][0]);
 
 
 	// for MP
-	var ele_mpRankSS = document.getElementById("star444444MpRankSS0");
-	var ele_mpRankS  = document.getElementById("star444444MpRankS0");
-	var ele_mpRankA  = document.getElementById("star444444MpRankA0");
-	var ele_mpRankB  = document.getElementById("star444444MpRankB0");
-	var ele_mpRankC  = document.getElementById("star444444MpRankC0");
-	var ele_mpRankD  = document.getElementById("star444444MpRankD0");
-	var ele_mpRankE  = document.getElementById("star444444MpRankE0");
-	var ele_mpRankF  = document.getElementById("star444444MpRankF0");
+	// get
+	star444444CalcIn[1][0] = $("#star444444MpRankSS0").val();
+	star444444CalcIn[1][1] = $("#star444444MpRankS0").val();
+	star444444CalcIn[1][2] = $("#star444444MpRankA0").val();
+	star444444CalcIn[1][3] = $("#star444444MpRankB0").val();
+	star444444CalcIn[1][4] = $("#star444444MpRankC0").val();
+	star444444CalcIn[1][5] = $("#star444444MpRankD0").val();
+	star444444CalcIn[1][6] = $("#star444444MpRankE0").val();
+	star444444CalcIn[1][7] = $("#star444444MpRankF0").val();
 
-	star444444CalcIn[1][7] = ele_mpRankF.value;
-	star444444CalcIn[1][6] = ele_mpRankE.value;
-	star444444CalcIn[1][5] = ele_mpRankD.value;
-	star444444CalcIn[1][4] = ele_mpRankC.value;
-	star444444CalcIn[1][3] = ele_mpRankB.value;
-	star444444CalcIn[1][2] = ele_mpRankA.value;
-	star444444CalcIn[1][1] = ele_mpRankS.value;
-	star444444CalcIn[1][0] = ele_mpRankSS.value;
-
+	// calc
 	star444444CalcOut[1][7] = calcPowerupStar4(star444444CalcIn[1][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[1][6-i] = calcPowerupStar44(star444444CalcIn[1][6-i], star444444CalcOut[1][7-i], star444444CalcIn[1][7-i]);
 	}
 
-	if (star444444CalcIn[1][7] > 0) document.getElementById("star444444MpRankF").innerHTML  = star444444CalcOut[1][7];
-	if (star444444CalcIn[1][6] > 0) document.getElementById("star444444MpRankE").innerHTML  = star444444CalcOut[1][6];
-	if (star444444CalcIn[1][5] > 0) document.getElementById("star444444MpRankD").innerHTML  = star444444CalcOut[1][5];
-	if (star444444CalcIn[1][4] > 0) document.getElementById("star444444MpRankC").innerHTML  = star444444CalcOut[1][4];
-	if (star444444CalcIn[1][3] > 0) document.getElementById("star444444MpRankB").innerHTML  = star444444CalcOut[1][3];
-	if (star444444CalcIn[1][2] > 0) document.getElementById("star444444MpRankA").innerHTML  = star444444CalcOut[1][2];
-	if (star444444CalcIn[1][1] > 0) document.getElementById("star444444MpRankS").innerHTML  = star444444CalcOut[1][1];
-	if (star444444CalcIn[1][0] > 0) document.getElementById("star444444MpRankSS").innerHTML = star444444CalcOut[1][0];
+	// show
+	if (star444444CalcIn[1][7] > 0) $("#star444444MpRankF").html(star444444CalcOut[1][7]);
+	if (star444444CalcIn[1][6] > 0) $("#star444444MpRankE").html(star444444CalcOut[1][6]);
+	if (star444444CalcIn[1][5] > 0) $("#star444444MpRankD").html(star444444CalcOut[1][5]);
+	if (star444444CalcIn[1][4] > 0) $("#star444444MpRankC").html(star444444CalcOut[1][4]);
+	if (star444444CalcIn[1][3] > 0) $("#star444444MpRankB").html(star444444CalcOut[1][3]);
+	if (star444444CalcIn[1][2] > 0) $("#star444444MpRankA").html(star444444CalcOut[1][2]);
+	if (star444444CalcIn[1][1] > 0) $("#star444444MpRankS").html(star444444CalcOut[1][1]);
+	if (star444444CalcIn[1][0] > 0) $("#star444444MpRankSS").html(star444444CalcOut[1][0]);
 
 
+	// for atack
+	// get
+	star444444CalcIn[2][7] = $("#star444444AtackRankF0").val();
+	star444444CalcIn[2][6] = $("#star444444AtackRankE0").val();
+	star444444CalcIn[2][5] = $("#star444444AtackRankD0").val();
+	star444444CalcIn[2][4] = $("#star444444AtackRankC0").val();
+	star444444CalcIn[2][3] = $("#star444444AtackRankB0").val();
+	star444444CalcIn[2][2] = $("#star444444AtackRankA0").val();
+	star444444CalcIn[2][1] = $("#star444444AtackRankS0").val();
+	star444444CalcIn[2][0] = $("#star444444AtackRankSS0").val();
 
-	// for attack
-	var eleRankAtackRankSS = document.getElementById("star444444AtackRankSS0");
-	var eleRankAtackRankS  = document.getElementById("star444444AtackRankS0");
-	var eleRankAtackRankA  = document.getElementById("star444444AtackRankA0");
-	var eleRankAtackRankB  = document.getElementById("star444444AtackRankB0");
-	var eleRankAtackRankC  = document.getElementById("star444444AtackRankC0");
-	var eleRankAtackRankD  = document.getElementById("star444444AtackRankD0");
-	var eleRankAtackRankE  = document.getElementById("star444444AtackRankE0");
-	var eleRankAtackRankF  = document.getElementById("star444444AtackRankF0");
-
-	star444444CalcIn[2][7] = eleRankAtackRankF.value;
-	star444444CalcIn[2][6] = eleRankAtackRankE.value;
-	star444444CalcIn[2][5] = eleRankAtackRankD.value;
-	star444444CalcIn[2][4] = eleRankAtackRankC.value;
-	star444444CalcIn[2][3] = eleRankAtackRankB.value;
-	star444444CalcIn[2][2] = eleRankAtackRankA.value;
-	star444444CalcIn[2][1] = eleRankAtackRankS.value;
-	star444444CalcIn[2][0] = eleRankAtackRankSS.value;
-
+	// calc
 	star444444CalcOut[2][7] = calcPowerupStar4(star444444CalcIn[2][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[2][6-i] = calcPowerupStar44(star444444CalcIn[2][6-i], star444444CalcOut[2][7-i], star444444CalcIn[2][7-i]);
 	}
 
-	if (star444444CalcIn[2][7] > 0) document.getElementById("star444444AtackRankF").innerHTML  = star444444CalcOut[2][7];
-	if (star444444CalcIn[2][6] > 0) document.getElementById("star444444AtackRankE").innerHTML  = star444444CalcOut[2][6];
-	if (star444444CalcIn[2][5] > 0) document.getElementById("star444444AtackRankD").innerHTML  = star444444CalcOut[2][5];
-	if (star444444CalcIn[2][4] > 0) document.getElementById("star444444AtackRankC").innerHTML  = star444444CalcOut[2][4];
-	if (star444444CalcIn[2][3] > 0) document.getElementById("star444444AtackRankB").innerHTML  = star444444CalcOut[2][3];
-	if (star444444CalcIn[2][2] > 0) document.getElementById("star444444AtackRankA").innerHTML  = star444444CalcOut[2][2];
-	if (star444444CalcIn[2][1] > 0) document.getElementById("star444444AtackRankS").innerHTML  = star444444CalcOut[2][1];
-	if (star444444CalcIn[2][0] > 0) document.getElementById("star444444AtackRankSS").innerHTML = star444444CalcOut[2][0];
+	// show
+	if (star444444CalcIn[2][7] > 0) $("#star444444AtackRankF").html(star444444CalcOut[2][7]);
+	if (star444444CalcIn[2][6] > 0) $("#star444444AtackRankE").html(star444444CalcOut[2][6]);
+	if (star444444CalcIn[2][5] > 0) $("#star444444AtackRankD").html(star444444CalcOut[2][5]);
+	if (star444444CalcIn[2][4] > 0) $("#star444444AtackRankC").html(star444444CalcOut[2][4]);
+	if (star444444CalcIn[2][3] > 0) $("#star444444AtackRankB").html(star444444CalcOut[2][3]);
+	if (star444444CalcIn[2][2] > 0) $("#star444444AtackRankA").html(star444444CalcOut[2][2]);
+	if (star444444CalcIn[2][1] > 0) $("#star444444AtackRankS").html(star444444CalcOut[2][1]);
+	if (star444444CalcIn[2][0] > 0) $("#star444444AtackRankSS").html(star444444CalcOut[2][0]);
 
 
-	//  for defen
-	var eleRankDefenRankSS = document.getElementById("star444444DefenRankSS0");
-	var eleRankDefenRankS  = document.getElementById("star444444DefenRankS0");
-	var eleRankDefenRankA  = document.getElementById("star444444DefenRankA0");
-	var eleRankDefenRankB  = document.getElementById("star444444DefenRankB0");
-	var eleRankDefenRankC  = document.getElementById("star444444DefenRankC0");
-	var eleRankDefenRankD  = document.getElementById("star444444DefenRankD0");
-	var eleRankDefenRankE  = document.getElementById("star444444DefenRankE0");
-	var eleRankDefenRankF  = document.getElementById("star444444DefenRankF0");
+	// for defen
+	// get
+	star444444CalcIn[3][0] = $("#star444444DefenRankSS0").val();
+	star444444CalcIn[3][1] = $("#star444444DefenRankS0").val();
+	star444444CalcIn[3][2] = $("#star444444DefenRankA0").val();
+	star444444CalcIn[3][3] = $("#star444444DefenRankB0").val();
+	star444444CalcIn[3][4] = $("#star444444DefenRankC0").val();
+	star444444CalcIn[3][5] = $("#star444444DefenRankD0").val();
+	star444444CalcIn[3][6] = $("#star444444DefenRankE0").val();
+	star444444CalcIn[3][7] = $("#star444444DefenRankF0").val();
 
-	star444444CalcIn[3][7] = eleRankDefenRankF.value;
-	star444444CalcIn[3][6] = eleRankDefenRankE.value;
-	star444444CalcIn[3][5] = eleRankDefenRankD.value;
-	star444444CalcIn[3][4] = eleRankDefenRankC.value;
-	star444444CalcIn[3][3] = eleRankDefenRankB.value;
-	star444444CalcIn[3][2] = eleRankDefenRankA.value;
-	star444444CalcIn[3][1] = eleRankDefenRankS.value;
-	star444444CalcIn[3][0] = eleRankDefenRankSS.value;
-
+	// calc
 	star444444CalcOut[3][7] = calcPowerupStar4(star444444CalcIn[3][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[3][6-i] = calcPowerupStar44(star444444CalcIn[3][6-i], star444444CalcOut[3][7-i], star444444CalcIn[3][7-i]);
 	}
 
-	if (star444444CalcIn[3][7] > 0) document.getElementById("star444444DefenRankF").innerHTML  = star444444CalcOut[3][7];
-	if (star444444CalcIn[3][6] > 0) document.getElementById("star444444DefenRankE").innerHTML  = star444444CalcOut[3][6];
-	if (star444444CalcIn[3][5] > 0) document.getElementById("star444444DefenRankD").innerHTML  = star444444CalcOut[3][5];
-	if (star444444CalcIn[3][4] > 0) document.getElementById("star444444DefenRankC").innerHTML  = star444444CalcOut[3][4];
-	if (star444444CalcIn[3][3] > 0) document.getElementById("star444444DefenRankB").innerHTML  = star444444CalcOut[3][3];
-	if (star444444CalcIn[3][2] > 0) document.getElementById("star444444DefenRankA").innerHTML  = star444444CalcOut[3][2];
-	if (star444444CalcIn[3][1] > 0) document.getElementById("star444444DefenRankS").innerHTML  = star444444CalcOut[3][1];
-	if (star444444CalcIn[3][0] > 0) document.getElementById("star444444DefenRankSS").innerHTML = star444444CalcOut[3][0];
+	// show
+	if (star444444CalcIn[3][7] > 0) $("#star444444DefenRankF").html(star444444CalcOut[3][7]);
+	if (star444444CalcIn[3][6] > 0) $("#star444444DefenRankE").html(star444444CalcOut[3][6]);
+	if (star444444CalcIn[3][5] > 0) $("#star444444DefenRankD").html(star444444CalcOut[3][5]);
+	if (star444444CalcIn[3][4] > 0) $("#star444444DefenRankC").html(star444444CalcOut[3][4]);
+	if (star444444CalcIn[3][3] > 0) $("#star444444DefenRankB").html(star444444CalcOut[3][3]);
+	if (star444444CalcIn[3][2] > 0) $("#star444444DefenRankA").html(star444444CalcOut[3][2]);
+	if (star444444CalcIn[3][1] > 0) $("#star444444DefenRankS").html(star444444CalcOut[3][1]);
+	if (star444444CalcIn[3][0] > 0) $("#star444444DefenRankSS").html(star444444CalcOut[3][0]);
 
 
-	//  for speed
-	var eleRankSpeedRankSS = document.getElementById("star444444SpeedRankSS0");
-	var eleRankSpeedRankS  = document.getElementById("star444444SpeedRankS0");
-	var eleRankSpeedRankA  = document.getElementById("star444444SpeedRankA0");
-	var eleRankSpeedRankB  = document.getElementById("star444444SpeedRankB0");
-	var eleRankSpeedRankC  = document.getElementById("star444444SpeedRankC0");
-	var eleRankSpeedRankD  = document.getElementById("star444444SpeedRankD0");
-	var eleRankSpeedRankE  = document.getElementById("star444444SpeedRankE0");
-	var eleRankSpeedRankF  = document.getElementById("star444444SpeedRankF0");
+	// for speed
+	// get
+	star444444CalcIn[4][0] = $("#star444444SpeedRankSS0").val();
+	star444444CalcIn[4][1] = $("#star444444SpeedRankS0").val();
+	star444444CalcIn[4][2] = $("#star444444SpeedRankA0").val();
+	star444444CalcIn[4][3] = $("#star444444SpeedRankB0").val();
+	star444444CalcIn[4][4] = $("#star444444SpeedRankC0").val();
+	star444444CalcIn[4][5] = $("#star444444SpeedRankD0").val();
+	star444444CalcIn[4][6] = $("#star444444SpeedRankE0").val();
+	star444444CalcIn[4][7] = $("#star444444SpeedRankF0").val();
 
-	star444444CalcIn[4][7] = eleRankSpeedRankF.value;
-	star444444CalcIn[4][6] = eleRankSpeedRankE.value;
-	star444444CalcIn[4][5] = eleRankSpeedRankD.value;
-	star444444CalcIn[4][4] = eleRankSpeedRankC.value;
-	star444444CalcIn[4][3] = eleRankSpeedRankB.value;
-	star444444CalcIn[4][2] = eleRankSpeedRankA.value;
-	star444444CalcIn[4][1] = eleRankSpeedRankS.value;
-	star444444CalcIn[4][0] = eleRankSpeedRankSS.value;
-
+	// calc
 	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[4][6-i] = calcPowerupStar44(star444444CalcIn[4][6-i], star444444CalcOut[4][7-i], star444444CalcIn[4][7-i]);
 	}
 
-	if (star444444CalcIn[4][7] > 0) document.getElementById("star444444SpeedRankF").innerHTML  = star444444CalcOut[4][7];
-	if (star444444CalcIn[4][6] > 0) document.getElementById("star444444SpeedRankE").innerHTML  = star444444CalcOut[4][6];
-	if (star444444CalcIn[4][5] > 0) document.getElementById("star444444SpeedRankD").innerHTML  = star444444CalcOut[4][5];
-	if (star444444CalcIn[4][4] > 0) document.getElementById("star444444SpeedRankC").innerHTML  = star444444CalcOut[4][4];
-	if (star444444CalcIn[4][3] > 0) document.getElementById("star444444SpeedRankB").innerHTML  = star444444CalcOut[4][3];
-	if (star444444CalcIn[4][2] > 0) document.getElementById("star444444SpeedRankA").innerHTML  = star444444CalcOut[4][2];
-	if (star444444CalcIn[4][1] > 0) document.getElementById("star444444SpeedRankS").innerHTML  = star444444CalcOut[4][1];
-	if (star444444CalcIn[4][0] > 0) document.getElementById("star444444SpeedRankSS").innerHTML = star444444CalcOut[4][0];
+	// show
+	if (star444444CalcIn[4][7] > 0) $("#star444444SpeedRankF").html(star444444CalcOut[4][7]);
+	if (star444444CalcIn[4][6] > 0) $("#star444444SpeedRankE").html(star444444CalcOut[4][6]);
+	if (star444444CalcIn[4][5] > 0) $("#star444444SpeedRankD").html(star444444CalcOut[4][5]);
+	if (star444444CalcIn[4][4] > 0) $("#star444444SpeedRankC").html(star444444CalcOut[4][4]);
+	if (star444444CalcIn[4][3] > 0) $("#star444444SpeedRankB").html(star444444CalcOut[4][3]);
+	if (star444444CalcIn[4][2] > 0) $("#star444444SpeedRankA").html(star444444CalcOut[4][2]);
+	if (star444444CalcIn[4][1] > 0) $("#star444444SpeedRankS").html(star444444CalcOut[4][1]);
+	if (star444444CalcIn[4][0] > 0) $("#star444444SpeedRankSS").html(star444444CalcOut[4][0]);
 
 
-	//  for intel
-	var ele_intelRankSS = document.getElementById("star444444IntelRankSS0");
-	var ele_intelRankS  = document.getElementById("star444444IntelRankS0");
-	var ele_intelRankA  = document.getElementById("star444444IntelRankA0");
-	var ele_intelRankB  = document.getElementById("star444444IntelRankB0");
-	var ele_intelRankC  = document.getElementById("star444444IntelRankC0");
-	var ele_intelRankD  = document.getElementById("star444444IntelRankD0");
-	var ele_intelRankE  = document.getElementById("star444444IntelRankE0");
-	var ele_intelRankF  = document.getElementById("star444444IntelRankF0");
+	// for intel
+	// get
+	star444444CalcIn[5][0] = $("#star444444IntelRankSS0").val();
+	star444444CalcIn[5][1] = $("#star444444IntelRankS0").val();
+	star444444CalcIn[5][2] = $("#star444444IntelRankA0").val();
+	star444444CalcIn[5][3] = $("#star444444IntelRankB0").val();
+	star444444CalcIn[5][4] = $("#star444444IntelRankC0").val();
+	star444444CalcIn[5][5] = $("#star444444IntelRankD0").val();
+	star444444CalcIn[5][6] = $("#star444444IntelRankE0").val();
+	star444444CalcIn[5][7] = $("#star444444IntelRankF0").val();
 
-	star444444CalcIn[5][7] = ele_intelRankF.value;
-	star444444CalcIn[5][6] = ele_intelRankE.value;
-	star444444CalcIn[5][5] = ele_intelRankD.value;
-	star444444CalcIn[5][4] = ele_intelRankC.value;
-	star444444CalcIn[5][3] = ele_intelRankB.value;
-	star444444CalcIn[5][2] = ele_intelRankA.value;
-	star444444CalcIn[5][1] = ele_intelRankS.value;
-	star444444CalcIn[5][0] = ele_intelRankSS.value;
-
+	// calc
 	star444444CalcOut[5][7] = calcPowerupStar4(star444444CalcIn[5][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[5][6-i] = calcPowerupStar44(star444444CalcIn[5][6-i], star444444CalcOut[5][7-i], star444444CalcIn[5][7-i]);
 	}
 
-	if (star444444CalcIn[5][7] > 0) document.getElementById("star444444IntelRankF").innerHTML  = star444444CalcOut[5][7];
-	if (star444444CalcIn[5][6] > 0) document.getElementById("star444444IntelRankE").innerHTML  = star444444CalcOut[5][6];
-	if (star444444CalcIn[5][5] > 0) document.getElementById("star444444IntelRankD").innerHTML  = star444444CalcOut[5][5];
-	if (star444444CalcIn[5][4] > 0) document.getElementById("star444444IntelRankC").innerHTML  = star444444CalcOut[5][4];
-	if (star444444CalcIn[5][3] > 0) document.getElementById("star444444IntelRankB").innerHTML  = star444444CalcOut[5][3];
-	if (star444444CalcIn[5][2] > 0) document.getElementById("star444444IntelRankA").innerHTML  = star444444CalcOut[5][2];
-	if (star444444CalcIn[5][1] > 0) document.getElementById("star444444IntelRankS").innerHTML  = star444444CalcOut[5][1];
-	if (star444444CalcIn[5][0] > 0) document.getElementById("star444444IntelRankSS").innerHTML = star444444CalcOut[5][0];
+	// show
+	if (star444444CalcIn[5][7] > 0) $("#star444444IntelRankF").html(star444444CalcOut[5][7]);
+	if (star444444CalcIn[5][6] > 0) $("#star444444IntelRankE").html(star444444CalcOut[5][6]);
+	if (star444444CalcIn[5][5] > 0) $("#star444444IntelRankD").html(star444444CalcOut[5][5]);
+	if (star444444CalcIn[5][4] > 0) $("#star444444IntelRankC").html(star444444CalcOut[5][4]);
+	if (star444444CalcIn[5][3] > 0) $("#star444444IntelRankB").html(star444444CalcOut[5][3]);
+	if (star444444CalcIn[5][2] > 0) $("#star444444IntelRankA").html(star444444CalcOut[5][2]);
+	if (star444444CalcIn[5][1] > 0) $("#star444444IntelRankS").html(star444444CalcOut[5][1]);
+	if (star444444CalcIn[5][0] > 0) $("#star444444IntelRankSS").html(star444444CalcOut[5][0]);
 
 
 
@@ -533,47 +491,51 @@ function calc_444444() {
 	}
 
 	// ☆4の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	if (star444444CalcIn[6][0] > 0) document.getElementById("star444444TotalRankSS0").innerHTML = star444444CalcIn[6][0];
-	if (star444444CalcIn[6][1] > 0) document.getElementById("star444444TotalRankS0").innerHTML  = star444444CalcIn[6][1];
-	if (star444444CalcIn[6][2] > 0) document.getElementById("star444444TotalRankA0").innerHTML  = star444444CalcIn[6][2];
-	if (star444444CalcIn[6][3] > 0) document.getElementById("star444444TotalRankB0").innerHTML  = star444444CalcIn[6][3];
-	if (star444444CalcIn[6][4] > 0) document.getElementById("star444444TotalRankC0").innerHTML  = star444444CalcIn[6][4];
-	if (star444444CalcIn[6][5] > 0) document.getElementById("star444444TotalRankD0").innerHTML  = star444444CalcIn[6][5];
-	if (star444444CalcIn[6][6] > 0) document.getElementById("star444444TotalRankE0").innerHTML  = star444444CalcIn[6][6];
-	if (star444444CalcIn[6][7] > 0) document.getElementById("star444444TotalRankF0").innerHTML  = star444444CalcIn[6][7];
+	if (star444444CalcIn[6][0] > 0) $("#star444444TotalRankSS0").html(star444444CalcIn[6][0]);
+	if (star444444CalcIn[6][1] > 0) $("#star444444TotalRankS0").html(star444444CalcIn[6][1]);
+	if (star444444CalcIn[6][2] > 0) $("#star444444TotalRankA0").html(star444444CalcIn[6][2]);
+	if (star444444CalcIn[6][3] > 0) $("#star444444TotalRankB0").html(star444444CalcIn[6][3]);
+	if (star444444CalcIn[6][4] > 0) $("#star444444TotalRankC0").html(star444444CalcIn[6][4]);
+	if (star444444CalcIn[6][5] > 0) $("#star444444TotalRankD0").html(star444444CalcIn[6][5]);
+	if (star444444CalcIn[6][6] > 0) $("#star444444TotalRankE0").html(star444444CalcIn[6][6]);
+	if (star444444CalcIn[6][7] > 0) $("#star444444TotalRankF0").html(star444444CalcIn[6][7]);
+
+//	var tmpStr;
+//	tmpStr = star4Calc[6][1] + "<br>(+" + Number(star4Calc[6][1] - star4Calc[6][0]) + ")";
+//	$("#star4Total1").html(tmpStr);
 
 	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
 	if (star444444CalcIn[6][0] > 0) {
-		document.getElementById("star444444TotalRankSS").innerHTML = 
-			star444444CalcOut[6][0] + "<br>" + "(+" + (star444444CalcOut[6][0] - star444444CalcIn[6][0]) + ")";
+		var tmpStr = star444444CalcOut[6][0] + "<br>" + "(+" + (star444444CalcOut[6][0] - star444444CalcIn[6][0]) + ")";
+		$("#star444444TotalRankSS").html(tmpStr);
 	}
 	if (star444444CalcIn[6][1] > 0) {
-		document.getElementById("star444444TotalRankS").innerHTML  = 
-			star444444CalcOut[6][1] + "<br>" + "(+" + (star444444CalcOut[6][1] - star444444CalcIn[6][1]) + ")";
+		var tmpStr = star444444CalcOut[6][1] + "<br>" + "(+" + (star444444CalcOut[6][1] - star444444CalcIn[6][1]) + ")";
+		$("#star444444TotalRankS").html(tmpStr);
 	}
 	if (star444444CalcIn[6][2] > 0) {
-		document.getElementById("star444444TotalRankA").innerHTML  = 
-			star444444CalcOut[6][2] + "<br>" + "(+" + (star444444CalcOut[6][2] - star444444CalcIn[6][2]) + ")";
+		var tmpStr = star444444CalcOut[6][2] + "<br>" + "(+" + (star444444CalcOut[6][2] - star444444CalcIn[6][2]) + ")";
+		$("#star444444TotalRankA").html(tmpStr);
 	}
 	if (star444444CalcIn[6][3] > 0) {
-		document.getElementById("star444444TotalRankB").innerHTML  = 
-			star444444CalcOut[6][3] + "<br>" + "(+" + (star444444CalcOut[6][3] - star444444CalcIn[6][3]) + ")";
+		var tmpStr = star444444CalcOut[6][3] + "<br>" + "(+" + (star444444CalcOut[6][3] - star444444CalcIn[6][3]) + ")";
+		$("#star444444TotalRankB").html(tmpStr);
 	}
 	if (star444444CalcIn[6][4] > 0) {
-		document.getElementById("star444444TotalRankC").innerHTML  = 
-			star444444CalcOut[6][4] + "<br>" + "(+" + (star444444CalcOut[6][4] - star444444CalcIn[6][4]) + ")";
+		var tmpStr = star444444CalcOut[6][4] + "<br>" + "(+" + (star444444CalcOut[6][4] - star444444CalcIn[6][4]) + ")";
+		$("#star444444TotalRankC").html(tmpStr);
 	}
 	if (star444444CalcIn[6][5] > 0) {
-		document.getElementById("star444444TotalRankD").innerHTML  = 
-			star444444CalcOut[6][5] + "<br>" + "(+" + (star444444CalcOut[6][5] - star444444CalcIn[6][5]) + ")";
+		var tmpStr = star444444CalcOut[6][5] + "<br>" + "(+" + (star444444CalcOut[6][5] - star444444CalcIn[6][5]) + ")";
+		$("#star444444TotalRankD").html(tmpStr);
 	}
 	if (star444444CalcIn[6][6] > 0) {
-		document.getElementById("star444444TotalRankE").innerHTML  = 
-			star444444CalcOut[6][6] + "<br>" + "(+" + (star444444CalcOut[6][6] - star444444CalcIn[6][6]) + ")";
+		var tmpStr = star444444CalcOut[6][6] + "<br>" + "(+" + (star444444CalcOut[6][6] - star444444CalcIn[6][6]) + ")";
+		$("#star444444TotalRankE").html(tmpStr);
 	}
 	if (star444444CalcIn[6][7] > 0) {
-		document.getElementById("star444444TotalRankF").innerHTML  = 
-			star444444CalcOut[6][7] + "<br>" + "(+" + (star444444CalcOut[6][7] - star444444CalcIn[6][7]) + ")";
+		var tmpStr = star444444CalcOut[6][7] + "<br>" + "(+" + (star444444CalcOut[6][7] - star444444CalcIn[6][7]) + ")";
+		$("#star444444TotalRankF").html(tmpStr);
 	}
 }
 
@@ -582,57 +544,57 @@ function debugRankDorakie() {
 	var index;
 	var newLines = monster.monster.filter(function(item, index){
 		if((item.No) == 902){
-			document.getElementById("star444444HpRankA0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankA0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankA0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankA0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankA0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankA0").value = monster.monster[index].IN;
+			$("#star444444HpRankA0").val(monster.monster[index].HP);
+			$("#star444444MpRankA0").val(monster.monster[index].MP);
+			$("#star444444AtackRankA0").val(monster.monster[index].ST);
+			$("#star444444DefenRankA0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankA0").val(monster.monster[index].SP);
+			$("#star444444IntelRankA0").val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 901){
-			document.getElementById("star444444HpRankB0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankB0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankB0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankB0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankB0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankB0").value = monster.monster[index].IN;
+			$("#star444444HpRankB0").val(monster.monster[index].HP);
+			$("#star444444MpRankB0").val(monster.monster[index].MP);
+			$("#star444444AtackRankB0").val(monster.monster[index].ST);
+			$("#star444444DefenRankB0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankB0").val(monster.monster[index].SP);
+			$("#star444444IntelRankB0").val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 850){
-			document.getElementById("star444444HpRankC0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankC0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankC0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankC0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankC0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankC0").value = monster.monster[index].IN;
+			$("#star444444HpRankC0").val(monster.monster[index].HP);
+			$("#star444444MpRankC0").val(monster.monster[index].MP);
+			$("#star444444AtackRankC0").val(monster.monster[index].ST);
+			$("#star444444DefenRankC0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankC0").val(monster.monster[index].SP);
+			$("#star444444IntelRankC0").val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 302){
-			document.getElementById("star444444HpRankD0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankD0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankD0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankD0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankD0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankD0").value = monster.monster[index].IN;
+			$("#star444444HpRankD0").val(monster.monster[index].HP);
+			$("#star444444MpRankD0").val(monster.monster[index].MP);
+			$("#star444444AtackRankD0").val(monster.monster[index].ST);
+			$("#star444444DefenRankD0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankD0").val(monster.monster[index].SP);
+			$("#star444444IntelRankD0").val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 322){
-			document.getElementById("star444444HpRankE0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankE0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankE0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankE0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankE0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankE0").value = monster.monster[index].IN;
+			$("#star444444HpRankE0").val(monster.monster[index].HP);
+			$("#star444444MpRankE0").val(monster.monster[index].MP);
+			$("#star444444AtackRankE0").val(monster.monster[index].ST);
+			$("#star444444DefenRankE0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankE0").val(monster.monster[index].SP);
+			$("#star444444IntelRankE0").val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 301){
-			document.getElementById("star444444HpRankF0").value    = monster.monster[index].HP;
-			document.getElementById("star444444MpRankF0").value    = monster.monster[index].MP;
-			document.getElementById("star444444AtackRankF0").value = monster.monster[index].ST;
-			document.getElementById("star444444DefenRankF0").value = monster.monster[index].DF;
-			document.getElementById("star444444SpeedRankF0").value = monster.monster[index].SP;
-			document.getElementById("star444444IntelRankF0").value = monster.monster[index].IN;
+			$("#star444444HpRankF0").val(monster.monster[index].HP);
+			$("#star444444MpRankF0").val(monster.monster[index].MP);
+			$("#star444444AtackRankF0").val(monster.monster[index].ST);
+			$("#star444444DefenRankF0").val(monster.monster[index].DF);
+			$("#star444444SpeedRankF0").val(monster.monster[index].SP);
+			$("#star444444IntelRankF0").val(monster.monster[index].IN);
 			return true;
 		}
 	});
