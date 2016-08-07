@@ -1,4 +1,4 @@
-var monsterData = '{"monster": [' +
+var monsterJson = '{"monster": [' +
 '{"No":301, "rank":"F", "name":"ドラキー",      "HP":53, "MP":23, "ST":56, "DF":56, "SP":77, "IN":53,"next":322,"prev":0},' +
 '{"No":322, "rank":"E", "name":"ドラキーマ",    "HP":83, "MP":46, "ST":58, "DF":53, "SP":86, "IN":71,"next":302,"prev":301},' +
 '{"No":302, "rank":"D", "name":"タホドラキー",  "HP":147,"MP":94, "ST":138,"DF":125,"SP":150,"IN":133,"next":850,"prev":322},' +

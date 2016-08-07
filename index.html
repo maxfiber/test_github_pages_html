@@ -39,7 +39,7 @@ body {
   z-index: 5;
 }
 </style>
-
+<script type="text/javascript" src="./external/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="./monster.js"></script>
 
 <script>
@@ -549,50 +549,75 @@ function calc_444444() {
 }
 
 function debug_dorakie() {
-	var obj = JSON.parse(monsterData);
-
-	document.getElementById("hp_star444444_a0").value    = obj.monster[5].HP;
-	document.getElementById("mp_star444444_a0").value    = obj.monster[5].MP;
-	document.getElementById("atack_star444444_a0").value = obj.monster[5].ST;
-	document.getElementById("defen_star444444_a0").value = obj.monster[5].DF;
-	document.getElementById("speed_star444444_a0").value = obj.monster[5].SP;
-	document.getElementById("intel_star444444_a0").value = obj.monster[5].IN;
-
-	document.getElementById("hp_star444444_b0").value    = obj.monster[4].HP;
-	document.getElementById("mp_star444444_b0").value    = obj.monster[4].MP;
-	document.getElementById("atack_star444444_b0").value = obj.monster[4].ST;
-	document.getElementById("defen_star444444_b0").value = obj.monster[4].DF;
-	document.getElementById("speed_star444444_b0").value = obj.monster[4].SP;
-	document.getElementById("intel_star444444_b0").value = obj.monster[4].IN;
-
-	document.getElementById("hp_star444444_c0").value    = obj.monster[3].HP;
-	document.getElementById("mp_star444444_c0").value    = obj.monster[3].MP;
-	document.getElementById("atack_star444444_c0").value = obj.monster[3].ST;
-	document.getElementById("defen_star444444_c0").value = obj.monster[3].DF;
-	document.getElementById("speed_star444444_c0").value = obj.monster[3].SP;
-	document.getElementById("intel_star444444_c0").value = obj.monster[3].IN;
-
-	document.getElementById("hp_star444444_d0").value    = obj.monster[2].HP;
-	document.getElementById("mp_star444444_d0").value    = obj.monster[2].MP;
-	document.getElementById("atack_star444444_d0").value = obj.monster[2].ST;
-	document.getElementById("defen_star444444_d0").value = obj.monster[2].DF;
-	document.getElementById("speed_star444444_d0").value = obj.monster[2].SP;
-	document.getElementById("intel_star444444_d0").value = obj.monster[2].IN;
-
-	document.getElementById("hp_star444444_e0").value    = obj.monster[1].HP;
-	document.getElementById("mp_star444444_e0").value    = obj.monster[1].MP;
-	document.getElementById("atack_star444444_e0").value = obj.monster[1].ST;
-	document.getElementById("defen_star444444_e0").value = obj.monster[1].DF;
-	document.getElementById("speed_star444444_e0").value = obj.monster[1].SP;
-	document.getElementById("intel_star444444_e0").value = obj.monster[1].IN;
-
-	document.getElementById("hp_star444444_f0").value    = obj.monster[0].HP;
-	document.getElementById("mp_star444444_f0").value    = obj.monster[0].MP;
-	document.getElementById("atack_star444444_f0").value = obj.monster[0].ST;
-	document.getElementById("defen_star444444_f0").value = obj.monster[0].DF;
-	document.getElementById("speed_star444444_f0").value = obj.monster[0].SP;
-	document.getElementById("intel_star444444_f0").value = obj.monster[0].IN;
+	var monster = $.parseJSON(monsterJson);
+	var index;
+	var newLines = monster.monster.filter(function(item, index){
+		if((item.No) == 902){
+			document.getElementById("hp_star444444_a0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_a0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_a0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_a0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_a0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_a0").value = monster.monster[index].IN;
+			return true;
+		}
+		if((item.No) == 901){
+			document.getElementById("hp_star444444_b0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_b0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_b0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_b0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_b0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_b0").value = monster.monster[index].IN;
+			return true;
+		}
+		if((item.No) == 850){
+			document.getElementById("hp_star444444_c0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_c0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_c0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_c0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_c0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_c0").value = monster.monster[index].IN;
+			return true;
+		}
+		if((item.No) == 302){
+			document.getElementById("hp_star444444_d0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_d0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_d0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_d0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_d0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_d0").value = monster.monster[index].IN;
+			return true;
+		}
+		if((item.No) == 322){
+			document.getElementById("hp_star444444_e0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_e0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_e0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_e0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_e0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_e0").value = monster.monster[index].IN;
+			return true;
+		}
+		if((item.No) == 301){
+			document.getElementById("hp_star444444_f0").value    = monster.monster[index].HP;
+			document.getElementById("mp_star444444_f0").value    = monster.monster[index].MP;
+			document.getElementById("atack_star444444_f0").value = monster.monster[index].ST;
+			document.getElementById("defen_star444444_f0").value = monster.monster[index].DF;
+			document.getElementById("speed_star444444_f0").value = monster.monster[index].SP;
+			document.getElementById("intel_star444444_f0").value = monster.monster[index].IN;
+			return true;
+		}
+	});
 }
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+//	alert(1);
+});
+
+
+
+
 </script>
 <body>
 <div id="alpha">
@@ -863,7 +888,9 @@ function debug_dorakie() {
 
 <br>
 <!-- admax -->
+<!--
 <script src="http://adm.shinobi.jp/s/26e0d2b694e8fea433234a666dc01334"></script>
+-->
 <!-- admax -->
 
 </div><!-- id="alpha" -->
