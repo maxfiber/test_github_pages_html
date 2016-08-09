@@ -127,6 +127,7 @@ function calcPowerupStar44(base0, before4, before0) {
 
 // ☆4シミュレータ合計値計算
 function showStar4StatusTotal() {
+	// get
 	// to number. avoid string.
 	for (var i = 0; i < 6; i++) {
 		if (!parseInt(star4Calc[i][0] > 0)) star4Calc[i][0] = Number(0);
@@ -139,21 +140,14 @@ function showStar4StatusTotal() {
 	star4Calc[4][0] = Number($("#star4Speed0").val());
 	star4Calc[5][0] = Number($("#star4Intel0").val());
 
-	star4Calc[6][0] = Number(star4Calc[0][0]) + Number(star4Calc[1][0])
-					+ Number(star4Calc[2][0]) + Number(star4Calc[3][0])
-					+ Number(star4Calc[4][0]) + Number(star4Calc[5][0]); // total star0
-	star4Calc[6][1] = Number(star4Calc[0][1]) + Number(star4Calc[1][1])
-					+ Number(star4Calc[2][1]) + Number(star4Calc[3][1])
-					+ Number(star4Calc[4][1]) + Number(star4Calc[5][1]); // total star1
-	star4Calc[6][2] = Number(star4Calc[0][2]) + Number(star4Calc[1][2])
-					+ Number(star4Calc[2][2]) + Number(star4Calc[3][2])
-					+ Number(star4Calc[4][2]) + Number(star4Calc[5][2]); // total star2
-	star4Calc[6][3] = Number(star4Calc[0][3]) + Number(star4Calc[1][3])
-					+ Number(star4Calc[2][3]) + Number(star4Calc[3][3])
-					+ Number(star4Calc[4][3]) + Number(star4Calc[5][3]); // total star3
-	star4Calc[6][4] = Number(star4Calc[0][4]) + Number(star4Calc[1][4])
-					+ Number(star4Calc[2][4]) + Number(star4Calc[3][4])
-					+ Number(star4Calc[4][4]) + Number(star4Calc[5][4]); // total star4
+	// calc
+	for (var i = 0; i < 6; i++) {
+		star4Calc[6][0] += star4Calc[0 + i][0]; // star0 total
+		star4Calc[6][1] += star4Calc[0 + i][1]; // star1 total
+		star4Calc[6][2] += star4Calc[0 + i][2]; // star2 total
+		star4Calc[6][3] += star4Calc[0 + i][3]; // star3 total
+		star4Calc[6][4] += star4Calc[0 + i][4]; // star4 total
+	}
 
 	// show
 	// ☆0
