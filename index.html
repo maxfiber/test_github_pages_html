@@ -310,15 +310,11 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[0][7] > 0) $("#star444444HpRankF").html(star444444CalcOut[0][7]);
-	if (star444444CalcIn[0][6] > 0) $("#star444444HpRankE").html(star444444CalcOut[0][6]);
-	if (star444444CalcIn[0][5] > 0) $("#star444444HpRankD").html(star444444CalcOut[0][5]);
-	if (star444444CalcIn[0][4] > 0) $("#star444444HpRankC").html(star444444CalcOut[0][4]);
-	if (star444444CalcIn[0][3] > 0) $("#star444444HpRankB").html(star444444CalcOut[0][3]);
-	if (star444444CalcIn[0][2] > 0) $("#star444444HpRankA").html(star444444CalcOut[0][2]);
-	if (star444444CalcIn[0][1] > 0) $("#star444444HpRankS").html(star444444CalcOut[0][1]);
-	if (star444444CalcIn[0][0] > 0) $("#star444444HpRankSS").html(star444444CalcOut[0][0]);
-
+	var td;
+	td = $("#star444444HpOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[0][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[0][0 + i]);
+	}
 
 	// for MP
 	// get
@@ -338,14 +334,10 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[1][7] > 0) $("#star444444MpRankF").html(star444444CalcOut[1][7]);
-	if (star444444CalcIn[1][6] > 0) $("#star444444MpRankE").html(star444444CalcOut[1][6]);
-	if (star444444CalcIn[1][5] > 0) $("#star444444MpRankD").html(star444444CalcOut[1][5]);
-	if (star444444CalcIn[1][4] > 0) $("#star444444MpRankC").html(star444444CalcOut[1][4]);
-	if (star444444CalcIn[1][3] > 0) $("#star444444MpRankB").html(star444444CalcOut[1][3]);
-	if (star444444CalcIn[1][2] > 0) $("#star444444MpRankA").html(star444444CalcOut[1][2]);
-	if (star444444CalcIn[1][1] > 0) $("#star444444MpRankS").html(star444444CalcOut[1][1]);
-	if (star444444CalcIn[1][0] > 0) $("#star444444MpRankSS").html(star444444CalcOut[1][0]);
+	td = $("#star444444MpOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[1][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[1][0 + i]);
+	}
 
 
 	// for atack
@@ -366,14 +358,10 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[2][7] > 0) $("#star444444AtackRankF").html(star444444CalcOut[2][7]);
-	if (star444444CalcIn[2][6] > 0) $("#star444444AtackRankE").html(star444444CalcOut[2][6]);
-	if (star444444CalcIn[2][5] > 0) $("#star444444AtackRankD").html(star444444CalcOut[2][5]);
-	if (star444444CalcIn[2][4] > 0) $("#star444444AtackRankC").html(star444444CalcOut[2][4]);
-	if (star444444CalcIn[2][3] > 0) $("#star444444AtackRankB").html(star444444CalcOut[2][3]);
-	if (star444444CalcIn[2][2] > 0) $("#star444444AtackRankA").html(star444444CalcOut[2][2]);
-	if (star444444CalcIn[2][1] > 0) $("#star444444AtackRankS").html(star444444CalcOut[2][1]);
-	if (star444444CalcIn[2][0] > 0) $("#star444444AtackRankSS").html(star444444CalcOut[2][0]);
+	td = $("#star444444AtackOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[2][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[2][0 + i]);
+	}
 
 
 	// for defen
@@ -394,14 +382,10 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[3][7] > 0) $("#star444444DefenRankF").html(star444444CalcOut[3][7]);
-	if (star444444CalcIn[3][6] > 0) $("#star444444DefenRankE").html(star444444CalcOut[3][6]);
-	if (star444444CalcIn[3][5] > 0) $("#star444444DefenRankD").html(star444444CalcOut[3][5]);
-	if (star444444CalcIn[3][4] > 0) $("#star444444DefenRankC").html(star444444CalcOut[3][4]);
-	if (star444444CalcIn[3][3] > 0) $("#star444444DefenRankB").html(star444444CalcOut[3][3]);
-	if (star444444CalcIn[3][2] > 0) $("#star444444DefenRankA").html(star444444CalcOut[3][2]);
-	if (star444444CalcIn[3][1] > 0) $("#star444444DefenRankS").html(star444444CalcOut[3][1]);
-	if (star444444CalcIn[3][0] > 0) $("#star444444DefenRankSS").html(star444444CalcOut[3][0]);
+	td = $("#star444444DefenOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[3][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[3][0 + i]);
+	}
 
 
 	// for speed
@@ -422,14 +406,10 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[4][7] > 0) $("#star444444SpeedRankF").html(star444444CalcOut[4][7]);
-	if (star444444CalcIn[4][6] > 0) $("#star444444SpeedRankE").html(star444444CalcOut[4][6]);
-	if (star444444CalcIn[4][5] > 0) $("#star444444SpeedRankD").html(star444444CalcOut[4][5]);
-	if (star444444CalcIn[4][4] > 0) $("#star444444SpeedRankC").html(star444444CalcOut[4][4]);
-	if (star444444CalcIn[4][3] > 0) $("#star444444SpeedRankB").html(star444444CalcOut[4][3]);
-	if (star444444CalcIn[4][2] > 0) $("#star444444SpeedRankA").html(star444444CalcOut[4][2]);
-	if (star444444CalcIn[4][1] > 0) $("#star444444SpeedRankS").html(star444444CalcOut[4][1]);
-	if (star444444CalcIn[4][0] > 0) $("#star444444SpeedRankSS").html(star444444CalcOut[4][0]);
+	td = $("#star444444SpeedOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[4][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[4][0 + i]);
+	}
 
 
 	// for intel
@@ -450,25 +430,14 @@ function calc_444444() {
 	}
 
 	// show
-	if (star444444CalcIn[5][7] > 0) $("#star444444IntelRankF").html(star444444CalcOut[5][7]);
-	if (star444444CalcIn[5][6] > 0) $("#star444444IntelRankE").html(star444444CalcOut[5][6]);
-	if (star444444CalcIn[5][5] > 0) $("#star444444IntelRankD").html(star444444CalcOut[5][5]);
-	if (star444444CalcIn[5][4] > 0) $("#star444444IntelRankC").html(star444444CalcOut[5][4]);
-	if (star444444CalcIn[5][3] > 0) $("#star444444IntelRankB").html(star444444CalcOut[5][3]);
-	if (star444444CalcIn[5][2] > 0) $("#star444444IntelRankA").html(star444444CalcOut[5][2]);
-	if (star444444CalcIn[5][1] > 0) $("#star444444IntelRankS").html(star444444CalcOut[5][1]);
-	if (star444444CalcIn[5][0] > 0) $("#star444444IntelRankSS").html(star444444CalcOut[5][0]);
-
-
-
-	//  for total
-/*
-	for (var j = 0; j < 7; j++) {
-		for (var i = 0; i < 7; i++) {
-			star444444CalcOut[6][j] += star444444CalcOut[i + 1][j];
-		}
+	td = $("#star444444IntelOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[5][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[5][0 + i]);
 	}
-*/
+
+
+	// total
+/	// calc
 	for (var i = 0; i < 6; i++) {
 		// ☆0の合計値計算
 		star444444CalcIn[6][7] += Number(star444444CalcIn[i][7]); //  F[total] +=  F[*]
@@ -493,49 +462,19 @@ function calc_444444() {
 
 	// show
 	// ☆4の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	if (star444444CalcIn[6][7] > 0) $("#star444444TotalRankF0").html(star444444CalcIn[6][7]);
-	if (star444444CalcIn[6][6] > 0) $("#star444444TotalRankE0").html(star444444CalcIn[6][6]);
-	if (star444444CalcIn[6][5] > 0) $("#star444444TotalRankD0").html(star444444CalcIn[6][5]);
-	if (star444444CalcIn[6][4] > 0) $("#star444444TotalRankC0").html(star444444CalcIn[6][4]);
-	if (star444444CalcIn[6][3] > 0) $("#star444444TotalRankB0").html(star444444CalcIn[6][3]);
-	if (star444444CalcIn[6][2] > 0) $("#star444444TotalRankA0").html(star444444CalcIn[6][2]);
-	if (star444444CalcIn[6][1] > 0) $("#star444444TotalRankS0").html(star444444CalcIn[6][1]);
-	if (star444444CalcIn[6][0] > 0) $("#star444444TotalRankSS0").html(star444444CalcIn[6][0]);
+	td = $("#star444444TotalIn").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		if (star444444CalcIn[6][0 + i] > 0) td.eq(0 + i).text(star444444CalcIn[6][0 + i]);
+	}
 
 	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	if (star444444CalcIn[6][7] > 0) {
-		var tmpStr = star444444CalcOut[6][7] + "<br>" + "(+" + (star444444CalcOut[6][7] - star444444CalcIn[6][7]) + ")";
-		$("#star444444TotalRankF").html(tmpStr);
-	}
-	if (star444444CalcIn[6][6] > 0) {
-		var tmpStr = star444444CalcOut[6][6] + "<br>" + "(+" + (star444444CalcOut[6][6] - star444444CalcIn[6][6]) + ")";
-		$("#star444444TotalRankE").html(tmpStr);
-	}
-	if (star444444CalcIn[6][5] > 0) {
-		var tmpStr = star444444CalcOut[6][5] + "<br>" + "(+" + (star444444CalcOut[6][5] - star444444CalcIn[6][5]) + ")";
-		$("#star444444TotalRankD").html(tmpStr);
-	}
-	if (star444444CalcIn[6][4] > 0) {
-		var tmpStr = star444444CalcOut[6][4] + "<br>" + "(+" + (star444444CalcOut[6][4] - star444444CalcIn[6][4]) + ")";
-		$("#star444444TotalRankC").html(tmpStr);
-	}
-	if (star444444CalcIn[6][3] > 0) {
-		var tmpStr = star444444CalcOut[6][3] + "<br>" + "(+" + (star444444CalcOut[6][3] - star444444CalcIn[6][3]) + ")";
-		$("#star444444TotalRankB").html(tmpStr);
-	}
-	if (star444444CalcIn[6][2] > 0) {
-		var tmpStr = star444444CalcOut[6][2] + "<br>" + "(+" + (star444444CalcOut[6][2] - star444444CalcIn[6][2]) + ")";
-		$("#star444444TotalRankA").html(tmpStr);
-	}
-	if (star444444CalcIn[6][1] > 0) {
-		var tmpStr = star444444CalcOut[6][1] + "<br>" + "(+" + (star444444CalcOut[6][1] - star444444CalcIn[6][1]) + ")";
-		$("#star444444TotalRankS").html(tmpStr);
-	}
-	if (star444444CalcIn[6][0] > 0) {
-		var tmpStr = star444444CalcOut[6][0] + "<br>" + "(+" + (star444444CalcOut[6][0] - star444444CalcIn[6][0]) + ")";
-		$("#star444444TotalRankSS").html(tmpStr);
+	td = $("#star444444TotalOut").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		var tmpStr = star444444CalcOut[6][0 + i] + "<br>" + "(+" + (star444444CalcOut[6][0 + i] - star444444CalcIn[6][0 + i]) + ")";
+		if (star444444CalcIn[6][0 + i] > 0) td.eq(0 + i).text(tmpStr);
 	}
 }
+
 
 function debugRankDorakie() {
 	var monster = $.parseJSON(monsterJson);
@@ -701,21 +640,22 @@ $(document).ready(function(){
 <div id="star444444">
 <table border>
 <tr>
-    <td>☆0ステ</td>
-    <td>SS</td>
-    <td>S</td>
-    <td>A</td>
-    <td>B</td>
-    <td>C</td>
-    <td>D</td>
-    <td>E</td>
-    <td>F</td>
+  <td>☆0ステ</td>
+  <td>SS</td>
+  <td>S</td>
+  <td>A</td>
+  <td>B</td>
+  <td>C</td>
+  <td>D</td>
+  <td>E</td>
+  <td>F</td>
 </tr>
 <tr>
 
 ☆0ステータスを入力してね！<br>
 全て入力しなくても良いよ！<br>
-    <td>HP</td>
+  <td>HP</td>
+  <div id="star444444HpIn">
     <td><input class="input" id="star444444HpRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444HpRankS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444HpRankA0" type="number" min="0" max="9999"></td>
@@ -724,9 +664,11 @@ $(document).ready(function(){
     <td><input class="input" id="star444444HpRankD0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444HpRankE0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444HpRankF0" type="number" min="0" max="9999"></td>
+  </div>
 </tr>
 <tr>
-    <td>MP</td>
+  <td>MP</td>
+  <div id="star444444MpIn">
     <td><input class="input" id="star444444MpRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankA0"  type="number" min="0" max="9999"></td>
@@ -735,9 +677,11 @@ $(document).ready(function(){
     <td><input class="input" id="star444444MpRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankF0"  type="number" min="0" max="9999"></td>
+  </div>
 </tr>
 <tr>
-    <td>攻撃力</td>
+  <td>攻撃力</td>
+  <div id="star444444AtackIn">
     <td><input class="input" id="star444444AtackRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankA0"  type="number" min="0" max="9999"></td>
@@ -746,9 +690,11 @@ $(document).ready(function(){
     <td><input class="input" id="star444444AtackRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankF0"  type="number" min="0" max="9999"></td>
+  </div>
 </tr>
 <tr>
-    <td>防御力</td>
+  <td>防御力</td>
+  <div id="star444444DefenIn">
     <td><input class="input" id="star444444DefenRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankA0"  type="number" min="0" max="9999"></td>
@@ -757,9 +703,11 @@ $(document).ready(function(){
     <td><input class="input" id="star444444DefenRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankF0"  type="number" min="0" max="9999"></td>
+  </div>
 </tr>
 <tr>
-    <td>素早さ</td>
+  <td>素早さ</td>
+  <div id="star444444SpeedIn">
     <td><input class="input" id="star444444SpeedRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankA0"  type="number" min="0" max="9999"></td>
@@ -768,9 +716,11 @@ $(document).ready(function(){
     <td><input class="input" id="star444444SpeedRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankF0"  type="number" min="0" max="9999"></td>
+  </div>
 </tr>
 <tr>
-    <td>賢さ</td>
+  <td>賢さ</td>
+  <div id="star444444IntelIn">
     <td><input class="input" id="star444444IntelRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankA0"  type="number" min="0" max="9999"></td>
@@ -779,8 +729,10 @@ $(document).ready(function(){
     <td><input class="input" id="star444444IntelRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankF0"  type="number" min="0" max="9999"></td>
+  </div>
 </tr>
-    <td>合計</td>
+  <td>合計</td>
+  <div id="star444444TotalIn">
     <td id="star444444TotalRankSS0"></td>
     <td id="star444444TotalRankS0"></td>
     <td id="star444444TotalRankA0"></td>
@@ -789,6 +741,7 @@ $(document).ready(function(){
     <td id="star444444TotalRankD0"></td>
     <td id="star444444TotalRankE0"></td>
     <td id="star444444TotalRankF0"></td>
+  </div>
 </tr>
 </table>
 
@@ -810,7 +763,8 @@ $(document).ready(function(){
     <td>F</td>
 </tr>
 <tr>
-    <td>HP</td>
+  <td>HP</td>
+  <div id="star444444HpOut">
     <td id="star444444HpRankSS">0</td>
     <td id="star444444HpRankS">0</td>
     <td id="star444444HpRankA">0</td>
@@ -819,9 +773,11 @@ $(document).ready(function(){
     <td id="star444444HpRankD">0</td>
     <td id="star444444HpRankE">0</td>
     <td id="star444444HpRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>MP</td>
+  <td>MP</td>
+  <div id="star444444MpOut">
     <td id="star444444MpRankSS">0</td>
     <td id="star444444MpRankS">0</td>
     <td id="star444444MpRankA">0</td>
@@ -830,9 +786,11 @@ $(document).ready(function(){
     <td id="star444444MpRankD">0</td>
     <td id="star444444MpRankE">0</td>
     <td id="star444444MpRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>攻撃力</td>
+  <td>攻撃力</td>
+  <div id="star444444AtackOut">
     <td id="star444444AtackRankSS">0</td>
     <td id="star444444AtackRankS">0</td>
     <td id="star444444AtackRankA">0</td>
@@ -841,9 +799,11 @@ $(document).ready(function(){
     <td id="star444444AtackRankD">0</td>
     <td id="star444444AtackRankE">0</td>
     <td id="star444444AtackRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>防御力</td>
+  <td>防御力</td>
+  <div id="star444444DefenOut">
     <td id="star444444DefenRankSS">0</td>
     <td id="star444444DefenRankS">0</td>
     <td id="star444444DefenRankA">0</td>
@@ -852,9 +812,11 @@ $(document).ready(function(){
     <td id="star444444DefenRankD">0</td>
     <td id="star444444DefenRankE">0</td>
     <td id="star444444DefenRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>素早さ</td>
+  <td>素早さ</td>
+  <div id="star444444SpeedOut">
     <td id="star444444SpeedRankSS">0</td>
     <td id="star444444SpeedRankS">0</td>
     <td id="star444444SpeedRankA">0</td>
@@ -863,9 +825,11 @@ $(document).ready(function(){
     <td id="star444444SpeedRankD">0</td>
     <td id="star444444SpeedRankE">0</td>
     <td id="star444444SpeedRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>賢さ</td>
+  <td>賢さ</td>
+  <div id="star444444IntelOut">
     <td id="star444444IntelRankSS">0</td>
     <td id="star444444IntelRankS">0</td>
     <td id="star444444IntelRankA">0</td>
@@ -874,9 +838,11 @@ $(document).ready(function(){
     <td id="star444444IntelRankD">0</td>
     <td id="star444444IntelRankE">0</td>
     <td id="star444444IntelRankF">0</td>
+  </div>
 </tr>
 <tr>
-    <td>合計</td>
+  <td>合計</td>
+  <div id="star444444TotalOut">
     <td id="star444444TotalRankSS">0</td>
     <td id="star444444TotalRankS">0</td>
     <td id="star444444TotalRankA">0</td>
@@ -885,6 +851,7 @@ $(document).ready(function(){
     <td id="star444444TotalRankD">0</td>
     <td id="star444444TotalRankE">0</td>
     <td id="star444444TotalRankF">0</td>
+  </div>
 </tr>
 </table>
 </div><!-- id="star444444" -->
