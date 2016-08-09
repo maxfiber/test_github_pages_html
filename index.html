@@ -155,21 +155,16 @@ function showStar4StatusTotal() {
 					+ Number(star4Calc[2][4]) + Number(star4Calc[3][4])
 					+ Number(star4Calc[4][4]) + Number(star4Calc[5][4]); // total star4
 
-	// show result
+	// show
+	// ☆0
 	$("#star4Total0").html(star4Calc[6][0]);
 
-	var tmpStr;
-	tmpStr = star4Calc[6][1] + "<br>(+" + Number(star4Calc[6][1] - star4Calc[6][0]) + ")";
-	$("#star4Total1").html(tmpStr);
-
-	tmpStr = star4Calc[6][2] + "<br>(+" + Number(star4Calc[6][2] - star4Calc[6][0]) + ")";
-	$("#star4Total2").html(tmpStr);
-
-	tmpStr = star4Calc[6][3] + "<br>(+" + Number(star4Calc[6][3] - star4Calc[6][0]) + ")";
-	$("#star4Total3").html(tmpStr);
-
-	tmpStr = star4Calc[6][4] + "<br>(+" + Number(star4Calc[6][4] - star4Calc[6][0]) + ")";
-	$("#star4Total4").html(tmpStr);
+	// ☆1 〜 ☆4
+	var td = $("#star4Total").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		var tmpStr = star4Calc[6][i + 1] + "<br>(+" + Number(star4Calc[6][i + 1] - star4Calc[6][i]) + ")";
+		td.eq(i + 1).text(tmpStr);
+	}
 }
 
 // ☆4シミュレータ：HP
@@ -185,20 +180,17 @@ function showStar4StatusHP() {
 	// show
 	var td = $("#star4Hp").children('td');
 	for (var i = 0, len = td.length; i < len; i++) {
-		td.eq(i + 2).text(star4Calc[0][i + 1]);
-		// eq(0) HP
-		// eq(1) ☆0
-		// eq(2) ☆1
-		// eq(3) ☆2
-		// eq(4) ☆3
-		// eq(5) ☆4
+		td.eq(i + 1).text(star4Calc[0][i + 1]);
+		// eq(0) ☆0
+		// eq(1) ☆1
+		// eq(2) ☆2
+		// eq(3) ☆3
+		// eq(4) ☆4
 	}
-
 //	$("#star4Hp1").html(star4Calc[0][1]);
 //	$("#star4Hp2").html(star4Calc[0][2]);
 //	$("#star4Hp3").html(star4Calc[0][3]);
 //	$("#star4Hp4").html(star4Calc[0][4]);
-
 	showStar4StatusTotal();
 }
 
@@ -213,10 +205,10 @@ function showStar4StatusMP() {
 	}
 
 	// show
-	$("#star4Mp1").html(star4Calc[1][1]);
-	$("#star4Mp2").html(star4Calc[1][2]);
-	$("#star4Mp3").html(star4Calc[1][3]);
-	$("#star4Mp4").html(star4Calc[1][4]);
+	var td = $("#star4Mp").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 1).text(star4Calc[1][i + 1]);
+	}
 	showStar4StatusTotal();
 }
 
@@ -231,10 +223,10 @@ function showStar4StatusAtack() {
 	}
 
 	// show
-	$("#star4Atack1").html(star4Calc[2][1]);
-	$("#star4Atack2").html(star4Calc[2][2]);
-	$("#star4Atack3").html(star4Calc[2][3]);
-	$("#star4Atack4").html(star4Calc[2][4]);
+	var td = $("#star4Atack").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 1).text(star4Calc[2][i + 1]);
+	}
 	showStar4StatusTotal();
 }
 
@@ -249,10 +241,10 @@ function showStar4StatusDefen() {
 	}
 
 	// show
-	$("#star4Defen1").html(star4Calc[3][1]);
-	$("#star4Defen2").html(star4Calc[3][2]);
-	$("#star4Defen3").html(star4Calc[3][3]);
-	$("#star4Defen4").html(star4Calc[3][4]);
+	var td = $("#star4Defen").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 1).text(star4Calc[3][i + 1]);
+	}
 	showStar4StatusTotal();
 }
 
@@ -267,10 +259,10 @@ function showStar4StatusSpeed() {
 	}
 
 	// show
-	$("#star4Speed1").html(star4Calc[4][1]);
-	$("#star4Speed2").html(star4Calc[4][2]);
-	$("#star4Speed3").html(star4Calc[4][3]);
-	$("#star4Speed4").html(star4Calc[4][4]);
+	var td = $("#star4Speed").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 1).text(star4Calc[4][i + 1]);
+	}
 	showStar4StatusTotal();
 }
 
@@ -285,12 +277,15 @@ function showStar4StatusIntel() {
 	}
 
 	// show
-	$("#star4Intel1").html(star4Calc[5][1]);
-	$("#star4Intel2").html(star4Calc[5][2]);
-	$("#star4Intel3").html(star4Calc[5][3]);
-	$("#star4Intel4").html(star4Calc[5][4]);
+	var td = $("#star4Intel").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 1).text(star4Calc[5][i + 1]);
+	}
 	showStar4StatusTotal();
 }
+
+
+
 
 // ☆444444シミュレータ
 function calc_444444() {
@@ -627,68 +622,82 @@ $(document).ready(function(){
 ☆0ステータスを入力してね！<br>
 <table border>
 <tr>
-    <td></td>
-    <td>☆0</td>
-    <td>☆1</td>
-    <td>☆2</td>
-    <td>☆3</td>
-    <td>☆4</td>
+  <td></td>
+  <td>☆0</td>
+  <td>☆1</td>
+  <td>☆2</td>
+  <td>☆3</td>
+  <td>☆4</td>
 </tr>
-<tr id="star4Hp">
-    <td>HP</td>
+<tr>
+  <td>HP</td>
+  <div id="star4Hp">
     <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
     <td id="star4Hp1">0</td>
     <td id="star4Hp2">0</td>
     <td id="star4Hp3">0</td>
     <td id="star4Hp4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>MP</td>
+  <td>MP</td>
+  <div id="star4Mp">
     <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
     <td id="star4Mp1">0</td>
     <td id="star4Mp2">0</td>
     <td id="star4Mp3">0</td>
     <td id="star4Mp4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>攻撃力</td>
+  <td>攻撃力</td>
+  <div id="star4Atack">
     <td><input class="input" id="star4Atack0" type="number" min="0" max="9999" onchange="showStar4StatusAtack();"></td>
     <td id="star4Atack1">0</td>
     <td id="star4Atack2">0</td>
     <td id="star4Atack3">0</td>
     <td id="star4Atack4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>防御力</td>
+  <td>防御力</td>
+  <div id="star4Defen">
     <td><input class="input" id="star4Defen0" type="number" min="0" max="9999" onchange="showStar4StatusDefen();"></td>
     <td id="star4Defen1">0</td>
     <td id="star4Defen2">0</td>
     <td id="star4Defen3">0</td>
     <td id="star4Defen4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>素早さ</td>
+  <td>素早さ</td>
+  <div id="star4Speed">
     <td><input class="input" id="star4Speed0" type="number" min="0" max="9999" onchange="showStar4StatusSpeed();"></td>
     <td id="star4Speed1">0</td>
     <td id="star4Speed2">0</td>
     <td id="star4Speed3">0</td>
     <td id="star4Speed4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>賢さ</td>
+  <td>賢さ</td>
+  <div id="star4Intel">
     <td><input class="input" id="star4Intel0" type="number" min="0" max="9999" onchange="showStar4StatusIntel();"></td>
     <td id="star4Intel1">0</td>
     <td id="star4Intel2">0</td>
     <td id="star4Intel3">0</td>
     <td id="star4Intel4">0</td>
+  </div>
 </tr>
 <tr>
-    <td>合計</td>
+  <td>合計</td>
+  <div id="star4Total">
     <td id="star4Total0">0</td>
     <td id="star4Total1">0</td>
     <td id="star4Total2">0</td>
     <td id="star4Total3">0</td>
     <td id="star4Total4">0</td>
+  </div>
 </tr>
 </table>
 
