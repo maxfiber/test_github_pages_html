@@ -183,10 +183,22 @@ function showStar4StatusHP() {
 	}
 
 	// show
-	$("#star4Hp1").html(star4Calc[0][1]);
-	$("#star4Hp2").html(star4Calc[0][2]);
-	$("#star4Hp3").html(star4Calc[0][3]);
-	$("#star4Hp4").html(star4Calc[0][4]);
+	var td = $("#star4Hp").children('td');
+	for (var i = 0, len = td.length; i < len; i++) {
+		td.eq(i + 2).text(star4Calc[0][i + 1]);
+		// eq(0) HP
+		// eq(1) ☆0
+		// eq(2) ☆1
+		// eq(3) ☆2
+		// eq(4) ☆3
+		// eq(5) ☆4
+	}
+
+//	$("#star4Hp1").html(star4Calc[0][1]);
+//	$("#star4Hp2").html(star4Calc[0][2]);
+//	$("#star4Hp3").html(star4Calc[0][3]);
+//	$("#star4Hp4").html(star4Calc[0][4]);
+
 	showStar4StatusTotal();
 }
 
@@ -622,7 +634,7 @@ $(document).ready(function(){
     <td>☆3</td>
     <td>☆4</td>
 </tr>
-<tr>
+<tr id="star4Hp">
     <td>HP</td>
     <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
     <td id="star4Hp1">0</td>
