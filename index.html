@@ -133,7 +133,7 @@ function showStar4StatusTotal() {
 	}
 
 	star4Calc[0][0] = Number($("#star4Hp0").val());
-	star4Calc[1][0] = Number($("#star4Mp").val());
+	star4Calc[1][0] = Number($("#star4Mp0").val());
 	star4Calc[2][0] = Number($("#star4Atack0").val());
 	star4Calc[3][0] = Number($("#star4Defen0").val());
 	star4Calc[4][0] = Number($("#star4Speed0").val());
@@ -205,7 +205,7 @@ function showStar4StatusHP() {
 // ☆4シミュレータ：MP
 function showStar4StatusMP() {
 	// get
-	star4Calc[1][0] = $("#star4Mp").val();
+	star4Calc[1][0] = $("#star4Mp0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -644,7 +644,7 @@ $(document).ready(function(){
 </tr>
 <tr>
     <td>MP</td>
-    <td><input class="input" id="star4Mp" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
+    <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
     <td id="star4Mp1">0</td>
     <td id="star4Mp2">0</td>
     <td id="star4Mp3">0</td>
