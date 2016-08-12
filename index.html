@@ -302,8 +302,15 @@ function calc_444444() {
 		}
 	}
 
+	var td;
+
 	// for HP
 	// get
+	td = $("#star444444HpIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[0][i] = td.eq(1 + i).children().val();
+	}
+/*
 	star444444CalcIn[0][7] = $("#star444444HpRankF0").val();
 	star444444CalcIn[0][6] = $("#star444444HpRankE0").val();
 	star444444CalcIn[0][5] = $("#star444444HpRankD0").val();
@@ -312,31 +319,26 @@ function calc_444444() {
 	star444444CalcIn[0][2] = $("#star444444HpRankA0").val();
 	star444444CalcIn[0][1] = $("#star444444HpRankS0").val();
 	star444444CalcIn[0][0] = $("#star444444HpRankSS0").val();
+*/
 
 	// calc
 	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
-
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[0][6-i] = calcPowerupStar44(star444444CalcIn[0][6-i], star444444CalcOut[0][7-i], star444444CalcIn[0][7-i]);
 	}
 
 	// show
-	var td;
-	td = $("#star444444HpOut").children('td');
+	td = $("#star444444HpOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[0][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[0][0 + i]);
+		if (star444444CalcIn[0][i] > 0) td.eq(1 + i).html(star444444CalcOut[0][i]);
 	}
 
 	// for MP
 	// get
-	star444444CalcIn[1][7] = $("#star444444MpRankF0").val();
-	star444444CalcIn[1][6] = $("#star444444MpRankE0").val();
-	star444444CalcIn[1][5] = $("#star444444MpRankD0").val();
-	star444444CalcIn[1][4] = $("#star444444MpRankC0").val();
-	star444444CalcIn[1][3] = $("#star444444MpRankB0").val();
-	star444444CalcIn[1][2] = $("#star444444MpRankA0").val();
-	star444444CalcIn[1][1] = $("#star444444MpRankS0").val();
-	star444444CalcIn[1][0] = $("#star444444MpRankSS0").val();
+	td = $("#star444444MpIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[1][i] = td.eq(1 + i).children().val();
+	}
 
 	// calc
 	star444444CalcOut[1][7] = calcPowerupStar4(star444444CalcIn[1][7]);
@@ -345,22 +347,18 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444MpOut").children('td');
+	td = $("#star444444MpOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[1][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[1][0 + i]);
+		if (star444444CalcIn[1][i] > 0) td.eq(1 + i).html(star444444CalcOut[1][i]);
 	}
 
 
 	// for atack
 	// get
-	star444444CalcIn[2][7] = $("#star444444AtackRankF0").val();
-	star444444CalcIn[2][6] = $("#star444444AtackRankE0").val();
-	star444444CalcIn[2][5] = $("#star444444AtackRankD0").val();
-	star444444CalcIn[2][4] = $("#star444444AtackRankC0").val();
-	star444444CalcIn[2][3] = $("#star444444AtackRankB0").val();
-	star444444CalcIn[2][2] = $("#star444444AtackRankA0").val();
-	star444444CalcIn[2][1] = $("#star444444AtackRankS0").val();
-	star444444CalcIn[2][0] = $("#star444444AtackRankSS0").val();
+	td = $("#star444444AtackIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[2][i] = td.eq(1 + i).children().val();
+	}
 
 	// calc
 	star444444CalcOut[2][7] = calcPowerupStar4(star444444CalcIn[2][7]);
@@ -369,22 +367,17 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444AtackOut").children('td');
+	td = $("#star444444AtackOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[2][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[2][0 + i]);
+		if (star444444CalcIn[2][i] > 0) td.eq(1 + i).html(star444444CalcOut[2][i]);
 	}
-
 
 	// for defen
 	// get
-	star444444CalcIn[3][7] = $("#star444444DefenRankF0").val();
-	star444444CalcIn[3][6] = $("#star444444DefenRankE0").val();
-	star444444CalcIn[3][5] = $("#star444444DefenRankD0").val();
-	star444444CalcIn[3][4] = $("#star444444DefenRankC0").val();
-	star444444CalcIn[3][3] = $("#star444444DefenRankB0").val();
-	star444444CalcIn[3][2] = $("#star444444DefenRankA0").val();
-	star444444CalcIn[3][1] = $("#star444444DefenRankS0").val();
-	star444444CalcIn[3][0] = $("#star444444DefenRankSS0").val();
+	td = $("#star444444DefenIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[3][i] = td.eq(1 + i).children().val();
+	}
 
 	// calc
 	star444444CalcOut[3][7] = calcPowerupStar4(star444444CalcIn[3][7]);
@@ -393,22 +386,17 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444DefenOut").children('td');
+	td = $("#star444444DefenOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[3][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[3][0 + i]);
+		if (star444444CalcIn[3][i] > 0) td.eq(1 + i).html(star444444CalcOut[3][i]);
 	}
-
 
 	// for speed
 	// get
-	star444444CalcIn[4][7] = $("#star444444SpeedRankF0").val();
-	star444444CalcIn[4][6] = $("#star444444SpeedRankE0").val();
-	star444444CalcIn[4][5] = $("#star444444SpeedRankD0").val();
-	star444444CalcIn[4][4] = $("#star444444SpeedRankC0").val();
-	star444444CalcIn[4][3] = $("#star444444SpeedRankB0").val();
-	star444444CalcIn[4][2] = $("#star444444SpeedRankA0").val();
-	star444444CalcIn[4][1] = $("#star444444SpeedRankS0").val();
-	star444444CalcIn[4][0] = $("#star444444SpeedRankSS0").val();
+	td = $("#star444444SpeedIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[4][i] = td.eq(1 + i).children().val();
+	}
 
 	// calc
 	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
@@ -417,22 +405,17 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444SpeedOut").children('td');
+	td = $("#star444444SpeedOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[4][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[4][0 + i]);
+		if (star444444CalcIn[4][i] > 0) td.eq(1 + i).html(star444444CalcOut[4][i]);
 	}
-
 
 	// for intel
 	// get
-	star444444CalcIn[5][7] = $("#star444444IntelRankF0").val();
-	star444444CalcIn[5][6] = $("#star444444IntelRankE0").val();
-	star444444CalcIn[5][5] = $("#star444444IntelRankD0").val();
-	star444444CalcIn[5][4] = $("#star444444IntelRankC0").val();
-	star444444CalcIn[5][3] = $("#star444444IntelRankB0").val();
-	star444444CalcIn[5][2] = $("#star444444IntelRankA0").val();
-	star444444CalcIn[5][1] = $("#star444444IntelRankS0").val();
-	star444444CalcIn[5][0] = $("#star444444IntelRankSS0").val();
+	td = $("#star444444IntelIn td");
+	for (var i = 0; i < 8; i++) {
+		star444444CalcIn[5][i] = td.eq(1 + i).children().val();
+	}
 
 	// calc
 	star444444CalcOut[5][7] = calcPowerupStar4(star444444CalcIn[5][7]);
@@ -441,11 +424,10 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444IntelOut").children('td');
+	td = $("#star444444IntelOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[5][0 + i] > 0) td.eq(0 + i).text(star444444CalcOut[5][0 + i]);
+		if (star444444CalcIn[5][i] > 0) td.eq(1 + i).html(star444444CalcOut[5][i]);
 	}
-
 
 	// total
 	// calc
@@ -461,28 +443,28 @@ function calc_444444() {
 		star444444CalcIn[6][0] += Number(star444444CalcIn[i][0]); // SS[total] += SS[*]
 
 		// ☆4~444444の合計値計算
-		star444444CalcOut[6][7] += star444444CalcOut[i][7]; //  F[total] +=  F[*]
-		star444444CalcOut[6][6] += star444444CalcOut[i][6]; //  E[total] +=  E[*]
-		star444444CalcOut[6][5] += star444444CalcOut[i][5]; //  D[total] +=  D[*]
-		star444444CalcOut[6][4] += star444444CalcOut[i][4]; //  C[total] +=  C[*]
-		star444444CalcOut[6][3] += star444444CalcOut[i][3]; //  B[total] +=  B[*]
-		star444444CalcOut[6][2] += star444444CalcOut[i][2]; //  A[total] +=  A[*]
-		star444444CalcOut[6][1] += star444444CalcOut[i][1]; //  S[total] +=  S[*]
-		star444444CalcOut[6][0] += star444444CalcOut[i][0]; // SS[total] += SS[*]
+		star444444CalcOut[6][7] += star444444CalcOut[i][7];       //  F[total] +=  F[*]
+		star444444CalcOut[6][6] += star444444CalcOut[i][6];       //  E[total] +=  E[*]
+		star444444CalcOut[6][5] += star444444CalcOut[i][5];       //  D[total] +=  D[*]
+		star444444CalcOut[6][4] += star444444CalcOut[i][4];       //  C[total] +=  C[*]
+		star444444CalcOut[6][3] += star444444CalcOut[i][3];       //  B[total] +=  B[*]
+		star444444CalcOut[6][2] += star444444CalcOut[i][2];       //  A[total] +=  A[*]
+		star444444CalcOut[6][1] += star444444CalcOut[i][1];       //  S[total] +=  S[*]
+		star444444CalcOut[6][0] += star444444CalcOut[i][0];       // SS[total] += SS[*]
 	}
 
 	// show
-	// ☆4の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	td = $("#star444444TotalIn").children('td');
+	// ☆0の合計値表示。ランク毎に入力されている場合のみ結果を表示
+	td = $("#star444444TotalIn td");
 	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[6][0 + i] > 0) td.eq(0 + i).text(star444444CalcIn[6][0 + i]);
+		if (star444444CalcIn[6][i] > 0) td.eq(1 + i).text(star444444CalcIn[6][i]);
 	}
 
 	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
-	td = $("#star444444TotalOut").children('td');
+	td = $("#star444444TotalOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		var tmpStr = star444444CalcOut[6][0 + i] + "<br>" + "(+" + (star444444CalcOut[6][0 + i] - star444444CalcIn[6][0 + i]) + ")";
-		if (star444444CalcIn[6][0 + i] > 0) td.eq(0 + i).text(tmpStr);
+		if (star444444CalcIn[6][0 + i] > 0) td.eq(1 + i).html(tmpStr);
 	}
 }
 
@@ -635,6 +617,8 @@ $(document).ready(function(){
 <!--<button onclick="showRankStar444444()">☆44～☆444444まで広げる！</button> -->
 <h3>☆4～444444ステータスシミュレータ</h3>
 <div id="star444444">
+☆0ステータスを入力してね！<br>
+全て入力しなくても良いよ！<br>
 <table border>
 <tr>
   <td>☆0ステ</td>
@@ -647,25 +631,19 @@ $(document).ready(function(){
   <td>E</td>
   <td>F</td>
 </tr>
-<tr>
-
-☆0ステータスを入力してね！<br>
-全て入力しなくても良いよ！<br>
+<tr id="star444444HpIn">
   <td>HP</td>
-  <div id="star444444HpIn">
-    <td><input class="input" id="star444444HpRankSS0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankS0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankA0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankB0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankC0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankD0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankE0" type="number" min="0" max="9999"></td>
-    <td><input class="input" id="star444444HpRankF0" type="number" min="0" max="9999"></td>
-  </div>
+  <td><input class="input" id="star444444HpRankSS0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankS0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankA0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankB0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankC0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankD0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankE0" type="number" min="0" max="9999"></td>
+  <td><input class="input" id="star444444HpRankF0" type="number" min="0" max="9999"></td>
 </tr>
-<tr>
+<tr id="star444444MpIn">
   <td>MP</td>
-  <div id="star444444MpIn">
     <td><input class="input" id="star444444MpRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankA0"  type="number" min="0" max="9999"></td>
@@ -674,11 +652,9 @@ $(document).ready(function(){
     <td><input class="input" id="star444444MpRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444MpRankF0"  type="number" min="0" max="9999"></td>
-  </div>
 </tr>
-<tr>
+<tr id="star444444AtackIn">
   <td>攻撃力</td>
-  <div id="star444444AtackIn">
     <td><input class="input" id="star444444AtackRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankA0"  type="number" min="0" max="9999"></td>
@@ -687,11 +663,9 @@ $(document).ready(function(){
     <td><input class="input" id="star444444AtackRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444AtackRankF0"  type="number" min="0" max="9999"></td>
-  </div>
 </tr>
-<tr>
+<tr id="star444444DefenIn">
   <td>防御力</td>
-  <div id="star444444DefenIn">
     <td><input class="input" id="star444444DefenRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankA0"  type="number" min="0" max="9999"></td>
@@ -700,11 +674,9 @@ $(document).ready(function(){
     <td><input class="input" id="star444444DefenRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444DefenRankF0"  type="number" min="0" max="9999"></td>
-  </div>
 </tr>
-<tr>
+<tr id="star444444SpeedIn">
   <td>素早さ</td>
-  <div id="star444444SpeedIn">
     <td><input class="input" id="star444444SpeedRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankA0"  type="number" min="0" max="9999"></td>
@@ -713,11 +685,9 @@ $(document).ready(function(){
     <td><input class="input" id="star444444SpeedRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444SpeedRankF0"  type="number" min="0" max="9999"></td>
-  </div>
 </tr>
-<tr>
+<tr id="star444444IntelIn">
   <td>賢さ</td>
-  <div id="star444444IntelIn">
     <td><input class="input" id="star444444IntelRankSS0" type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankS0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankA0"  type="number" min="0" max="9999"></td>
@@ -726,10 +696,9 @@ $(document).ready(function(){
     <td><input class="input" id="star444444IntelRankD0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankE0"  type="number" min="0" max="9999"></td>
     <td><input class="input" id="star444444IntelRankF0"  type="number" min="0" max="9999"></td>
-  </div>
 </tr>
+<tr id="star444444TotalIn">
   <td>合計</td>
-  <div id="star444444TotalIn">
     <td id="star444444TotalRankSS0"></td>
     <td id="star444444TotalRankS0"></td>
     <td id="star444444TotalRankA0"></td>
@@ -738,7 +707,6 @@ $(document).ready(function(){
     <td id="star444444TotalRankD0"></td>
     <td id="star444444TotalRankE0"></td>
     <td id="star444444TotalRankF0"></td>
-  </div>
 </tr>
 </table>
 
@@ -749,106 +717,92 @@ $(document).ready(function(){
 
 <table border>
 <tr>
-    <td>☆4～444444</td>
-    <td>SS</td>
-    <td>S</td>
-    <td>A</td>
-    <td>B</td>
-    <td>C</td>
-    <td>D</td>
-    <td>E</td>
-    <td>F</td>
+  <td>☆4～444444</td>
+  <td>SS</td>
+  <td>S</td>
+  <td>A</td>
+  <td>B</td>
+  <td>C</td>
+  <td>D</td>
+  <td>E</td>
+  <td>F</td>
 </tr>
-<tr>
+<tr id="star444444HpOut">
   <td>HP</td>
-  <div id="star444444HpOut">
-    <td id="star444444HpRankSS">0</td>
-    <td id="star444444HpRankS">0</td>
-    <td id="star444444HpRankA">0</td>
-    <td id="star444444HpRankB">0</td>
-    <td id="star444444HpRankC">0</td>
-    <td id="star444444HpRankD">0</td>
-    <td id="star444444HpRankE">0</td>
-    <td id="star444444HpRankF">0</td>
-  </div>
+  <td id="star444444HpRankSS">0</td>
+  <td id="star444444HpRankS">0</td>
+  <td id="star444444HpRankA">0</td>
+  <td id="star444444HpRankB">0</td>
+  <td id="star444444HpRankC">0</td>
+  <td id="star444444HpRankD">0</td>
+  <td id="star444444HpRankE">0</td>
+  <td id="star444444HpRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444MpOut">
   <td>MP</td>
-  <div id="star444444MpOut">
-    <td id="star444444MpRankSS">0</td>
-    <td id="star444444MpRankS">0</td>
-    <td id="star444444MpRankA">0</td>
-    <td id="star444444MpRankB">0</td>
-    <td id="star444444MpRankC">0</td>
-    <td id="star444444MpRankD">0</td>
-    <td id="star444444MpRankE">0</td>
-    <td id="star444444MpRankF">0</td>
-  </div>
+  <td id="star444444MpRankSS">0</td>
+  <td id="star444444MpRankS">0</td>
+  <td id="star444444MpRankA">0</td>
+  <td id="star444444MpRankB">0</td>
+  <td id="star444444MpRankC">0</td>
+  <td id="star444444MpRankD">0</td>
+  <td id="star444444MpRankE">0</td>
+  <td id="star444444MpRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444AtackOut">
   <td>攻撃力</td>
-  <div id="star444444AtackOut">
-    <td id="star444444AtackRankSS">0</td>
-    <td id="star444444AtackRankS">0</td>
-    <td id="star444444AtackRankA">0</td>
-    <td id="star444444AtackRankB">0</td>
-    <td id="star444444AtackRankC">0</td>
-    <td id="star444444AtackRankD">0</td>
-    <td id="star444444AtackRankE">0</td>
-    <td id="star444444AtackRankF">0</td>
-  </div>
+  <td id="star444444AtackRankSS">0</td>
+  <td id="star444444AtackRankS">0</td>
+  <td id="star444444AtackRankA">0</td>
+  <td id="star444444AtackRankB">0</td>
+  <td id="star444444AtackRankC">0</td>
+  <td id="star444444AtackRankD">0</td>
+  <td id="star444444AtackRankE">0</td>
+  <td id="star444444AtackRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444DefenOut">
   <td>防御力</td>
-  <div id="star444444DefenOut">
-    <td id="star444444DefenRankSS">0</td>
-    <td id="star444444DefenRankS">0</td>
-    <td id="star444444DefenRankA">0</td>
-    <td id="star444444DefenRankB">0</td>
-    <td id="star444444DefenRankC">0</td>
-    <td id="star444444DefenRankD">0</td>
-    <td id="star444444DefenRankE">0</td>
-    <td id="star444444DefenRankF">0</td>
-  </div>
+  <td id="star444444DefenRankSS">0</td>
+  <td id="star444444DefenRankS">0</td>
+  <td id="star444444DefenRankA">0</td>
+  <td id="star444444DefenRankB">0</td>
+  <td id="star444444DefenRankC">0</td>
+  <td id="star444444DefenRankD">0</td>
+  <td id="star444444DefenRankE">0</td>
+  <td id="star444444DefenRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444SpeedOut">
   <td>素早さ</td>
-  <div id="star444444SpeedOut">
-    <td id="star444444SpeedRankSS">0</td>
-    <td id="star444444SpeedRankS">0</td>
-    <td id="star444444SpeedRankA">0</td>
-    <td id="star444444SpeedRankB">0</td>
-    <td id="star444444SpeedRankC">0</td>
-    <td id="star444444SpeedRankD">0</td>
-    <td id="star444444SpeedRankE">0</td>
-    <td id="star444444SpeedRankF">0</td>
-  </div>
+  <td id="star444444SpeedRankSS">0</td>
+  <td id="star444444SpeedRankS">0</td>
+  <td id="star444444SpeedRankA">0</td>
+  <td id="star444444SpeedRankB">0</td>
+  <td id="star444444SpeedRankC">0</td>
+  <td id="star444444SpeedRankD">0</td>
+  <td id="star444444SpeedRankE">0</td>
+  <td id="star444444SpeedRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444IntelOut">
   <td>賢さ</td>
-  <div id="star444444IntelOut">
-    <td id="star444444IntelRankSS">0</td>
-    <td id="star444444IntelRankS">0</td>
-    <td id="star444444IntelRankA">0</td>
-    <td id="star444444IntelRankB">0</td>
-    <td id="star444444IntelRankC">0</td>
-    <td id="star444444IntelRankD">0</td>
-    <td id="star444444IntelRankE">0</td>
-    <td id="star444444IntelRankF">0</td>
-  </div>
+  <td id="star444444IntelRankSS">0</td>
+  <td id="star444444IntelRankS">0</td>
+  <td id="star444444IntelRankA">0</td>
+  <td id="star444444IntelRankB">0</td>
+  <td id="star444444IntelRankC">0</td>
+  <td id="star444444IntelRankD">0</td>
+  <td id="star444444IntelRankE">0</td>
+  <td id="star444444IntelRankF">0</td>
 </tr>
-<tr>
+<tr id="star444444TotalOut">
   <td>合計</td>
-  <div id="star444444TotalOut">
-    <td id="star444444TotalRankSS">0</td>
-    <td id="star444444TotalRankS">0</td>
-    <td id="star444444TotalRankA">0</td>
-    <td id="star444444TotalRankB">0</td>
-    <td id="star444444TotalRankC">0</td>
-    <td id="star444444TotalRankD">0</td>
-    <td id="star444444TotalRankE">0</td>
-    <td id="star444444TotalRankF">0</td>
-  </div>
+  <td id="star444444TotalRankSS">0</td>
+  <td id="star444444TotalRankS">0</td>
+  <td id="star444444TotalRankA">0</td>
+  <td id="star444444TotalRankB">0</td>
+  <td id="star444444TotalRankC">0</td>
+  <td id="star444444TotalRankD">0</td>
+  <td id="star444444TotalRankE">0</td>
+  <td id="star444444TotalRankF">0</td>
 </tr>
 </table>
 </div><!-- id="star444444" -->
