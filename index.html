@@ -56,6 +56,7 @@ body {
 
 <script type="text/javascript">
 var maxStar4Count = 4;
+var statusCount = 6;
 
 // Star4 Caluclator
 var star4Calc =
@@ -128,6 +129,11 @@ function calcPowerupStar44(base0, before4, before0) {
 
 // ☆4シミュレータ合計値計算
 function showStar4StatusTotal() {
+	// 合計値は常に0クリアして再計算
+	for (var i = 0; i < statusCount; i++) {
+		star4Calc[statusCount][i] = 0;
+	}
+
 	// get
 	// to number. avoid string.
 	for (var i = 0; i < 6; i++) {
@@ -143,19 +149,20 @@ function showStar4StatusTotal() {
 
 	// calc
 	for (var i = 0; i < 6; i++) {
-		star4Calc[6][0] += star4Calc[0 + i][0]; // star0 total
-		star4Calc[6][1] += star4Calc[0 + i][1]; // star1 total
-		star4Calc[6][2] += star4Calc[0 + i][2]; // star2 total
-		star4Calc[6][3] += star4Calc[0 + i][3]; // star3 total
-		star4Calc[6][4] += star4Calc[0 + i][4]; // star4 total
+		star4Calc[6][0] += star4Calc[i][0]; // star0 total
+		star4Calc[6][1] += star4Calc[i][1]; // star1 total
+		star4Calc[6][2] += star4Calc[i][2]; // star2 total
+		star4Calc[6][3] += star4Calc[i][3]; // star3 total
+		star4Calc[6][4] += star4Calc[i][4]; // star4 total
 	}
 
 	// show
+	var td = $("#star4Total td");
+
 	// ☆0
-	$("#star4Total0").html(star4Calc[6][0]);
+	td.eq(1).html(star4Calc[6][0]);
 
 	// ☆1 〜 ☆4
-	var td = $("#star4Total td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		var tmpStr = star4Calc[6][1 + i] + "<br>(+" + Number(star4Calc[6][1+ i] - star4Calc[6][i]) + ")";
 		td.eq(2 + i).html(tmpStr);
@@ -569,58 +576,58 @@ $(document).ready(function(){
 <tr id="star4Hp">
   <td>HP</td>
   <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
-  <td id="star4Hp1">0</td>
-  <td id="star4Hp2">0</td>
-  <td id="star4Hp3">0</td>
-  <td id="star4Hp4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Mp">
   <td>MP</td>
   <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
-  <td id="star4Mp1">0</td>
-  <td id="star4Mp2">0</td>
-  <td id="star4Mp3">0</td>
-  <td id="star4Mp4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Atack">
   <td>攻撃力</td>
   <td><input class="input" id="star4Atack0" type="number" min="0" max="9999" onchange="showStar4StatusAtack();"></td>
-  <td id="star4Atack1">0</td>
-  <td id="star4Atack2">0</td>
-  <td id="star4Atack3">0</td>
-  <td id="star4Atack4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Defen">
   <td>防御力</td>
   <td><input class="input" id="star4Defen0" type="number" min="0" max="9999" onchange="showStar4StatusDefen();"></td>
-  <td id="star4Defen1">0</td>
-  <td id="star4Defen2">0</td>
-  <td id="star4Defen3">0</td>
-  <td id="star4Defen4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Speed">
   <td>素早さ</td>
   <td><input class="input" id="star4Speed0" type="number" min="0" max="9999" onchange="showStar4StatusSpeed();"></td>
-  <td id="star4Speed1">0</td>
-  <td id="star4Speed2">0</td>
-  <td id="star4Speed3">0</td>
-  <td id="star4Speed4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Intel">
   <td>賢さ</td>
   <td><input class="input" id="star4Intel0" type="number" min="0" max="9999" onchange="showStar4StatusIntel();"></td>
-  <td id="star4Intel1">0</td>
-  <td id="star4Intel2">0</td>
-  <td id="star4Intel3">0</td>
-  <td id="star4Intel4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 <tr id="star4Total">
   <td>合計</td>
-  <td id="star4Total0">0</td>
-  <td id="star4Total1">0</td>
-  <td id="star4Total2">0</td>
-  <td id="star4Total3">0</td>
-  <td id="star4Total4">0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
 </tr>
 </table>
 
