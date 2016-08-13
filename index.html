@@ -472,59 +472,74 @@ function calc_444444() {
 function debugRankDorakie() {
 	var monster = $.parseJSON(monsterJson);
 	var index;
+	var tdHp    = $("#star444444HpIn td");
+	var tdMp    = $("#star444444MpIn td");
+	var tdAtack = $("#star444444AtackIn td");
+	var tdDefen = $("#star444444DefenIn td");
+	var tdSpeed = $("#star444444SpeedIn td");
+	var tdIntel = $("#star444444IntelIn td");
+	var indexRankSS = 1;
+	var indexRankS  = 2;
+	var indexRankA  = 3;
+	var indexRankB  = 4;
+	var indexRankC  = 5;
+	var indexRankD  = 6;
+	var indexRankE  = 7;
+	var indexRankF  = 8;
+
 	var newLines = monster.monster.filter(function(item, index){
 		if((item.No) == 902){
-			$("#star444444HpRankA0").val(monster.monster[index].HP);
-			$("#star444444MpRankA0").val(monster.monster[index].MP);
-			$("#star444444AtackRankA0").val(monster.monster[index].ST);
-			$("#star444444DefenRankA0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankA0").val(monster.monster[index].SP);
-			$("#star444444IntelRankA0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankA).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankA).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankA).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankA).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankA).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankA).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 901){
-			$("#star444444HpRankB0").val(monster.monster[index].HP);
-			$("#star444444MpRankB0").val(monster.monster[index].MP);
-			$("#star444444AtackRankB0").val(monster.monster[index].ST);
-			$("#star444444DefenRankB0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankB0").val(monster.monster[index].SP);
-			$("#star444444IntelRankB0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankB).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankB).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankB).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankB).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankB).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankB).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 850){
-			$("#star444444HpRankC0").val(monster.monster[index].HP);
-			$("#star444444MpRankC0").val(monster.monster[index].MP);
-			$("#star444444AtackRankC0").val(monster.monster[index].ST);
-			$("#star444444DefenRankC0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankC0").val(monster.monster[index].SP);
-			$("#star444444IntelRankC0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankC).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankC).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankC).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankC).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankC).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankC).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 302){
-			$("#star444444HpRankD0").val(monster.monster[index].HP);
-			$("#star444444MpRankD0").val(monster.monster[index].MP);
-			$("#star444444AtackRankD0").val(monster.monster[index].ST);
-			$("#star444444DefenRankD0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankD0").val(monster.monster[index].SP);
-			$("#star444444IntelRankD0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankD).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankD).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankD).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankD).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankD).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankD).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 322){
-			$("#star444444HpRankE0").val(monster.monster[index].HP);
-			$("#star444444MpRankE0").val(monster.monster[index].MP);
-			$("#star444444AtackRankE0").val(monster.monster[index].ST);
-			$("#star444444DefenRankE0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankE0").val(monster.monster[index].SP);
-			$("#star444444IntelRankE0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankE).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankE).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankE).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankE).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankE).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankE).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 301){
-			$("#star444444HpRankF0").val(monster.monster[index].HP);
-			$("#star444444MpRankF0").val(monster.monster[index].MP);
-			$("#star444444AtackRankF0").val(monster.monster[index].ST);
-			$("#star444444DefenRankF0").val(monster.monster[index].DF);
-			$("#star444444SpeedRankF0").val(monster.monster[index].SP);
-			$("#star444444IntelRankF0").val(monster.monster[index].IN);
+			tdHp.eq(indexRankF).children().val(monster.monster[index].HP);
+			tdMp.eq(indexRankF).children().val(monster.monster[index].MP);
+			tdAtack.eq(indexRankF).children().val(monster.monster[index].ST);
+			tdDefen.eq(indexRankF).children().val(monster.monster[index].DF);
+			tdSpeed.eq(indexRankF).children().val(monster.monster[index].SP);
+			tdIntel.eq(indexRankF).children().val(monster.monster[index].IN);
 			return true;
 		}
 	});
@@ -633,80 +648,80 @@ $(document).ready(function(){
 </tr>
 <tr id="star444444HpIn">
   <td>HP</td>
-  <td><input class="input" id="star444444HpRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankA0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankB0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankC0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankD0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankE0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444HpRankF0" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444MpIn">
   <td>MP</td>
-  <td><input class="input" id="star444444MpRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankS0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankA0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankB0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankC0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankD0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankE0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444MpRankF0"  type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444AtackIn">
   <td>攻撃力</td>
-  <td><input class="input" id="star444444AtackRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankS0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankA0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankB0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankC0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankD0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankE0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444AtackRankF0"  type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444DefenIn">
   <td>防御力</td>
-  <td><input class="input" id="star444444DefenRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankS0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankA0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankB0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankC0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankD0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankE0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444DefenRankF0"  type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444SpeedIn">
   <td>素早さ</td>
-  <td><input class="input" id="star444444SpeedRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankS0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankA0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankB0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankC0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankD0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankE0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444SpeedRankF0"  type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444IntelIn">
   <td>賢さ</td>
-  <td><input class="input" id="star444444IntelRankSS0" type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankS0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankA0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankB0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankC0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankD0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankE0"  type="number" min="0" max="9999"></td>
-  <td><input class="input" id="star444444IntelRankF0"  type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
+  <td><input class="input" type="number" min="0" max="9999"></td>
 </tr>
 <tr id="star444444TotalIn">
   <td>合計</td>
-  <td id="star444444TotalRankSS0"></td>
-  <td id="star444444TotalRankS0"></td>
-  <td id="star444444TotalRankA0"></td>
-  <td id="star444444TotalRankB0"></td>
-  <td id="star444444TotalRankC0"></td>
-  <td id="star444444TotalRankD0"></td>
-  <td id="star444444TotalRankE0"></td>
-  <td id="star444444TotalRankF0"></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 
