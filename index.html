@@ -57,6 +57,7 @@ body {
 <script type="text/javascript">
 var maxStar4Count = 4;
 var statusCount = 6;
+var rankCount = 8;
 
 // Star4 Caluclator
 var star4Calc =
@@ -468,6 +469,49 @@ function calc_444444() {
 	}
 }
 
+function reset_444444() {
+	var tdHpIn     = $("#star444444HpIn td");
+	var tdMpIn     = $("#star444444MpIn td");
+	var tdAtackIn  = $("#star444444AtackIn td");
+	var tdDefenIn  = $("#star444444DefenIn td");
+	var tdSpeedIn  = $("#star444444SpeedIn td");
+	var tdIntelIn  = $("#star444444IntelIn td");
+	var tdTotalIn  = $("#star444444TotalIn td");
+
+	var tdHpOut    = $("#star444444HpOut td");
+	var tdMpOut    = $("#star444444MpOut td");
+	var tdAtackOut = $("#star444444AtackOut td");
+	var tdDefenOut = $("#star444444DefenOut td");
+	var tdSpeedOut = $("#star444444SpeedOut td");
+	var tdIntelOut = $("#star444444IntelOut td");
+	var tdTotalOut = $("#star444444TotalOut td");
+
+	// zero clear
+	for (var i = 0; i < 7; i++) {
+		for (var j = 0; j < rankCount; j++) {
+			star444444CalcOut[i][j] = 0;
+			star444444CalcIn[i][j]  = 0;
+		}
+	}
+
+	for (var i = 0; i < rankCount; i++) {
+		tdHpIn.eq(1 + i).children().val("");
+		tdMpIn.eq(1 + i).children().val("");
+		tdAtackIn.eq(1 + i).children().val("");
+		tdDefenIn.eq(1 + i).children().val("");
+		tdSpeedIn.eq(1 + i).children().val("");
+		tdIntelIn.eq(1 + i).children().val("");
+		tdTotalIn.eq(1 + i).text("");
+
+		tdHpOut.eq(1 + i).text(0);
+		tdMpOut.eq(1 + i).text(0);
+		tdAtackOut.eq(1 + i).text(0);
+		tdDefenOut.eq(1 + i).text(0);
+		tdSpeedOut.eq(1 + i).text(0);
+		tdIntelOut.eq(1 + i).text(0);
+		tdTotalOut.eq(1 + i).text(0);
+	}
+}
 
 function debugRankDorakie() {
 	var monster = $.parseJSON(monsterJson);
@@ -728,6 +772,7 @@ $(document).ready(function(){
 <br/>
 
 <button onclick="calc_444444()">☆4～444444計算！</button>
+<button onclick="reset_444444()">リセット</button>
 <button onclick="debugRankDorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
 
 <table border>
