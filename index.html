@@ -7,6 +7,20 @@
     <meta name="description" content="DQMSL(ドラゴンクエストモンスターズスーパーライト)のツール集です。">
     <meta name="keywords" content="DQMSL,ドラゴンクエストモンスターズスーパーライト,ツール,☆4,ステータスチェッカー,計算機">
     <link rel="shortcut icon" href="http://i.imgur.com/Ey2NRqL.jpg" type="image/jpeg">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <!-- bootstrap -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   </head>
 
 <html>
@@ -21,12 +35,12 @@ body {
 }
 
 .input {
-  width: 40px;
+  width: 60px;
 }
 
 #alpha {
-  width: 150%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   position: relative;
   background-color: white;
   background-color: rgba(255,255,255, 0.9);
@@ -40,7 +54,6 @@ body {
   z-index: 5;
 }
 </style>
-<script type="text/javascript" src="./external/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="./monster.js"></script>
 
 <script>
@@ -601,274 +614,319 @@ $(document).ready(function(){
 </script>
 <body>
 <div id="alpha">
-<h1>DQMSLツール集</h1>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">ふぁいばー計算機</a>
+  </div>
+<!--
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="">Link1</a></li>
+    <li><a href="">Link2</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="">Link3</a></li>
+  </ul>
+-->
+</nav>
+
+
+<div class="container" style="padding:50px 0px">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tabStar4" data-toggle="tab">☆4ステ計算機</a></li>
+    <li><a href="#tabStar444444" data-toggle="tab">☆444444計算機</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tabStar4">
+      <h3>☆4ステータス計算機</h3>
+      <p>☆0ステータスを入力してね！</p>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-condensed">
+          <thead>
+            <tr>
+              <td></td>
+              <td>☆0</td>
+              <td>☆1</td>
+              <td>☆2</td>
+              <td>☆3</td>
+              <td>☆4</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr id="star4Hp">
+              <td>HP</td>
+              <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Mp">
+              <td>MP</td>
+              <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Atack">
+              <td>攻撃力</td>
+              <td><input class="input" id="star4Atack0" type="number" min="0" max="9999" onchange="showStar4StatusAtack();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Defen">
+              <td>防御力</td>
+              <td><input class="input" id="star4Defen0" type="number" min="0" max="9999" onchange="showStar4StatusDefen();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Speed">
+              <td>素早さ</td>
+              <td><input class="input" id="star4Speed0" type="number" min="0" max="9999" onchange="showStar4StatusSpeed();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Intel">
+              <td>賢さ</td>
+              <td><input class="input" id="star4Intel0" type="number" min="0" max="9999" onchange="showStar4StatusIntel();"></td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star4Total">
+              <td>合計</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tabStar444444">
+      <h3>☆4～444444ステータス計算機</h3>
+      <div id="star444444">
+        <p>☆0ステータスを入力してね！</p>
+        <p>全て入力しなくても良いよ！</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-condensed">
+            <thead>
+              <tr>
+                <td>☆0ステ</td>
+                <td>SS</td>
+                <td>S</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="star444444HpIn">
+                <td>HP</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444MpIn">
+                <td>MP</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444AtackIn">
+                <td>攻撃力</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444DefenIn">
+                <td>防御力</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444SpeedIn">
+                <td>素早さ</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444IntelIn">
+                <td>賢さ</td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+                <td><input class="input" type="number" min="0" max="9999"></td>
+              </tr>
+              <tr id="star444444TotalIn">
+                <td>合計</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button class="btn btn-primary" onclick="calc_444444()">☆4～444444計算！</button>
+        <button class="btn btn-primary" onclick="reset_444444()">リセット</button>
+        <button class="btn btn-primary" onclick="debugRankDorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
+
+        <div class="table-responsive">
+        <table class="table table-bordered table-hover table-condensed">
+          <thead>
+            <tr>
+              <td>☆4～444444</td>
+              <td>SS</td>
+              <td>S</td>
+              <td>A</td>
+              <td>B</td>
+              <td>C</td>
+              <td>D</td>
+              <td>E</td>
+              <td>F</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="star444444HpOut">
+              <td>HP</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444MpOut">
+              <td>MP</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444AtackOut">
+              <td>攻撃力</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444DefenOut">
+              <td>防御力</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444SpeedOut">
+              <td>素早さ</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444IntelOut">
+              <td>賢さ</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr id="star444444TotalOut">
+              <td>合計</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div><!-- id="star444444" -->
+    </div><!-- id="tabStar444444" -->
+
+  </div>
+</div>
+
+
+
+
 <br>
-<h3>☆4ステータスシミュレータ</h3>
-☆0ステータスを入力してね！<br>
-<table border>
-<tr>
-  <td></td>
-  <td>☆0</td>
-  <td>☆1</td>
-  <td>☆2</td>
-  <td>☆3</td>
-  <td>☆4</td>
-</tr>
-<tr id="star4Hp">
-  <td>HP</td>
-  <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Mp">
-  <td>MP</td>
-  <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Atack">
-  <td>攻撃力</td>
-  <td><input class="input" id="star4Atack0" type="number" min="0" max="9999" onchange="showStar4StatusAtack();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Defen">
-  <td>防御力</td>
-  <td><input class="input" id="star4Defen0" type="number" min="0" max="9999" onchange="showStar4StatusDefen();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Speed">
-  <td>素早さ</td>
-  <td><input class="input" id="star4Speed0" type="number" min="0" max="9999" onchange="showStar4StatusSpeed();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Intel">
-  <td>賢さ</td>
-  <td><input class="input" id="star4Intel0" type="number" min="0" max="9999" onchange="showStar4StatusIntel();"></td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star4Total">
-  <td>合計</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-</table>
-
-<br><br>
-<!--<button onclick="showRankStar444444()">☆44～☆444444まで広げる！</button> -->
-<h3>☆4～444444ステータスシミュレータ</h3>
-<div id="star444444">
-☆0ステータスを入力してね！<br>
-全て入力しなくても良いよ！<br>
-<table border>
-<tr>
-  <td>☆0ステ</td>
-  <td>SS</td>
-  <td>S</td>
-  <td>A</td>
-  <td>B</td>
-  <td>C</td>
-  <td>D</td>
-  <td>E</td>
-  <td>F</td>
-</tr>
-<tr id="star444444HpIn">
-  <td>HP</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444MpIn">
-  <td>MP</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444AtackIn">
-  <td>攻撃力</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444DefenIn">
-  <td>防御力</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444SpeedIn">
-  <td>素早さ</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444IntelIn">
-  <td>賢さ</td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-  <td><input class="input" type="number" min="0" max="9999"></td>
-</tr>
-<tr id="star444444TotalIn">
-  <td>合計</td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
-
-<br/>
-
-<button onclick="calc_444444()">☆4～444444計算！</button>
-<button onclick="reset_444444()">リセット</button>
-<button onclick="debugRankDorakie()">サンプル：ドラキー～グレドラのステを入力！</button>
-
-<table border>
-<tr>
-  <td>☆4～444444</td>
-  <td>SS</td>
-  <td>S</td>
-  <td>A</td>
-  <td>B</td>
-  <td>C</td>
-  <td>D</td>
-  <td>E</td>
-  <td>F</td>
-</tr>
-<tr id="star444444HpOut">
-  <td>HP</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444MpOut">
-  <td>MP</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444AtackOut">
-  <td>攻撃力</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444DefenOut">
-  <td>防御力</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444SpeedOut">
-  <td>素早さ</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444IntelOut">
-  <td>賢さ</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-<tr id="star444444TotalOut">
-  <td>合計</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-  <td>0</td>
-</tr>
-</table>
-</div><!-- id="star444444" -->
-
-<br>
-<!-- admax -->
+<!-- admax
 <script src="http://adm.shinobi.jp/s/26e0d2b694e8fea433234a666dc01334"></script>
 <!-- admax -->
 
@@ -879,5 +937,6 @@ $(document).ready(function(){
 <div id="footer">
   <a href="https://twitter.com/maxfiber">@maxfiber</a>
 </div>
+
 
 </html>
