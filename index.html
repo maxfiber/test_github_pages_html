@@ -605,6 +605,7 @@ function debugRankDorakie() {
 
 <script type="text/javascript">
   $(document).ready(function(){
+    if($(location).attr('protocol') == 'http' || $(location).attr('protocol') == 'https'){
       $('#admax').append('<script src="http://adm.shinobi.jp/s/26e0d2b694e8fea433234a666dc01334">');
       $('#admax').append('<\\/script>');
     }
