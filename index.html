@@ -21,6 +21,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- underscorejs -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   </head>
 
 <html>
@@ -98,8 +100,300 @@ var star444444CalcOut =
      [0, 0, 0, 0, 0, 0, 0, 0],  // intel
      [0, 0, 0, 0, 0, 0, 0, 0]]; // total
 
+// MaxStatus Caluclator
+var maxStatusHPStar0 = [0];     // ☆0:  1通り
+var maxStatusHPStar1 = [0];     // ☆1:  1通り
+var maxStatusHPStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusHPStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusHPStar4 = [        // ☆4: 77通り
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1-10
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11-20
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 21-30
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 31-40
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 41-50
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 51-60
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 61-70
+  0, 0, 0, 0, 0, 0, 0];         // 71-77
+var maxStatusHPMaxStatus;
+var maxStatusHPMaxStatusFlag = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1-10
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11-20
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 21-30
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 31-40
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 41-50
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 51-60
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 61-70
+  0, 0, 0, 0, 0, 0, 0];         // 71-77
+var maxStatusHPMaxStatusStar0HeadCount = [0];
+
+// todo: add MP, AT, DF, SP, IN
+
+var maxStatusTotalMaxStatusFlag = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1-10
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11-20
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 21-30
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 31-40
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 41-50
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 51-60
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 61-70
+  0, 0, 0, 0, 0, 0, 0];         // 71-77
+
+var maxStatusHeadCount = [
+   5,  6,  6,  7,  7,  8,  9,  6,  7,  7, //  1-10
+   8,  8,  9, 10,  7,  8,  8,  9,  9, 10, // 11-20
+  11,  8,  9,  9, 10, 10, 11, 12,  8,  9, // 21-30
+   9, 10, 10, 11, 12,  9, 10, 10, 11, 11, // 31-40
+  12, 13,  9, 10, 10, 11, 11, 12, 13, 10, // 41-50
+  11, 11, 12, 12, 13, 14, 10, 11, 11, 12, // 51-60
+  12, 13, 14, 11, 12, 12, 13, 13, 14, 15, // 61-70
+  12, 13, 13, 14, 14, 15, 16];            // 71-77
+
+var maxStatusPowerupCombination = [
+  "☆3+☆0",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+☆0",
+  "特殊☆3(☆2+☆1)+☆0",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+☆0",
+  "特殊☆3(☆2+☆2)+☆0",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+☆0",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+☆0",
+  "☆3+☆1",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+☆1",
+  "特殊☆3(☆2+☆1)+☆1",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+☆1",
+  "特殊☆3(☆2+☆2)+☆1",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+☆1",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+☆1",
+  "☆3+☆2",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+☆2",
+  "特殊☆3(☆2+☆1)+☆2",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+☆2",
+  "特殊☆3(☆2+☆2)+☆2",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+☆2",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+☆2",
+  "☆3+特殊☆2(☆1+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆2(☆1+☆1)",
+  "特殊☆3(☆2+☆1)+特殊☆2(☆1+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆2(☆1+☆1)",
+  "特殊☆3(☆2+☆2)+特殊☆2(☆1+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆2(☆1+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆2(☆1+☆1)",
+  "☆3+☆3",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+☆3",
+  "特殊☆3(☆2+☆1)+☆3",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+☆3",
+  "特殊☆3(☆2+☆2)+☆3",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+☆3",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+☆3",
+  "☆3+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(☆2+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(☆2+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(特殊☆2(☆1+☆1)+☆0)",
+  "☆3+特殊☆3(☆2+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(☆2+☆1)",
+  "特殊☆3(☆2+☆1)+特殊☆3(☆2+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(☆2+☆1)",
+  "特殊☆3(☆2+☆2)+特殊☆3(☆2+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(☆2+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(☆2+☆1)",
+  "☆3+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(☆2+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(☆2+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(特殊☆2(☆1+☆1)+☆1)",
+  "☆3+特殊☆3(☆2+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(☆2+☆2)",
+  "特殊☆3(☆2+☆1)+特殊☆3(☆2+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(☆2+☆2)",
+  "特殊☆3(☆2+☆2)+特殊☆3(☆2+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(☆2+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(☆2+☆2)",
+  "☆3+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(☆2+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(☆2+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(特殊☆2(☆1+☆1)+☆2)",
+  "☆3+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆0)+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+  "特殊☆3(☆2+☆1)+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆1)+特殊☆3(特殊☆2(☆1+☆1)+☆特殊☆2(☆1+☆1))",
+  "特殊☆3(☆2+☆2)+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+  "特殊☆3(特殊☆2(☆1+☆1)+☆2)+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+  "特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))+特殊☆3(特殊☆2(☆1+☆1)+特殊☆2(☆1+☆1))",
+];
+
+function calcMaxStatus() {
+  // init
+  maxStatusHPStar0[0] = 0;
+
+  var td;
+
+  // for HP
+  // get
+  td = $("#maxStatusHp td");
+  maxStatusHPStar0[0] = td.eq(1).children().val();
+
+  // 0 が入力されていたら計算しない
+  if (maxStatusHPStar0[0] == 0) return;
+
+  // calc
+  maxStatusHPStar1[0]  = calcPowerup(maxStatusHPStar0[0], maxStatusHPStar0[0]);
+  maxStatusHPStar2[0]  = calcPowerup(maxStatusHPStar1[0], maxStatusHPStar0[0]);
+  maxStatusHPStar2[1]  = calcPowerup(maxStatusHPStar1[0], maxStatusHPStar1[0]);
+  maxStatusHPStar3[0]  = calcPowerup(maxStatusHPStar2[0], maxStatusHPStar0[0]);
+  maxStatusHPStar3[1]  = calcPowerup(maxStatusHPStar2[1], maxStatusHPStar0[0]);
+  maxStatusHPStar3[2]  = calcPowerup(maxStatusHPStar2[0], maxStatusHPStar1[0]);
+  maxStatusHPStar3[3]  = calcPowerup(maxStatusHPStar2[1], maxStatusHPStar1[0]);
+  maxStatusHPStar3[4]  = calcPowerup(maxStatusHPStar2[0], maxStatusHPStar2[0]);
+  maxStatusHPStar3[5]  = calcPowerup(maxStatusHPStar2[1], maxStatusHPStar2[0]);
+  maxStatusHPStar3[6]  = calcPowerup(maxStatusHPStar2[1], maxStatusHPStar2[1]);
+  maxStatusHPStar4[0]  = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar0[0]);
+  maxStatusHPStar4[1]  = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar0[0]);
+  maxStatusHPStar4[2]  = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar0[0]);
+  maxStatusHPStar4[3]  = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar0[0]);
+  maxStatusHPStar4[4]  = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar0[0]);
+  maxStatusHPStar4[5]  = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar0[0]);
+  maxStatusHPStar4[6]  = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar0[0]);
+  maxStatusHPStar4[7]  = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar1[0]);
+  maxStatusHPStar4[8]  = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar1[0]);
+  maxStatusHPStar4[9]  = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar1[0]);
+  maxStatusHPStar4[10] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar1[0]);
+  maxStatusHPStar4[11] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar1[0]);
+  maxStatusHPStar4[12] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar1[0]);
+  maxStatusHPStar4[13] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar1[0]);
+  maxStatusHPStar4[14] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar2[0]);
+  maxStatusHPStar4[15] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar2[0]);
+  maxStatusHPStar4[16] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar2[0]);
+  maxStatusHPStar4[17] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar2[0]);
+  maxStatusHPStar4[18] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar2[0]);
+  maxStatusHPStar4[19] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar2[0]);
+  maxStatusHPStar4[20] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar2[0]);
+  maxStatusHPStar4[21] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar2[1]);
+  maxStatusHPStar4[22] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar2[1]);
+  maxStatusHPStar4[23] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar2[1]);
+  maxStatusHPStar4[24] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar2[1]);
+  maxStatusHPStar4[25] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar2[1]);
+  maxStatusHPStar4[26] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar2[1]);
+  maxStatusHPStar4[27] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar2[1]);
+  maxStatusHPStar4[28] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[0]);
+  maxStatusHPStar4[29] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[0]);
+  maxStatusHPStar4[30] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[0]);
+  maxStatusHPStar4[31] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[0]);
+  maxStatusHPStar4[32] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[0]);
+  maxStatusHPStar4[33] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[0]);
+  maxStatusHPStar4[34] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[0]);
+  maxStatusHPStar4[35] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[1]);
+  maxStatusHPStar4[36] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[1]);
+  maxStatusHPStar4[37] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[1]);
+  maxStatusHPStar4[38] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[1]);
+  maxStatusHPStar4[39] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[1]);
+  maxStatusHPStar4[40] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[1]);
+  maxStatusHPStar4[41] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[1]);
+  maxStatusHPStar4[42] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[2]);
+  maxStatusHPStar4[43] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[2]);
+  maxStatusHPStar4[44] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[2]);
+  maxStatusHPStar4[45] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[2]);
+  maxStatusHPStar4[46] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[2]);
+  maxStatusHPStar4[47] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[2]);
+  maxStatusHPStar4[48] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[2]);
+  maxStatusHPStar4[49] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[3]);
+  maxStatusHPStar4[50] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[3]);
+  maxStatusHPStar4[51] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[3]);
+  maxStatusHPStar4[52] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[3]);
+  maxStatusHPStar4[53] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[3]);
+  maxStatusHPStar4[54] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[3]);
+  maxStatusHPStar4[55] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[3]);
+  maxStatusHPStar4[56] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[4]);
+  maxStatusHPStar4[57] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[4]);
+  maxStatusHPStar4[58] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[4]);
+  maxStatusHPStar4[59] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[4]);
+  maxStatusHPStar4[60] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[4]);
+  maxStatusHPStar4[61] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[4]);
+  maxStatusHPStar4[62] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[4]);
+  maxStatusHPStar4[63] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[5]);
+  maxStatusHPStar4[64] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[5]);
+  maxStatusHPStar4[65] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[5]);
+  maxStatusHPStar4[66] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[5]);
+  maxStatusHPStar4[67] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[5]);
+  maxStatusHPStar4[68] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[5]);
+  maxStatusHPStar4[69] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[5]);
+  maxStatusHPStar4[70] = calcPowerup(maxStatusHPStar3[0], maxStatusHPStar3[6]);
+  maxStatusHPStar4[71] = calcPowerup(maxStatusHPStar3[1], maxStatusHPStar3[6]);
+  maxStatusHPStar4[72] = calcPowerup(maxStatusHPStar3[2], maxStatusHPStar3[6]);
+  maxStatusHPStar4[73] = calcPowerup(maxStatusHPStar3[3], maxStatusHPStar3[6]);
+  maxStatusHPStar4[74] = calcPowerup(maxStatusHPStar3[4], maxStatusHPStar3[6]);
+  maxStatusHPStar4[75] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[6]);
+  maxStatusHPStar4[76] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[6]);
+
+  console.log("maxStatusHPStar4 = " + maxStatusHPStar4);
+
+  maxStatusHPMaxStatus = _.max(maxStatusHPStar4);
+  console.log("maxStatusHPMaxStatus = " + maxStatusHPMaxStatus);
+
+  var combination_min_search = 16;
+  var combinationId = 0;
+  var combination = _.each(maxStatusHPStar4, function(n, i){
+    //console.log("maxStatusHPStar4[" + i + "] = ", maxStatusHPStar4[i]);
+    var j = maxStatusHPStar4.length - i;
+    if (maxStatusHPStar4[j] == maxStatusHPMaxStatus){
+      // ☆0必要数最低の PU 組合せを調べる。
+      if (combination_min_search > maxStatusHeadCount[j]) {
+          combination_min_search = maxStatusHeadCount[j];
+          combinationId = j;
+      }
+      // 全ステータスが最高ステになる PU の組合せを調べる
+      maxStatusTotalMaxStatusFlag[j] += 1;
+      console.log("maxStatusHeadCount[" + j + "] = ", + combination_min_search);
+      console.log("combination_min_search = " + combination_min_search);
+    }
+    return combination_min_search;
+  });
+
+  // show
+	// ☆4
+	td.eq(2).html(maxStatusHPStar4[0]);
+  // maxstatus
+  td.eq(3).html(maxStatusHPMaxStatus);
+  // ☆0モンスター数
+  td.eq(4).html(combination_min_search);
+  // PU 組合せ
+  result = $("#maxStatusResult");
+  result.html(maxStatusPowerupCombination[combinationId])
+}
+
+function resetMaxStatus() {
+	var tdHp     = $("#maxStatusHp td");
+
+	// zero clear
+	for (var i = 0; i < 77; i++) {
+    maxStatusHPStar4[i] = 0;
+	}
+
+  tdHp.eq(1 + 0).children().val("");
+  tdHp.eq(1 + 1).text(0);
+  tdHp.eq(1 + 2).text(0);
+  tdHp.eq(1 + 3).text(0);
+
+	for (var i = 0; i < 4; i++) {
+		//tdHp.eq(1 + i).children().val("");
+    //tdHpOut.eq(1 + i).text(0);
+	}
+
+  var result = $("#maxStatusResult");
+  result.text("");
+}
+
+
+
 // Calc: from Star0 to Star1
-function calcPowerupIncrement(statusBase, statusEsa) {
+function calcPowerup(statusBase, statusEsa) {
 	var increment = Number(statusBase)
                   + Math.ceil(0.02 * statusBase)
                   + Math.ceil(0.02 * statusEsa);
@@ -109,10 +403,10 @@ function calcPowerupIncrement(statusBase, statusEsa) {
 // calc from Star0 to Star4
 // ☆4計算(=☆0ステから☆4ステ計算)
 function calcPowerupStar4(star0Status) {
-	var star1Status = calcPowerupIncrement(star0Status, star0Status);
-	var star2Status = calcPowerupIncrement(star1Status, star0Status);
-	var star3Status = calcPowerupIncrement(star2Status, star0Status);
-	var star4Status = calcPowerupIncrement(star3Status, star0Status);
+	var star1Status = calcPowerup(star0Status, star0Status);
+	var star2Status = calcPowerup(star1Status, star0Status);
+	var star3Status = calcPowerup(star2Status, star0Status);
+	var star4Status = calcPowerup(star3Status, star0Status);
 	return star4Status;
 }
 
@@ -127,10 +421,10 @@ function calcTransIncrement(star4Status, star0Status) {
 // ☆44計算(=転生前モンスター☆0☆4と転生後☆0から、転生後☆44ステ計算)
 function calcPowerupStar44(base0, before4, before0) {
 	var base_04 = Number(base0) + calcTransIncrement(before4, before0);
-	var base_1 = calcPowerupIncrement(base_04, base0);
-	var base_2 = calcPowerupIncrement(base_1, base0);
-	var base_3 = calcPowerupIncrement(base_2, base0);
-	var base_4 = calcPowerupIncrement(base_3, base0);
+	var base_1 = calcPowerup(base_04, base0);
+	var base_2 = calcPowerup(base_1, base0);
+	var base_3 = calcPowerup(base_2, base0);
+	var base_4 = calcPowerup(base_3, base0);
 	return base_4;
 }
 
@@ -183,7 +477,7 @@ function showStar4StatusHP() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[0][i+1] = calcPowerupIncrement(star4Calc[0][i], star4Calc[0][0]);
+		star4Calc[0][i+1] = calcPowerup(star4Calc[0][i], star4Calc[0][0]);
 	}
 
 	// show
@@ -213,7 +507,7 @@ function showStar4StatusMP() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[1][i+1] = calcPowerupIncrement(star4Calc[1][i], star4Calc[1][0]);
+		star4Calc[1][i+1] = calcPowerup(star4Calc[1][i], star4Calc[1][0]);
 	}
 
 	// show
@@ -231,7 +525,7 @@ function showStar4StatusAtack() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[2][i+1] = calcPowerupIncrement(star4Calc[2][i], star4Calc[2][0]);
+		star4Calc[2][i+1] = calcPowerup(star4Calc[2][i], star4Calc[2][0]);
 	}
 
 	// show
@@ -249,7 +543,7 @@ function showStar4StatusDefen() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[3][i+1] = calcPowerupIncrement(star4Calc[3][i], star4Calc[3][0]);
+		star4Calc[3][i+1] = calcPowerup(star4Calc[3][i], star4Calc[3][0]);
 	}
 
 	// show
@@ -267,7 +561,7 @@ function showStar4StatusSpeed() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[4][i+1] = calcPowerupIncrement(star4Calc[4][i], star4Calc[4][0]);
+		star4Calc[4][i+1] = calcPowerup(star4Calc[4][i], star4Calc[4][0]);
 	}
 
 	// show
@@ -285,7 +579,7 @@ function showStar4StatusIntel() {
 
 	// calc
 	for (var i = 0; i < 5; i++) {
-		star4Calc[5][i+1] = calcPowerupIncrement(star4Calc[5][i], star4Calc[5][0]);
+		star4Calc[5][i+1] = calcPowerup(star4Calc[5][i], star4Calc[5][0]);
 	}
 
 	// show
@@ -622,10 +916,12 @@ $(document).ready(function(){
 
 <div class="container" style="padding:50px 0px">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tabStar4" data-toggle="tab">☆4ステ計算機</a></li>
-    <li><a href="#tabStar444444" data-toggle="tab">☆444444計算機</a></li>
-    <li><a href="#tabAbout" data-toggle="tab">このサイトについて</a></li>
+    <li class="active"><a href="#tabStar4" data-toggle="tab">☆4ステ</a></li>
+    <li><a href="#tabStar444444" data-toggle="tab">☆444444</a></li>
+    <li><a href="#tabMaxStatus" data-toggle="tab">最大ステ</a></li>
+    <li><a href="#tabAbout" data-toggle="tab">About</a></li>
   </ul>
+
   <div class="tab-content">
     <div class="tab-pane active" id="tabStar4">
       <h3>☆4ステータス計算機</h3>
@@ -702,7 +998,7 @@ $(document).ready(function(){
           </tbody>
         </table>
       </div>
-    </div>
+    </div><!-- id="tabStar4" -->
 
     <div class="tab-pane" id="tabStar444444">
       <h3>☆4～444444ステータス計算機</h3>
@@ -909,14 +1205,88 @@ $(document).ready(function(){
       </div><!-- id="star444444" -->
     </div><!-- id="tabStar444444" -->
 
+    <div class="tab-pane" id="tabMaxStatus">
+      <h3>最大ステ計算機</h3>
+      <p>最大ステとなる最小☆0数と組合せを計算します。</p>
+      <p>☆0ステータスを入力してね！</p>
+      <table class="table table-bordered table-hover table-condensed">
+        <thead>
+          <tr>
+            <td></td>
+            <td>☆0</td>
+            <td>☆4</td>
+            <td>最大ステ</td>
+            <td>☆0モンスター数</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr id="maxStatusHp">
+            <td>HP</td>
+            <td><input class="input" id="maxStatusHp0" type="number" min="0"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusMp">
+            <td>MP</td>
+            <td><input class="input" id="maxStatusMp0" type="number" min="0" max="9999"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusAtack">
+            <td>攻撃力</td>
+            <td><input class="input" id="maxStatusAtack0" type="number" min="0" max="9999"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusDefen">
+            <td>防御力</td>
+            <td><input class="input" id="maxStatusDefen0" type="number" min="0" max="9999"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusSpeed">
+            <td>素早さ</td>
+            <td><input class="input" id="maxStatusSpeed0" type="number" min="0" max="9999"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusIntel">
+            <td>賢さ</td>
+            <td><input class="input" id="maxStatusIntel0" type="number" min="0" max="9999"></td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+          <tr id="maxStatusTotal">
+            <td>合計</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>パワーアップの組合せ</h4>
+      <div id="maxStatusResult"></div>
+      <br>
+      <br>
+      <button class="btn btn-primary" onclick="calcMaxStatus()">最大ステ計算！</button>
+      <button class="btn btn-primary" onclick="resetMaxStatus()">リセット</button>
+
+    </div><!-- id="tabMaxStatus" -->
+
     <div class="tab-pane" id="tabAbout">
-      <h3>このサイトについて</h3>
-      <p>要望は Twitter からお願いします！</p>
+      <h3>About</h3>
+      <p>要望や不具合は Twitter から連絡お願いします！</p>
       <a href="https://twitter.com/maxfiber">@maxfiber</a>
     </div><!-- id="tabAbout" -->
-
-
-  </div>
+  </div><!-- id="tab-content" -->
 </div>
 
 <br>
