@@ -424,7 +424,9 @@ function calcMaxStatus() {
   var combinationId = 0;
   var combination = _.each(maxStatusHPStar4, function(n, i){
     //console.log("maxStatusHPStar4[" + i + "] = ", maxStatusHPStar4[i]);
-    var j = maxStatusHPStar4.length - i;
+    //console.log("i = " + i);
+    //console.log("j = " + (maxStatusHPStar4.length - 1 - i));
+    var j = maxStatusHPStar4.length - 1 - i; // i: 0 -> 76. j: 76 -> 0
     if (maxStatusHPStar4[j] == maxStatusHPMaxStatus){
       // ☆0必要数最低の PU 組合せを調べる。
       if (combination_min_search > maxStatusHeadCount[j]) {
