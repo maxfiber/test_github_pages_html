@@ -38,7 +38,7 @@ body {
 }
 
 .input {
-  width: 50px;
+  width: 40px;
 }
 
 #alpha {
@@ -673,7 +673,39 @@ function showStar4StatusIntel() {
 	showStar4StatusTotal();
 }
 
+function resetStar4() {
+  // zero clear
+  for (var i = 0; i < 7; i++) {
+    for (var j = 0; j < 5; j++) {
+      star4Calc[i][j] = 0;
+    }
+  }
+  var tdHp = $("#star4Hp td");
+  var tdMp = $("#star4Mp td");
+  var tdAtack = $("#star4Atack td");
+  var tdDefen = $("#star4Defen td");
+  var tdSpeed = $("#star4Speed td");
+  var tdIntel = $("#star4Intel td");
+  var tdTotal = $("#star4Total td");
 
+  tdHp.eq(1).children().val("");
+  tdMp.eq(1).children().val("");
+  tdAtack.eq(1).children().val("");
+  tdDefen.eq(1).children().val("");
+  tdSpeed.eq(1).children().val("");
+  tdIntel.eq(1).children().val("");
+  tdTotal.eq(1).html(0);
+
+  for (var i = 0; i < 3; i++) {
+    tdHp.eq(2 + i).html(0);
+    tdMp.eq(2 + i).html(0);
+    tdAtack.eq(2 + i).html(0);
+    tdDefen.eq(2 + i).html(0);
+    tdSpeed.eq(2 + i).html(0);
+    tdIntel.eq(2 + i).html(0);
+    tdTotal.eq(2 + i).html(0);
+  }
+}
 
 
 // ☆444444シミュレータ
@@ -1081,6 +1113,7 @@ $(document).ready(function(){
           </tbody>
         </table>
       </div>
+      <button class="btn btn-primary" onclick="resetStar4()">リセット</button>
     </div><!-- id="tabStar4" -->
 
     <div class="tab-pane" id="tabStar444444">
@@ -1092,7 +1125,7 @@ $(document).ready(function(){
           <table class="table table-bordered table-hover table-condensed">
             <thead>
               <tr>
-                <td>☆0ステ</td>
+                <td>☆0</td>
                 <td>SS</td>
                 <td>S</td>
                 <td>A</td>
