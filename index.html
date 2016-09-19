@@ -101,6 +101,8 @@ var star444444CalcOut =
      [0, 0, 0, 0, 0, 0, 0, 0],  // intel
      [0, 0, 0, 0, 0, 0, 0, 0]]; // total
 
+
+
 // MaxStatus Caluclator
 var maxStatusHPStar0 = [0];     // ☆0:  1通り
 var maxStatusHPStar1 = [0];     // ☆1:  1通り
@@ -116,8 +118,8 @@ var maxStatusHPStar4 = [        // ☆4: 77通り
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 51-60
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 61-70
   0, 0, 0, 0, 0, 0, 0];         // 71-77
-var maxStatusHPMaxStatus;
-var maxStatusHPMaxStatusFlag = [
+var maxStatusHPMaxStatus;       // 最大ステ値
+var maxStatusHPMaxStatusFlag = [// 最大ステになるPU組合わせ
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1-10
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11-20
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 21-30
@@ -126,11 +128,60 @@ var maxStatusHPMaxStatusFlag = [
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 51-60
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 61-70
   0, 0, 0, 0, 0, 0, 0];         // 71-77
-var maxStatusHPMaxStatusStar0HeadCount = [0];
+var maxStatusHPMaxStatusCount;  // 最大ステ作成に必要な☆0数
 
-// todo: add MP, AT, DF, SP, IN
+var maxStatusMPStar0 = [0];     // ☆0:  1通り
+var maxStatusMPStar1 = [0];     // ☆1:  1通り
+var maxStatusMPStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusMPStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusMPStar4 = new Array(77); // ☆4: 77通り
+var maxStatusMPMaxStatus;       // 最大ステ値
+var maxStatusMPMaxStatusFlag = new Array(77); // 最大ステになるPU組合わせ
+var maxStatusMPMaxStatusCount;  // 最大ステ作成に必要な☆0数
 
-var maxStatusTotalMaxStatusFlag = [
+var maxStatusATStar0 = [0];     // ☆0:  1通り
+var maxStatusATStar1 = [0];     // ☆1:  1通り
+var maxStatusATStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusATStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusATStar4 = new Array(77); // ☆4: 77通り
+var maxStatusATMaxStatus;       // 最大ステ値
+var maxStatusATMaxStatusFlag = new Array(77); // 最大ステになるPU組合わせ
+var maxStatusATMaxStatusCount;  // 最大ステ作成に必要な☆0数
+
+var maxStatusDFStar0 = [0];     // ☆0:  1通り
+var maxStatusDFStar1 = [0];     // ☆1:  1通り
+var maxStatusDFStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusDFStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusDFStar4 = new Array(77); // ☆4: 77通り
+var maxStatusDFMaxStatus;       // 最大ステ値
+var maxStatusDFMaxStatusFlag = new Array(77); // 最大ステになるPU組合わせ
+var maxStatusDFMaxStatusCount;  // 最大ステ作成に必要な☆0数
+
+var maxStatusSPStar0 = [0];     // ☆0:  1通り
+var maxStatusSPStar1 = [0];     // ☆1:  1通り
+var maxStatusSPStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusSPStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusSPStar4 = new Array(77); // ☆4: 77通り
+var maxStatusSPMaxStatus;       // 最大ステ値
+var maxStatusSPMaxStatusFlag = new Array(77); // 最大ステになるPU組合わせ
+var maxStatusSPMaxStatusCount;  // 最大ステ作成に必要な☆0数
+
+var maxStatusINStar0 = [0];     // ☆0:  1通り
+var maxStatusINStar1 = [0];     // ☆1:  1通り
+var maxStatusINStar2 = [0, 0];  // ☆2:  2通り
+var maxStatusINStar3 = [        // ☆3:  7通り
+  0, 0, 0, 0, 0, 0, 0];
+var maxStatusINStar4 = new Array(77); // ☆4: 77通り
+var maxStatusINMaxStatus;       // 最大ステ値
+var maxStatusINMaxStatusFlag = new Array(77); // 最大ステになるPU組合わせ
+var maxStatusINMaxStatusCount;  // 最大ステ作成に必要な☆0数
+
+
+var maxStatusTotalMaxStatusFlag = [ // 各ステ毎に、最大ステで+1
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //  1-10
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 11-20
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 21-30
@@ -230,9 +281,101 @@ var maxStatusHeadCount = [
     "☆3(☆2(☆1+☆1)+☆2(☆1+☆1))+☆3(☆2(☆1+☆1)+☆2(☆1+☆1))",
   ];
 
+function initializeMaxStatus() {
+  maxStatusHPStar0[0] = 0;
+  maxStatusHPStar1[0] = 0;
+  maxStatusHPMaxStatus = 0;
+  maxStatusHPMaxStatusFlag = 0;
+  maxStatusHPMaxStatusCount = 0;
+  maxStatusMPStar0[0] = 0;
+  maxStatusMPStar1[0] = 0;
+  maxStatusMPMaxStatus = 0;
+  maxStatusMPMaxStatusFlag = 0;
+  maxStatusMPMaxStatusCount = 0;
+  maxStatusATStar0[0] = 0;
+  maxStatusATStar1[0] = 0;
+  maxStatusATMaxStatus = 0;
+  maxStatusATMaxStatusFlag = 0;
+  maxStatusATMaxStatusCount = 0;
+  maxStatusDFStar0[0] = 0;
+  maxStatusDFStar1[0] = 0;
+  maxStatusDFMaxStatus = 0;
+  maxStatusDFMaxStatusFlag = 0;
+  maxStatusDFMaxStatusCount = 0;
+  maxStatusSPStar0[0] = 0;
+  maxStatusSPStar1[0] = 0;
+  maxStatusSPMaxStatus = 0;
+  maxStatusSPMaxStatusFlag = 0;
+  maxStatusSPMaxStatusCount = 0;
+  maxStatusINStar0[0] = 0;
+  maxStatusINStar1[0] = 0;
+  maxStatusINMaxStatus = 0;
+  maxStatusINMaxStatusFlag = 0;
+  maxStatusINMaxStatusCount = 0;
+
+  for (var i; i < 2; i++){
+    maxStatusHPStar2[i] = 0;
+    maxStatusMPStar2[i] = 0;
+    maxStatusATStar2[i] = 0;
+    maxStatusDFStar2[i] = 0;
+    maxStatusSPStar2[i] = 0;
+    maxStatusDFStar2[i] = 0;
+  }
+
+  for (var i; i < 7; i++){
+    maxStatusHPStar3[i] = 0;
+    maxStatusMPStar3[i] = 0;
+    maxStatusATStar3[i] = 0;
+    maxStatusDFStar3[i] = 0;
+    maxStatusSPStar3[i] = 0;
+    maxStatusINStar3[i] = 0;
+  }
+
+  _.each(maxStatusHPStar4, function(n, i){
+    maxStatusHPStar4[i] = 0;
+//    console.log("maxStatusHPStar4[" + i + "] = " + maxStatusHPStar4[i]);
+  })
+  _.each(maxStatusHPMaxStatusFlag, function(n, i){
+    maxStatusHPMaxStatusFlag[i] = 0;
+//    console.log("maxStatusHPMaxStatusFlag[" + i + "] = " + maxStatusHPMaxStatusFlag[i]);
+  })
+  _.each(maxStatusMPStar4, function(n, i){
+    maxStatusMPStar4[i] = 0;
+//    console.log("maxStatusMPStar4[" + i + "] = " + maxStatusMPStar4[i]);
+  })
+  _.each(maxStatusMPMaxStatusFlag, function(n, i){
+    maxStatusMPMaxStatusFlag[i] = 0;
+//    console.log("maxStatusMPMaxStatusFlag[" + i + "] = " + maxStatusMPMaxStatusFlag[i]);
+  })
+  _.each(maxStatusATStar4, function(n, i){
+    maxStatusATStar4[i] = 0;
+  })
+  _.each(maxStatusATMaxStatusFlag, function(n, i){
+    maxStatusATMaxStatusFlag[i] = 0;
+  })
+  _.each(maxStatusDFStar4, function(n, i){
+    maxStatusDFStar4[i] = 0;
+  })
+  _.each(maxStatusDFMaxStatusFlag, function(n, i){
+    maxStatusDFMaxStatusFlag[i] = 0;
+  })
+  _.each(maxStatusSPStar4, function(n, i){
+    maxStatusSPStar4[i] = 0;
+  })
+  _.each(maxStatusSPMaxStatusFlag, function(n, i){
+    maxStatusSPMaxStatusFlag[i] = 0;
+  })
+  _.each(maxStatusINStar4, function(n, i){
+    maxStatusINStar4[i] = 0;
+  })
+  _.each(maxStatusINMaxStatusFlag, function(n, i){
+    maxStatusINMaxStatusFlag[i] = 0;
+  })
+}
+
 function calcMaxStatus() {
   // init
-  maxStatusHPStar0[0] = 0;
+  initializeMaxStatus();
 
   var td;
 
@@ -343,7 +486,7 @@ function calcMaxStatus() {
   var combination = _.each(maxStatusHPStar4, function(n, i){
     //console.log("maxStatusHPStar4[" + i + "] = ", maxStatusHPStar4[i]);
     //console.log("i = " + i);
-    console.log("j = " + (maxStatusHPStar4.length - 1 - i));
+    //console.log("j = " + (maxStatusHPStar4.length - 1 - i));
     var j = maxStatusHPStar4.length - 1 - i; // i: 0 -> 76. j: 76 -> 0
     if (maxStatusHPStar4[j] == maxStatusHPMaxStatus){
       // ☆0必要数最低の PU 組合せを調べる。
@@ -353,8 +496,8 @@ function calcMaxStatus() {
       }
       // 全ステータスが最高ステになる PU の組合せを調べる
       maxStatusTotalMaxStatusFlag[j] += 1;
-      console.log("maxStatusHeadCount[" + j + "] = ", + combination_min_search);
-      console.log("combination_min_search = " + combination_min_search);
+      //console.log("maxStatusHeadCount[" + j + "] = ", + combination_min_search);
+      //console.log("combination_min_search = " + combination_min_search);
     }
     return combination_min_search;
   });
@@ -393,6 +536,14 @@ function resetMaxStatus() {
   result.text("");
 }
 
+function calcMaxStatusPUConbination() {
+  // init
+}
+
+
+function calcMaxStatusAll() {
+  // init
+}
 
 
 // Calc: from Star0 to Star1
