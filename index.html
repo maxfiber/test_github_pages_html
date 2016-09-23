@@ -68,6 +68,13 @@ var maxStar4Count = 4;
 var statusCount = 6;
 var rankCount = 8;
 
+var statusHP = 0;
+var statusMP = 1;
+var statusAT = 2;
+var statusDF = 3;
+var statusSP = 4;
+var statusIN = 5;
+
 // Star4 Caluclator
 var star4Calc =
 //    0  1  2  3  4 Star
@@ -200,6 +207,11 @@ var maxStatusHeadCount = [
   11, 11, 12, 12, 13, 14, 10, 11, 11, 12, // 51-60
   12, 13, 14, 11, 12, 12, 13, 13, 14, 15, // 61-70
   12, 13, 13, 14, 14, 15, 16];            // 71-77
+
+  var maxStatusTotalStatusStar0 = 0;
+  var maxStatusTotalStatusStar4 = 0;
+  var maxStatusTotalStatusMaxStatus = 0;
+
 
   var maxStatusPowerupCombination = [
     "☆3+☆0",
@@ -373,15 +385,34 @@ function initializeMaxStatus() {
   })
 }
 
-function calcMaxStatus() {
+function calcMaxStatusAll(){
+  calcMaxStatus("HP");
+  calcMaxStatus("MP");
+  calcMaxStatus("AT");
+  calcMaxStatus("DF");
+  calcMaxStatus("SP");
+  calcMaxStatus("IN");
+}
+
+function calcMaxStatus(statusType) {
+  // TODO 引数に文字列を入れたい。
+  // この関数をステ6分に分割したい。
+  // console.log("calcMaxStatus = " + statusType);
+  // if (statusType == "HP") console.log("HP");
+
   // init
   initializeMaxStatus();
 
   var td;
 
-  // for HP
   // get
-  td = $("#maxStatusHp td");
+  if (statusType == "HP") td = $("#maxStatusHp td");
+  if (statusType == "MP") td = $("#maxStatusMp td");
+  if (statusType == "AT") td = $("#maxStatusAtack td");
+  if (statusType == "DF") td = $("#maxStatusDefen td");
+  if (statusType == "SP") td = $("#maxStatusSpeed td");
+  if (statusType == "IN") td = $("#maxStatusIntel td");
+
   maxStatusHPStar0[0] = td.eq(1).children().val();
 
   // 0 が入力されていたら計算しない
@@ -502,48 +533,82 @@ function calcMaxStatus() {
     return combination_min_search;
   });
 
+  // 組合せ計算
+  calcMaxStatusPUConbination();
+
+  // 合計値計算
+  calcMaxStatusCalcTotal()
+
   // show
-	// ☆4
+	// 3列目: ☆4ステ
 	td.eq(2).html(maxStatusHPStar4[0]);
-  // maxstatus
+  // 4列目: maxstatus
   td.eq(3).html(maxStatusHPMaxStatus + "(+" + (maxStatusHPMaxStatus - maxStatusHPStar4[0]) + ")");
-  // ☆0モンスター数
+  // 5列目: ☆0モンスター数
   td.eq(4).html(combination_min_search);
-  // PU 組合せ
+  // 8行目: 合計
+  var tdTotal;
+  td = $("#maxStatusTotal td");
+  td.eq(1).html(maxStatusTotalStatusStar0);
+  td.eq(2).html(maxStatusTotalStatusStar4);
+  td.eq(3).html(maxStatusTotalStatusMaxStatus);
+
+  // 結論: PU 組合せ
   result = $("#maxStatusResult");
   result.html(maxStatusPowerupCombination[combinationId])
 }
 
-function resetMaxStatus() {
-	var tdHp     = $("#maxStatusHp td");
+function calcMaxStatusPUConbination() {
+  // TODO
+}
+
+function calcMaxStatusCalcTotal() {
+  maxStatusTotalStatusStar0 += Number(maxStatusHPStar0[0]);
+  maxStatusTotalStatusStar4 += maxStatusHPStar4[0];
+  maxStatusTotalStatusMaxStatus += maxStatusHPMaxStatus;
+}
+
+function resetMaxStatusAll() {
+  resetMaxStatus("HP");
+  resetMaxStatus("MP");
+  resetMaxStatus("AT");
+  resetMaxStatus("DF");
+  resetMaxStatus("SP");
+  resetMaxStatus("IN");
+
+  // total
+  maxStatusTotalStatusStar0 = 0;
+  maxStatusTotalStatusStar4 = 0;
+  maxStatusTotalStatusMaxStatus = 0;
+  var td;
+  td = $("#maxStatusTotal td");
+  td.eq(1).text(0);
+  td.eq(2).text(0);
+  td.eq(3).text(0);
+}
+
+function resetMaxStatus(statusType) {
+  var td;
+  if (statusType == "HP") td = $("#maxStatusHp td");
+  if (statusType == "MP") td = $("#maxStatusMp td");
+  if (statusType == "AT") td = $("#maxStatusAtack td");
+  if (statusType == "DF") td = $("#maxStatusDefen td");
+  if (statusType == "SP") td = $("#maxStatusSpeed td");
+  if (statusType == "IN") td = $("#maxStatusIntel td");
 
 	// zero clear
-	for (var i = 0; i < 77; i++) {
-    maxStatusHPStar4[i] = 0;
-	}
+  initializeMaxStatus();
 
-  tdHp.eq(1 + 0).children().val("");
-  tdHp.eq(1 + 1).text(0);
-  tdHp.eq(1 + 2).text(0);
-  tdHp.eq(1 + 3).text(0);
-
-	for (var i = 0; i < 4; i++) {
-		//tdHp.eq(1 + i).children().val("");
-    //tdHpOut.eq(1 + i).text(0);
-	}
+  td.eq(1 + 0).children().val("");
+  td.eq(1 + 1).text(0);
+  td.eq(1 + 2).text(0);
+  td.eq(1 + 3).text(0);
 
   var result = $("#maxStatusResult");
   result.text("");
 }
 
-function calcMaxStatusPUConbination() {
-  // init
-}
 
-
-function calcMaxStatusAll() {
-  // init
-}
 
 
 // Calc: from Star0 to Star1
@@ -1454,8 +1519,8 @@ $(document).ready(function(){
       <p>特殊PUをカッコで表現しています</p>
       <br>
       <br>
-      <button class="btn btn-primary" onclick="calcMaxStatus()">最大ステ計算！</button>
-      <button class="btn btn-primary" onclick="resetMaxStatus()">リセット</button>
+      <button class="btn btn-primary" onclick="calcMaxStatusAll()">最大ステ計算！</button>
+      <button class="btn btn-primary" onclick="resetMaxStatusAll()">リセット</button>
 
     </div><!-- id="tabMaxStatus" -->
 
