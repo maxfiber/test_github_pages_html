@@ -507,10 +507,10 @@ function calcMaxStatus(statusType) {
   maxStatusHPStar4[75] = calcPowerup(maxStatusHPStar3[5], maxStatusHPStar3[6]);
   maxStatusHPStar4[76] = calcPowerup(maxStatusHPStar3[6], maxStatusHPStar3[6]);
 
-  console.log("maxStatusHPStar4 = " + maxStatusHPStar4);
+  //console.log("maxStatusHPStar4 = " + maxStatusHPStar4);
 
   maxStatusHPMaxStatus = _.max(maxStatusHPStar4);
-  console.log("maxStatusHPMaxStatus = " + maxStatusHPMaxStatus);
+  //console.log("maxStatusHPMaxStatus = " + maxStatusHPMaxStatus);
 
   var combination_min_search = 16;
   var combinationId = 0;
@@ -1139,6 +1139,22 @@ function debugRankDorakie() {
 		}
 	});
 }
+
+function debugMaxStatusKandar() {
+  var td;
+  td = $("#maxStatusHp td");
+  td.eq(1).children().val(618);
+  td = $("#maxStatusMp td");
+  td.eq(1).children().val(240);
+  td = $("#maxStatusAtack td");
+  td.eq(1).children().val(440);
+  td = $("#maxStatusDefen td");
+  td.eq(1).children().val(388);
+  td = $("#maxStatusSpeed td");
+  td.eq(1).children().val(341);
+  td = $("#maxStatusIntel td");
+  td.eq(1).children().val(260);
+}
 </script>
 
 <script type="text/javascript">
@@ -1521,6 +1537,7 @@ $(document).ready(function(){
       <br>
       <button class="btn btn-primary" onclick="calcMaxStatusAll()">最大ステ計算！</button>
       <button class="btn btn-primary" onclick="resetMaxStatusAll()">リセット</button>
+      <button class="btn btn-primary" onclick="debugMaxStatusKandar()">サンプル:カンダタステ</button>
 
     </div><!-- id="tabMaxStatus" -->
 
