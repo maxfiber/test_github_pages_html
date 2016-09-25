@@ -395,10 +395,7 @@ function calcMaxStatusAll(){
 }
 
 function calcMaxStatus(statusType) {
-  // TODO 引数に文字列を入れたい。
-  // この関数をステ6分に分割したい。
-  // console.log("calcMaxStatus = " + statusType);
-  // if (statusType == "HP") console.log("HP");
+  // TODO この関数をステ6分に分割したい。
 
   // init
   initializeMaxStatus();
@@ -543,19 +540,21 @@ function calcMaxStatus(statusType) {
 	// 3列目: ☆4ステ
 	td.eq(2).html(maxStatusHPStar4[0]);
   // 4列目: maxstatus
-  td.eq(3).html(maxStatusHPMaxStatus + "(+" + (maxStatusHPMaxStatus - maxStatusHPStar4[0]) + ")");
+  var diff = maxStatusHPMaxStatus - maxStatusHPStar4[0];
+  td.eq(3).html(maxStatusHPMaxStatus + "(+" + diff + ")");
   // 5列目: ☆0モンスター数
   td.eq(4).html(combination_min_search);
   // 8行目: 合計
   var tdTotal;
   td = $("#maxStatusTotal td");
-  td.eq(1).html(maxStatusTotalStatusStar0);
-  td.eq(2).html(maxStatusTotalStatusStar4);
-  td.eq(3).html(maxStatusTotalStatusMaxStatus);
+  td.eq(1).html(maxStatusTotalStatusStar0); // ☆0ステ
+  td.eq(2).html(maxStatusTotalStatusStar4); // ☆4ステ
+  diff = maxStatusTotalStatusMaxStatus - maxStatusTotalStatusStar4;
+  td.eq(3).html(maxStatusTotalStatusMaxStatus + "(+" + diff + ")"); // 最大ステ
 
   // 結論: PU 組合せ
   result = $("#maxStatusResult");
-  result.html(maxStatusPowerupCombination[combinationId])
+  result.html("体使用☆4 = " + maxStatusPowerupCombination[combinationId])
 }
 
 function calcMaxStatusPUConbination() {
