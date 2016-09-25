@@ -386,12 +386,39 @@ function initializeMaxStatus() {
 }
 
 function calcMaxStatusAll(){
+  // 最大ステ計算ボタン連打しても重複計算しないためにリセット
+  resetMaxStatusTotal();
+
   calcMaxStatus("HP");
   calcMaxStatus("MP");
   calcMaxStatus("AT");
   calcMaxStatus("DF");
   calcMaxStatus("SP");
   calcMaxStatus("IN");
+
+  // 0 が入力されていたら計算しない
+  if (maxStatusTotalStatusStar0 == 0) return;
+
+  // 組合せ計算
+  var combinationId = calcMaxStatusPUConbination();
+
+  //show
+  // 8行目: 合計行
+  var tdTotal;
+  td = $("#maxStatusTotal td");
+  // 8行2列: ☆0ステ
+  td.eq(1).html(maxStatusTotalStatusStar0);
+  // 8行3列: ☆4ステ
+  td.eq(2).html(maxStatusTotalStatusStar4);
+  // 8行4列: 最大ステ
+  diff = maxStatusTotalStatusMaxStatus - maxStatusTotalStatusStar4;
+  td.eq(3).html(maxStatusTotalStatusMaxStatus + "(+" + diff + ")");
+  // 8行5列: ☆0モンスター必要数
+  td.eq(4).html(maxStatusHeadCount[combinationId]);
+
+  // 結論: PU 組合せ
+  result = $("#maxStatusResult");
+  result.html(maxStatusHeadCount[combinationId] + "体使用☆4 = " + maxStatusPowerupCombination[combinationId]);
 }
 
 function calcMaxStatus(statusType) {
@@ -530,11 +557,8 @@ function calcMaxStatus(statusType) {
     return combination_min_search;
   });
 
-  // 組合せ計算
-  calcMaxStatusPUConbination();
-
   // 合計値計算
-  calcMaxStatusCalcTotal()
+  calcMaxStatusCalcTotal();
 
   // show
 	// 3列目: ☆4ステ
@@ -544,21 +568,34 @@ function calcMaxStatus(statusType) {
   td.eq(3).html(maxStatusHPMaxStatus + "(+" + diff + ")");
   // 5列目: ☆0モンスター数
   td.eq(4).html(combination_min_search);
-  // 8行目: 合計
-  var tdTotal;
-  td = $("#maxStatusTotal td");
-  td.eq(1).html(maxStatusTotalStatusStar0); // ☆0ステ
-  td.eq(2).html(maxStatusTotalStatusStar4); // ☆4ステ
-  diff = maxStatusTotalStatusMaxStatus - maxStatusTotalStatusStar4;
-  td.eq(3).html(maxStatusTotalStatusMaxStatus + "(+" + diff + ")"); // 最大ステ
-
-  // 結論: PU 組合せ
-  result = $("#maxStatusResult");
-  result.html("体使用☆4 = " + maxStatusPowerupCombination[combinationId])
 }
 
 function calcMaxStatusPUConbination() {
-  // TODO
+  //console.log(maxStatusTotalMaxStatusFlag);
+  //console.log(maxStatusHeadCount);
+
+  // maxStatusTotalMaxStatusFlag の最大値を探す。
+  // ＝必ず6になる。。。77番目では確実に。
+  // TODO リファクタ
+  var FlagMax = _.max(maxStatusTotalMaxStatusFlag);
+
+  // maxStatusHeadCount[i] == 6 を探す。
+  // これが結論
+  var FlagMin = 16;
+  var result_i;
+  _.each(maxStatusTotalMaxStatusFlag, function(elm, i){
+    if(FlagMax == maxStatusTotalMaxStatusFlag[i]){
+      //console.log("i = " + i);
+      //console.log("maxStatusHeadCount[i] = " + maxStatusHeadCount[i]);
+      if(FlagMin > maxStatusHeadCount[i]){
+        FlagMin = maxStatusHeadCount[i];
+        //console.log("FlagMin = " + FlagMin);
+        result_i = i;
+      }
+    }
+  })
+
+  return result_i;
 }
 
 function calcMaxStatusCalcTotal() {
@@ -568,25 +605,24 @@ function calcMaxStatusCalcTotal() {
 }
 
 function resetMaxStatusAll() {
-  resetMaxStatus("HP");
-  resetMaxStatus("MP");
-  resetMaxStatus("AT");
-  resetMaxStatus("DF");
-  resetMaxStatus("SP");
-  resetMaxStatus("IN");
+  resetMaxStatusForEach("HP");
+  resetMaxStatusForEach("MP");
+  resetMaxStatusForEach("AT");
+  resetMaxStatusForEach("DF");
+  resetMaxStatusForEach("SP");
+  resetMaxStatusForEach("IN");
 
   // total
-  maxStatusTotalStatusStar0 = 0;
-  maxStatusTotalStatusStar4 = 0;
-  maxStatusTotalStatusMaxStatus = 0;
+  resetMaxStatusTotal();
   var td;
   td = $("#maxStatusTotal td");
   td.eq(1).text(0);
   td.eq(2).text(0);
-  td.eq(3).text(0);
+  td.eq(3).text("0");
+  td.eq(4).text(0);
 }
 
-function resetMaxStatus(statusType) {
+function resetMaxStatusForEach(statusType) {
   var td;
   if (statusType == "HP") td = $("#maxStatusHp td");
   if (statusType == "MP") td = $("#maxStatusMp td");
@@ -607,8 +643,11 @@ function resetMaxStatus(statusType) {
   result.text("");
 }
 
-
-
+function resetMaxStatusTotal() {
+  maxStatusTotalStatusStar0 = 0;
+  maxStatusTotalStatusStar4 = 0;
+  maxStatusTotalStatusMaxStatus = 0;
+}
 
 // Calc: from Star0 to Star1
 function calcPowerup(statusBase, statusEsa) {
@@ -1464,7 +1503,7 @@ $(document).ready(function(){
 
     <div class="tab-pane" id="tabMaxStatus">
       <h3>最大ステ計算機</h3>
-      <p>最大ステとなる最小☆0モンスター数と組合せを計算します。</p>
+      <p>最大ステとなる最小☆0モンスター数とパワーアップ組合せを計算します。</p>
       <p>☆0ステータスを入力してね！</p>
       <table class="table table-bordered table-hover table-condensed">
         <thead>
@@ -1529,9 +1568,9 @@ $(document).ready(function(){
         </tbody>
       </table>
 
-      <h4>最大ステのパワーアップの組合せ</h4>
-      <div id="maxStatusResult"></div>
-      <p>特殊PUをカッコで表現しています</p>
+      <h4>結論:各ステが最大ステのPUの組合せは,,,</h4>
+      <div id="maxStatusResult">X体使用☆4=,,,</div>
+      <p>※特殊PUをカッコで表現しています</p>
       <br>
       <br>
       <button class="btn btn-primary" onclick="calcMaxStatusAll()">最大ステ計算！</button>
