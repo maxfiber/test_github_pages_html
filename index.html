@@ -38,7 +38,7 @@ body {
 }
 
 .input {
-  width: 40px;
+  width: 50px;
 }
 
 #alpha {
@@ -288,7 +288,7 @@ function calcMaxStatusAll(){
   diff = maxStatusTotalStatusMaxStatus - maxStatusTotalStatusStar4;
   td.eq(3).html(maxStatusTotalStatusMaxStatus + "(+" + diff + ")");
   // 8行5列: ☆0モンスター必要数
-  td.eq(4).html(maxStatusHeadCount[combinationId]);
+  td.eq(4).html(maxStatusHeadCount[combinationId] + "体");
 
   // 結論: PU 組合せ
   result = $("#maxStatusResult");
@@ -440,7 +440,7 @@ function calcMaxStatusForEach(statusType) {
   var diff = maxStatusForEachMaxStatus - maxStatusForEachStar4[0];
   td.eq(3).html(maxStatusForEachMaxStatus + "(+" + diff + ")");
   // 5列目: ☆0モンスター数
-  td.eq(4).html(combination_min_search);
+  td.eq(4).html(combination_min_search + "体");
 }
 
 function calcMaxStatusPUConbination() {
