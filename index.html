@@ -23,6 +23,18 @@
 
     <!-- underscorejs -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <script type="text/javascript">
+      // スマホでは PC 広告 OFF
+      var ua = navigator.userAgent;
+      if (ua.indexOf('iPhone') > 0
+        || (ua.indexOf('Android') > 0) && (ua.indexOf('Mobile') > 0)
+        || ua.indexOf('Windows Phone') > 0) {
+          $(function() {
+            $('#admaxPC').remove();
+          });
+    	}
+    </script>
   </head>
 
 <html>
@@ -32,7 +44,7 @@ body {
   background-image:url("http://i.imgur.com/Ey2NRqL.jpg");
   positon: relative;
   width: 100%;
-  min-width:468px;
+  min-width: 320px;
   height: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -1102,7 +1114,7 @@ $(document).ready(function(){
   </div>
 </nav>
 
-<div class="container" style="padding:50px 0px">
+<div class="container" style="padding:50px 0px;">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tabStar4" data-toggle="tab">☆4ステ</a></li>
     <li><a href="#tabStar444444" data-toggle="tab">☆444444</a></li>
@@ -1487,9 +1499,12 @@ $(document).ready(function(){
 <br>
 <br>
 
-<div id="admax">
-<script src="http://adm.shinobi.jp/s/26e0d2b694e8fea433234a666dc01334"></script>
-</div> <!-- id="admax" -->
+<div id="admaxPC">
+  <script src="http://adm.shinobi.jp/s/26e0d2b694e8fea433234a666dc01334"></script>
+</div>
+<div id="admaxSPInline">
+  <script src="http://adm.shinobi.jp/s/8144b472068ffd48ef24f154093123dc"></script>
+</div>
 
 </div><!-- id="alpha" -->
 
