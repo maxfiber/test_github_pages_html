@@ -76,16 +76,19 @@ body {
 </script>
 
 <script type="text/javascript">
-var maxStar4Count = 4;
-var statusCount = 6;
-var rankCount = 8;
+var NumStar4Powerup = 4; // ☆0->1->2->3->4 のPU回数4回
+var NumStar4PowerupMonster = 5; // ☆0->1->2->3->4 のモンスター数5体
+var NumStatusType = 6; // HP, MP, AT, DF, SP, IN
+var NumStatusTypeIncludeTotal = 7; // HP, MP, AT, DF, SP, IN, Total
+var NumRank = 8; // SS, S, A, B, C, D, E, F
 
-var statusHP = 0;
-var statusMP = 1;
-var statusAT = 2;
-var statusDF = 3;
-var statusSP = 4;
-var statusIN = 5;
+var indexStatusHP = 0;
+var indexStatusMP = 1;
+var indexStatusAT = 2;
+var indexStatusDF = 3;
+var indexStatusSP = 4;
+var indexStatusIN = 5;
+var indexStatusTotal = 6;
 
 // Star4 Caluclator
 var star4Calc =
@@ -570,13 +573,13 @@ function calcPowerupStar44(base0, before4, before0) {
 // ☆4シミュレータ合計値計算
 function showStar4StatusTotal() {
 	// 合計値は常に0クリアして再計算
-	for (var i = 0; i < statusCount; i++) {
-		star4Calc[statusCount][i] = 0;
+	for (var i = 0; i < NumStatusType; i++) {
+		star4Calc[NumStatusType][i] = 0;
 	}
 
 	// get
 	// to number. avoid string.
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < NumStatusType; i++) {
 		if (!parseInt(star4Calc[i][0] > 0)) star4Calc[i][0] = Number(0);
 	}
 
@@ -588,7 +591,7 @@ function showStar4StatusTotal() {
 	star4Calc[5][0] = Number($("#star4IN0").val());
 
 	// calc
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < NumStatusType; i++) {
 		star4Calc[6][0] += star4Calc[i][0]; // star0 total
 		star4Calc[6][1] += star4Calc[i][1]; // star1 total
 		star4Calc[6][2] += star4Calc[i][2]; // star2 total
@@ -615,15 +618,14 @@ function showStar4StatusHP() {
 	star4Calc[0][0] = $("#star4HP0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[0][i+1] = calcPowerup(star4Calc[0][i], star4Calc[0][0]);
 	}
 
 	// show
 	var td = $("#star4HP td");
-//	var td = $("#star4HP").children('td');
 
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[0][1 + i]);
 		// eq(0) Status: HP
 		// eq(1) ☆0
@@ -645,13 +647,13 @@ function showStar4StatusMP() {
 	star4Calc[1][0] = $("#star4MP0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[1][i+1] = calcPowerup(star4Calc[1][i], star4Calc[1][0]);
 	}
 
 	// show
 	var td = $("#star4MP td");
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[1][1 + i]);
 	}
 	showStar4StatusTotal();
@@ -663,13 +665,13 @@ function showStar4StatusAT() {
 	star4Calc[2][0] = $("#star4AT0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[2][i+1] = calcPowerup(star4Calc[2][i], star4Calc[2][0]);
 	}
 
 	// show
 	var td = $("#star4AT td");
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[2][1 + i]);
 	}
 	showStar4StatusTotal();
@@ -681,13 +683,13 @@ function showStar4StatusDF() {
 	star4Calc[3][0] = $("#star4DF0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[3][i+1] = calcPowerup(star4Calc[3][i], star4Calc[3][0]);
 	}
 
 	// show
 	var td = $("#star4DF td");
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[3][1 + i]);
 	}
 	showStar4StatusTotal();
@@ -699,13 +701,13 @@ function showStar4StatusSP() {
 	star4Calc[4][0] = $("#star4SP0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[4][i+1] = calcPowerup(star4Calc[4][i], star4Calc[4][0]);
 	}
 
 	// show
 	var td = $("#star4SP td");
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[4][1 + i]);
 	}
 	showStar4StatusTotal();
@@ -714,16 +716,16 @@ function showStar4StatusSP() {
 // ☆4シミュレータ：賢さ
 function showStar4StatusIN() {
 	// get
-	star4Calc[5][0] = $("#star4IN0").val();
+	star4Calc[NumStar4PowerupMonster][0] = $("#star4IN0").val();
 
 	// calc
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < NumStar4PowerupMonster; i++) {
 		star4Calc[5][i+1] = calcPowerup(star4Calc[5][i], star4Calc[5][0]);
 	}
 
 	// show
 	var td = $("#star4IN td");
-	for (var i = 0; i < maxStar4Count; i++) {
+	for (var i = 0; i < NumStar4Powerup; i++) {
 		td.eq(2 + i).text(star4Calc[5][1 + i]);
 	}
 	showStar4StatusTotal();
@@ -731,8 +733,8 @@ function showStar4StatusIN() {
 
 function resetStar4() {
   // zero clear
-  for (var i = 0; i < 7; i++) {
-    for (var j = 0; j < 5; j++) {
+  for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
+    for (var j = 0; j < NumStar4PowerupMonster; j++) {
       star4Calc[i][j] = 0;
     }
   }
@@ -767,8 +769,8 @@ function resetStar4() {
 // ☆444444シミュレータ
 function calcStar444444() {
 	// init
-	for (var i = 0; i < 7; i++) {
-		for (var j = 0; j < 8; j++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
+		for (var j = 0; j < NumRank; j++) {
 			star444444CalcOut[i][j] = 0;
 			star444444CalcIn[i][j]  = 0;
 		}
@@ -779,13 +781,13 @@ function calcStar444444() {
 	// for HP
 	// get
 	td = $("#star444444HPIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[0][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[0][6-i] = calcPowerupStar44(star444444CalcIn[0][6-i], star444444CalcOut[0][7-i], star444444CalcIn[0][7-i]);
 	}
 
@@ -798,13 +800,13 @@ function calcStar444444() {
 	// for MP
 	// get
 	td = $("#star444444MPIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[1][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[1][7] = calcPowerupStar4(star444444CalcIn[1][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[1][6-i] = calcPowerupStar44(star444444CalcIn[1][6-i], star444444CalcOut[1][7-i], star444444CalcIn[1][7-i]);
 	}
 
@@ -818,13 +820,13 @@ function calcStar444444() {
 	// for atack
 	// get
 	td = $("#star444444ATIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[2][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[2][7] = calcPowerupStar4(star444444CalcIn[2][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[2][6-i] = calcPowerupStar44(star444444CalcIn[2][6-i], star444444CalcOut[2][7-i], star444444CalcIn[2][7-i]);
 	}
 
@@ -837,13 +839,13 @@ function calcStar444444() {
 	// for defen
 	// get
 	td = $("#star444444DFIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[3][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[3][7] = calcPowerupStar4(star444444CalcIn[3][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[3][6-i] = calcPowerupStar44(star444444CalcIn[3][6-i], star444444CalcOut[3][7-i], star444444CalcIn[3][7-i]);
 	}
 
@@ -856,13 +858,13 @@ function calcStar444444() {
 	// for speed
 	// get
 	td = $("#star444444SPIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[4][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[4][6-i] = calcPowerupStar44(star444444CalcIn[4][6-i], star444444CalcOut[4][7-i], star444444CalcIn[4][7-i]);
  	}
 
@@ -875,13 +877,13 @@ function calcStar444444() {
 	// for intel
 	// get
 	td = $("#star444444INIn td");
-	for (var i = 0; i < 8; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		star444444CalcIn[5][i] = td.eq(1 + i).children().val();
 	}
 
 	// calc
 	star444444CalcOut[5][7] = calcPowerupStar4(star444444CalcIn[5][7]);
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
 		star444444CalcOut[5][6-i] = calcPowerupStar44(star444444CalcIn[5][6-i], star444444CalcOut[5][7-i], star444444CalcIn[5][7-i]);
 	}
 
@@ -893,7 +895,7 @@ function calcStar444444() {
 
 	// total
 	// calc
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < NumStatusType; i++) {
 		// ☆0の合計値計算
 		star444444CalcIn[6][7] += Number(star444444CalcIn[i][7]); //  F[total] +=  F[*]
 		star444444CalcIn[6][6] += Number(star444444CalcIn[i][6]); //  E[total] +=  E[*]
@@ -948,14 +950,14 @@ function resetStar444444() {
 	var tdTotalOut = $("#star444444TotalOut td");
 
 	// zero clear
-	for (var i = 0; i < 7; i++) {
-		for (var j = 0; j < rankCount; j++) {
+	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
+		for (var j = 0; j < NumRank; j++) {
 			star444444CalcOut[i][j] = 0;
 			star444444CalcIn[i][j]  = 0;
 		}
 	}
 
-	for (var i = 0; i < rankCount; i++) {
+	for (var i = 0; i < NumRank; i++) {
 		tdHPIn.eq(1 + i).children().val("");
 		tdMPIn.eq(1 + i).children().val("");
 		tdATIn.eq(1 + i).children().val("");
