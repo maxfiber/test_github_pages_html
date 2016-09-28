@@ -160,9 +160,9 @@ var maxStatusTotalMaxStatusFlag = [  // 各ステ毎に、最大ステで+1
   0, 0, 0, 0, 0, 0, 0, 0, 0, 0,      // 61-70
   0, 0, 0, 0, 0, 0, 0];              // 71-77
 
-  var maxStatusTotalStatusStar0 = 0;
-  var maxStatusTotalStatusStar4 = 0;
-  var maxStatusTotalStatusMaxStatus = 0;
+var maxStatusTotalStatusStar0 = 0;
+var maxStatusTotalStatusStar4 = 0;
+var maxStatusTotalStatusMaxStatus = 0;
 
 var maxStatusHeadCount = [           // PU 組合せ毎の☆0モンスター必要数
    5, 6, 6, 7, 7, 8, 9, 6, 7, 7,     //  1-10
@@ -308,19 +308,17 @@ function calcMaxStatusAll(){
 }
 
 function calcMaxStatusForEach(statusType) {
-  // TODO この関数をステ6分に分割したい。
-
   // init
   initializeMaxStatusForEach();
 
   // get
   var td;
-  if (statusType == "HP") td = $("#maxStatusHp td");
-  if (statusType == "MP") td = $("#maxStatusMp td");
-  if (statusType == "AT") td = $("#maxStatusAtack td");
-  if (statusType == "DF") td = $("#maxStatusDefen td");
-  if (statusType == "SP") td = $("#maxStatusSpeed td");
-  if (statusType == "IN") td = $("#maxStatusIntel td");
+  if (statusType == "HP") td = $("#maxStatusHP td");
+  if (statusType == "MP") td = $("#maxStatusMP td");
+  if (statusType == "AT") td = $("#maxStatusAT td");
+  if (statusType == "DF") td = $("#maxStatusDF td");
+  if (statusType == "SP") td = $("#maxStatusSP td");
+  if (statusType == "IN") td = $("#maxStatusIN td");
 
   maxStatusForEachStar0[0] = td.eq(1).children().val();
 
@@ -416,8 +414,6 @@ function calcMaxStatusForEach(statusType) {
   maxStatusForEachStar4[75] = calcPowerup(maxStatusForEachStar3[5], maxStatusForEachStar3[6]);
   maxStatusForEachStar4[76] = calcPowerup(maxStatusForEachStar3[6], maxStatusForEachStar3[6]);
 
-  //console.log("maxStatusForEachStar4 = " + maxStatusForEachStar4);
-
   maxStatusForEachMaxStatus = _.max(maxStatusForEachStar4);
   //console.log("maxStatusForEachMaxStatus = " + maxStatusForEachMaxStatus);
 
@@ -456,9 +452,6 @@ function calcMaxStatusForEach(statusType) {
 }
 
 function calcMaxStatusPUConbination() {
-  //console.log(maxStatusTotalMaxStatusFlag);
-  //console.log(maxStatusHeadCount);
-
   // maxStatusTotalMaxStatusFlag の最大値を探す。
   // ＝必ず6になる。。。77番目では確実に。
   // TODO リファクタ
@@ -509,12 +502,12 @@ function resetMaxStatusAll() {
 
 function resetMaxStatusForEach(statusType) {
   var td;
-  if (statusType == "HP") td = $("#maxStatusHp td");
-  if (statusType == "MP") td = $("#maxStatusMp td");
-  if (statusType == "AT") td = $("#maxStatusAtack td");
-  if (statusType == "DF") td = $("#maxStatusDefen td");
-  if (statusType == "SP") td = $("#maxStatusSpeed td");
-  if (statusType == "IN") td = $("#maxStatusIntel td");
+  if (statusType == "HP") td = $("#maxStatusHP td");
+  if (statusType == "MP") td = $("#maxStatusMP td");
+  if (statusType == "AT") td = $("#maxStatusAT td");
+  if (statusType == "DF") td = $("#maxStatusDF td");
+  if (statusType == "SP") td = $("#maxStatusSP td");
+  if (statusType == "IN") td = $("#maxStatusIN td");
 
 	// zero clear
   initializeMaxStatusForEach();
@@ -587,12 +580,12 @@ function showStar4StatusTotal() {
 		if (!parseInt(star4Calc[i][0] > 0)) star4Calc[i][0] = Number(0);
 	}
 
-	star4Calc[0][0] = Number($("#star4Hp0").val());
-	star4Calc[1][0] = Number($("#star4Mp0").val());
-	star4Calc[2][0] = Number($("#star4Atack0").val());
-	star4Calc[3][0] = Number($("#star4Defen0").val());
-	star4Calc[4][0] = Number($("#star4Speed0").val());
-	star4Calc[5][0] = Number($("#star4Intel0").val());
+	star4Calc[0][0] = Number($("#star4HP0").val());
+	star4Calc[1][0] = Number($("#star4MP0").val());
+	star4Calc[2][0] = Number($("#star4AT0").val());
+	star4Calc[3][0] = Number($("#star4DF0").val());
+	star4Calc[4][0] = Number($("#star4SP0").val());
+	star4Calc[5][0] = Number($("#star4IN0").val());
 
 	// calc
 	for (var i = 0; i < 6; i++) {
@@ -619,7 +612,7 @@ function showStar4StatusTotal() {
 // ☆4シミュレータ：HP
 function showStar4StatusHP() {
 	// get
-	star4Calc[0][0] = $("#star4Hp0").val();
+	star4Calc[0][0] = $("#star4HP0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -627,8 +620,8 @@ function showStar4StatusHP() {
 	}
 
 	// show
-	var td = $("#star4Hp td");
-//	var td = $("#star4Hp").children('td');
+	var td = $("#star4HP td");
+//	var td = $("#star4HP").children('td');
 
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[0][1 + i]);
@@ -639,17 +632,17 @@ function showStar4StatusHP() {
 		// eq(4) ☆3
 		// eq(5) ☆4
 	}
-//	$("#star4Hp1").html(star4Calc[0][1]);
-//	$("#star4Hp2").html(star4Calc[0][2]);
-//	$("#star4Hp3").html(star4Calc[0][3]);
-//	$("#star4Hp4").html(star4Calc[0][4]);
+//	$("#star4HP1").html(star4Calc[0][1]);
+//	$("#star4HP2").html(star4Calc[0][2]);
+//	$("#star4HP3").html(star4Calc[0][3]);
+//	$("#star4HP4").html(star4Calc[0][4]);
 	showStar4StatusTotal();
 }
 
 // ☆4シミュレータ：MP
 function showStar4StatusMP() {
 	// get
-	star4Calc[1][0] = $("#star4Mp0").val();
+	star4Calc[1][0] = $("#star4MP0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -657,7 +650,7 @@ function showStar4StatusMP() {
 	}
 
 	// show
-	var td = $("#star4Mp td");
+	var td = $("#star4MP td");
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[1][1 + i]);
 	}
@@ -665,9 +658,9 @@ function showStar4StatusMP() {
 }
 
 // ☆4シミュレータ：攻撃
-function showStar4StatusAtack() {
+function showStar4StatusAT() {
 	// get
-	star4Calc[2][0] = $("#star4Atack0").val();
+	star4Calc[2][0] = $("#star4AT0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -675,7 +668,7 @@ function showStar4StatusAtack() {
 	}
 
 	// show
-	var td = $("#star4Atack td");
+	var td = $("#star4AT td");
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[2][1 + i]);
 	}
@@ -683,9 +676,9 @@ function showStar4StatusAtack() {
 }
 
 // ☆4シミュレータ：防御
-function showStar4StatusDefen() {
+function showStar4StatusDF() {
 	// get
-	star4Calc[3][0] = $("#star4Defen0").val();
+	star4Calc[3][0] = $("#star4DF0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -693,7 +686,7 @@ function showStar4StatusDefen() {
 	}
 
 	// show
-	var td = $("#star4Defen td");
+	var td = $("#star4DF td");
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[3][1 + i]);
 	}
@@ -701,9 +694,9 @@ function showStar4StatusDefen() {
 }
 
 // ☆4シミュレータ：素早さ
-function showStar4StatusSpeed() {
+function showStar4StatusSP() {
 	// get
-	star4Calc[4][0] = $("#star4Speed0").val();
+	star4Calc[4][0] = $("#star4SP0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -711,7 +704,7 @@ function showStar4StatusSpeed() {
 	}
 
 	// show
-	var td = $("#star4Speed td");
+	var td = $("#star4SP td");
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[4][1 + i]);
 	}
@@ -719,9 +712,9 @@ function showStar4StatusSpeed() {
 }
 
 // ☆4シミュレータ：賢さ
-function showStar4StatusIntel() {
+function showStar4StatusIN() {
 	// get
-	star4Calc[5][0] = $("#star4Intel0").val();
+	star4Calc[5][0] = $("#star4IN0").val();
 
 	// calc
 	for (var i = 0; i < 5; i++) {
@@ -729,7 +722,7 @@ function showStar4StatusIntel() {
 	}
 
 	// show
-	var td = $("#star4Intel td");
+	var td = $("#star4IN td");
 	for (var i = 0; i < maxStar4Count; i++) {
 		td.eq(2 + i).text(star4Calc[5][1 + i]);
 	}
@@ -743,36 +736,36 @@ function resetStar4() {
       star4Calc[i][j] = 0;
     }
   }
-  var tdHp = $("#star4Hp td");
-  var tdMp = $("#star4Mp td");
-  var tdAtack = $("#star4Atack td");
-  var tdDefen = $("#star4Defen td");
-  var tdSpeed = $("#star4Speed td");
-  var tdIntel = $("#star4Intel td");
+  var tdHP = $("#star4HP td");
+  var tdMP = $("#star4MP td");
+  var tdAT = $("#star4AT td");
+  var tdDF = $("#star4DF td");
+  var tdSP = $("#star4SP td");
+  var tdIN = $("#star4IN td");
   var tdTotal = $("#star4Total td");
 
-  tdHp.eq(1).children().val("");
-  tdMp.eq(1).children().val("");
-  tdAtack.eq(1).children().val("");
-  tdDefen.eq(1).children().val("");
-  tdSpeed.eq(1).children().val("");
-  tdIntel.eq(1).children().val("");
+  tdHP.eq(1).children().val("");
+  tdMP.eq(1).children().val("");
+  tdAT.eq(1).children().val("");
+  tdDF.eq(1).children().val("");
+  tdSP.eq(1).children().val("");
+  tdIN.eq(1).children().val("");
   tdTotal.eq(1).html(0);
 
-  for (var i = 0; i < 3; i++) {
-    tdHp.eq(2 + i).html(0);
-    tdMp.eq(2 + i).html(0);
-    tdAtack.eq(2 + i).html(0);
-    tdDefen.eq(2 + i).html(0);
-    tdSpeed.eq(2 + i).html(0);
-    tdIntel.eq(2 + i).html(0);
+  for (var i = 0; i < 4; i++) {
+    tdHP.eq(2 + i).html(0);
+    tdMP.eq(2 + i).html(0);
+    tdAT.eq(2 + i).html(0);
+    tdDF.eq(2 + i).html(0);
+    tdSP.eq(2 + i).html(0);
+    tdIN.eq(2 + i).html(0);
     tdTotal.eq(2 + i).html(0);
   }
 }
 
 
 // ☆444444シミュレータ
-function calc_444444() {
+function calcStar444444() {
 	// init
 	for (var i = 0; i < 7; i++) {
 		for (var j = 0; j < 8; j++) {
@@ -785,20 +778,10 @@ function calc_444444() {
 
 	// for HP
 	// get
-	td = $("#star444444HpIn td");
+	td = $("#star444444HPIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[0][i] = td.eq(1 + i).children().val();
 	}
-/*
-	star444444CalcIn[0][7] = $("#star444444HpRankF0").val();
-	star444444CalcIn[0][6] = $("#star444444HpRankE0").val();
-	star444444CalcIn[0][5] = $("#star444444HpRankD0").val();
-	star444444CalcIn[0][4] = $("#star444444HpRankC0").val();
-	star444444CalcIn[0][3] = $("#star444444HpRankB0").val();
-	star444444CalcIn[0][2] = $("#star444444HpRankA0").val();
-	star444444CalcIn[0][1] = $("#star444444HpRankS0").val();
-	star444444CalcIn[0][0] = $("#star444444HpRankSS0").val();
-*/
 
 	// calc
 	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
@@ -807,14 +790,14 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444HpOut td");
+	td = $("#star444444HPOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[0][i] > 0) td.eq(1 + i).html(star444444CalcOut[0][i]);
 	}
 
 	// for MP
 	// get
-	td = $("#star444444MpIn td");
+	td = $("#star444444MPIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[1][i] = td.eq(1 + i).children().val();
 	}
@@ -826,7 +809,7 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444MpOut td");
+	td = $("#star444444MPOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[1][i] > 0) td.eq(1 + i).html(star444444CalcOut[1][i]);
 	}
@@ -834,7 +817,7 @@ function calc_444444() {
 
 	// for atack
 	// get
-	td = $("#star444444AtackIn td");
+	td = $("#star444444ATIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[2][i] = td.eq(1 + i).children().val();
 	}
@@ -846,14 +829,14 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444AtackOut td");
+	td = $("#star444444ATOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[2][i] > 0) td.eq(1 + i).html(star444444CalcOut[2][i]);
 	}
 
 	// for defen
 	// get
-	td = $("#star444444DefenIn td");
+	td = $("#star444444DFIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[3][i] = td.eq(1 + i).children().val();
 	}
@@ -865,14 +848,14 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444DefenOut td");
+	td = $("#star444444DFOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[3][i] > 0) td.eq(1 + i).html(star444444CalcOut[3][i]);
 	}
 
 	// for speed
 	// get
-	td = $("#star444444SpeedIn td");
+	td = $("#star444444SPIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[4][i] = td.eq(1 + i).children().val();
 	}
@@ -881,17 +864,17 @@ function calc_444444() {
 	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
 	for (var i = 0; i < 7; i++) {
 		star444444CalcOut[4][6-i] = calcPowerupStar44(star444444CalcIn[4][6-i], star444444CalcOut[4][7-i], star444444CalcIn[4][7-i]);
-	}
+ 	}
 
 	// show
-	td = $("#star444444SpeedOut td");
+	td = $("#star444444SPOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[4][i] > 0) td.eq(1 + i).html(star444444CalcOut[4][i]);
 	}
 
 	// for intel
 	// get
-	td = $("#star444444IntelIn td");
+	td = $("#star444444INIn td");
 	for (var i = 0; i < 8; i++) {
 		star444444CalcIn[5][i] = td.eq(1 + i).children().val();
 	}
@@ -903,7 +886,7 @@ function calc_444444() {
 	}
 
 	// show
-	td = $("#star444444IntelOut td");
+	td = $("#star444444INOut td");
 	for (var i = 0, len = td.length; i < len; i++) {
 		if (star444444CalcIn[5][i] > 0) td.eq(1 + i).html(star444444CalcOut[5][i]);
 	}
@@ -947,21 +930,21 @@ function calc_444444() {
 	}
 }
 
-function reset_444444() {
-	var tdHpIn     = $("#star444444HpIn td");
-	var tdMpIn     = $("#star444444MpIn td");
-	var tdAtackIn  = $("#star444444AtackIn td");
-	var tdDefenIn  = $("#star444444DefenIn td");
-	var tdSpeedIn  = $("#star444444SpeedIn td");
-	var tdIntelIn  = $("#star444444IntelIn td");
+function resetStar444444() {
+	var tdHPIn     = $("#star444444HPIn td");
+	var tdMPIn     = $("#star444444MPIn td");
+	var tdATIn     = $("#star444444ATIn td");
+	var tdDFIn     = $("#star444444DFIn td");
+	var tdSPIn     = $("#star444444SPIn td");
+	var tdINIn     = $("#star444444INIn td");
 	var tdTotalIn  = $("#star444444TotalIn td");
 
-	var tdHpOut    = $("#star444444HpOut td");
-	var tdMpOut    = $("#star444444MpOut td");
-	var tdAtackOut = $("#star444444AtackOut td");
-	var tdDefenOut = $("#star444444DefenOut td");
-	var tdSpeedOut = $("#star444444SpeedOut td");
-	var tdIntelOut = $("#star444444IntelOut td");
+	var tdHPOut    = $("#star444444HPOut td");
+	var tdMPOut    = $("#star444444MPOut td");
+	var tdATOut    = $("#star444444ATOut td");
+	var tdDFOut    = $("#star444444DFOut td");
+	var tdSPOut    = $("#star444444SPOut td");
+	var tdINOut    = $("#star444444INOut td");
 	var tdTotalOut = $("#star444444TotalOut td");
 
 	// zero clear
@@ -973,20 +956,20 @@ function reset_444444() {
 	}
 
 	for (var i = 0; i < rankCount; i++) {
-		tdHpIn.eq(1 + i).children().val("");
-		tdMpIn.eq(1 + i).children().val("");
-		tdAtackIn.eq(1 + i).children().val("");
-		tdDefenIn.eq(1 + i).children().val("");
-		tdSpeedIn.eq(1 + i).children().val("");
-		tdIntelIn.eq(1 + i).children().val("");
+		tdHPIn.eq(1 + i).children().val("");
+		tdMPIn.eq(1 + i).children().val("");
+		tdATIn.eq(1 + i).children().val("");
+		tdDFIn.eq(1 + i).children().val("");
+		tdSPIn.eq(1 + i).children().val("");
+		tdINIn.eq(1 + i).children().val("");
 		tdTotalIn.eq(1 + i).text("");
 
-		tdHpOut.eq(1 + i).text(0);
-		tdMpOut.eq(1 + i).text(0);
-		tdAtackOut.eq(1 + i).text(0);
-		tdDefenOut.eq(1 + i).text(0);
-		tdSpeedOut.eq(1 + i).text(0);
-		tdIntelOut.eq(1 + i).text(0);
+		tdHPOut.eq(1 + i).text(0);
+		tdMPOut.eq(1 + i).text(0);
+		tdATOut.eq(1 + i).text(0);
+		tdDFOut.eq(1 + i).text(0);
+		tdSPOut.eq(1 + i).text(0);
+		tdINOut.eq(1 + i).text(0);
 		tdTotalOut.eq(1 + i).text(0);
 	}
 }
@@ -994,12 +977,12 @@ function reset_444444() {
 function debugRankDorakie() {
 	var monster = $.parseJSON(monsterJson);
 	var index;
-	var tdHp    = $("#star444444HpIn td");
-	var tdMp    = $("#star444444MpIn td");
-	var tdAtack = $("#star444444AtackIn td");
-	var tdDefen = $("#star444444DefenIn td");
-	var tdSpeed = $("#star444444SpeedIn td");
-	var tdIntel = $("#star444444IntelIn td");
+	var tdHP    = $("#star444444HPIn td");
+	var tdMP    = $("#star444444MPIn td");
+	var tdAT    = $("#star444444ATIn td");
+	var tdDF    = $("#star444444DFIn td");
+	var tdSP    = $("#star444444SPIn td");
+	var tdIN    = $("#star444444INIn td");
 	var indexRankSS = 1;
 	var indexRankS  = 2;
 	var indexRankA  = 3;
@@ -1011,57 +994,57 @@ function debugRankDorakie() {
 
 	var newLines = monster.monster.filter(function(item, index){
 		if((item.No) == 902){
-			tdHp.eq(indexRankA).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankA).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankA).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankA).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankA).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankA).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankA).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankA).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankA).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankA).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankA).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankA).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 901){
-			tdHp.eq(indexRankB).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankB).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankB).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankB).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankB).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankB).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankB).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankB).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankB).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankB).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankB).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankB).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 850){
-			tdHp.eq(indexRankC).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankC).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankC).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankC).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankC).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankC).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankC).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankC).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankC).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankC).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankC).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankC).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 302){
-			tdHp.eq(indexRankD).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankD).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankD).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankD).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankD).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankD).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankD).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankD).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankD).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankD).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankD).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankD).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 322){
-			tdHp.eq(indexRankE).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankE).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankE).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankE).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankE).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankE).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankE).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankE).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankE).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankE).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankE).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankE).children().val(monster.monster[index].IN);
 			return true;
 		}
 		if((item.No) == 301){
-			tdHp.eq(indexRankF).children().val(monster.monster[index].HP);
-			tdMp.eq(indexRankF).children().val(monster.monster[index].MP);
-			tdAtack.eq(indexRankF).children().val(monster.monster[index].ST);
-			tdDefen.eq(indexRankF).children().val(monster.monster[index].DF);
-			tdSpeed.eq(indexRankF).children().val(monster.monster[index].SP);
-			tdIntel.eq(indexRankF).children().val(monster.monster[index].IN);
+			tdHP.eq(indexRankF).children().val(monster.monster[index].HP);
+			tdMP.eq(indexRankF).children().val(monster.monster[index].MP);
+			tdAT.eq(indexRankF).children().val(monster.monster[index].ST);
+			tdDF.eq(indexRankF).children().val(monster.monster[index].DF);
+			tdSP.eq(indexRankF).children().val(monster.monster[index].SP);
+			tdIN.eq(indexRankF).children().val(monster.monster[index].IN);
 			return true;
 		}
 	});
@@ -1069,33 +1052,33 @@ function debugRankDorakie() {
 
 function debugMaxStatusKandar() {
   var td;
-  td = $("#maxStatusHp td");
+  td = $("#maxStatusHP td");
   td.eq(1).children().val(618);
-  td = $("#maxStatusMp td");
+  td = $("#maxStatusMP td");
   td.eq(1).children().val(240);
-  td = $("#maxStatusAtack td");
+  td = $("#maxStatusAT td");
   td.eq(1).children().val(440);
-  td = $("#maxStatusDefen td");
+  td = $("#maxStatusDF td");
   td.eq(1).children().val(388);
-  td = $("#maxStatusSpeed td");
+  td = $("#maxStatusSP td");
   td.eq(1).children().val(341);
-  td = $("#maxStatusIntel td");
+  td = $("#maxStatusIN td");
   td.eq(1).children().val(260);
 }
 
 function debugMaxStatusPremiumSlime() {
   var td;
-  td = $("#maxStatusHp td");
+  td = $("#maxStatusHP td");
   td.eq(1).children().val(271);
-  td = $("#maxStatusMp td");
+  td = $("#maxStatusMP td");
   td.eq(1).children().val(48);
-  td = $("#maxStatusAtack td");
+  td = $("#maxStatusAT td");
   td.eq(1).children().val(218);
-  td = $("#maxStatusDefen td");
+  td = $("#maxStatusDF td");
   td.eq(1).children().val(182);
-  td = $("#maxStatusSpeed td");
+  td = $("#maxStatusSP td");
   td.eq(1).children().val(273);
-  td = $("#maxStatusIntel td");
+  td = $("#maxStatusIN td");
   td.eq(1).children().val(215);
 }
 </script>
@@ -1139,49 +1122,49 @@ $(document).ready(function(){
             </tr>
           </tbody>
           <tbody>
-            <tr id="star4Hp">
+            <tr id="star4HP">
               <td>HP</td>
-              <td><input class="input" id="star4Hp0" type="number" min="0" onchange="showStar4StatusHP();"></td>
+              <td><input class="input" id="star4HP0" type="number" min="0" onchange="showStar4StatusHP();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star4Mp">
+            <tr id="star4MP">
               <td>MP</td>
-              <td><input class="input" id="star4Mp0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
+              <td><input class="input" id="star4MP0" type="number" min="0" max="9999" onchange="showStar4StatusMP();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star4Atack">
+            <tr id="star4AT">
               <td>攻撃力</td>
-              <td><input class="input" id="star4Atack0" type="number" min="0" max="9999" onchange="showStar4StatusAtack();"></td>
+              <td><input class="input" id="star4AT0" type="number" min="0" max="9999" onchange="showStar4StatusAT();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star4Defen">
+            <tr id="star4DF">
               <td>防御力</td>
-              <td><input class="input" id="star4Defen0" type="number" min="0" max="9999" onchange="showStar4StatusDefen();"></td>
+              <td><input class="input" id="star4DF0" type="number" min="0" max="9999" onchange="showStar4StatusDF();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star4Speed">
+            <tr id="star4SP">
               <td>素早さ</td>
-              <td><input class="input" id="star4Speed0" type="number" min="0" max="9999" onchange="showStar4StatusSpeed();"></td>
+              <td><input class="input" id="star4SP0" type="number" min="0" max="9999" onchange="showStar4StatusSP();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star4Intel">
+            <tr id="star4IN">
               <td>賢さ</td>
-              <td><input class="input" id="star4Intel0" type="number" min="0" max="9999" onchange="showStar4StatusIntel();"></td>
+              <td><input class="input" id="star4IN0" type="number" min="0" max="9999" onchange="showStar4StatusIN();"></td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
@@ -1222,7 +1205,7 @@ $(document).ready(function(){
               </tr>
             </thead>
             <tbody>
-              <tr id="star444444HpIn">
+              <tr id="star444444HPIn">
                 <td>HP</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1233,7 +1216,7 @@ $(document).ready(function(){
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
               </tr>
-              <tr id="star444444MpIn">
+              <tr id="star444444MPIn">
                 <td>MP</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1244,7 +1227,7 @@ $(document).ready(function(){
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
               </tr>
-              <tr id="star444444AtackIn">
+              <tr id="star444444ATIn">
                 <td>攻撃力</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1255,7 +1238,7 @@ $(document).ready(function(){
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
               </tr>
-              <tr id="star444444DefenIn">
+              <tr id="star444444DFIn">
                 <td>防御力</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1266,7 +1249,7 @@ $(document).ready(function(){
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
               </tr>
-              <tr id="star444444SpeedIn">
+              <tr id="star444444SPIn">
                 <td>素早さ</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1277,7 +1260,7 @@ $(document).ready(function(){
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
               </tr>
-              <tr id="star444444IntelIn">
+              <tr id="star444444INIn">
                 <td>賢さ</td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
                 <td><input class="input" type="number" min="0" max="9999"></td>
@@ -1303,8 +1286,8 @@ $(document).ready(function(){
           </table>
         </div>
 
-        <button class="btn btn-primary" onclick="calc_444444()">☆4～444444計算！</button>
-        <button class="btn btn-primary" onclick="reset_444444()">リセット</button>
+        <button class="btn btn-primary" onclick="calcStar444444()">☆4～444444計算！</button>
+        <button class="btn btn-primary" onclick="resetStar444444()">リセット</button>
         <button class="btn btn-info" onclick="debugRankDorakie()">サンプル:ドラキー～グレドラのステ</button>
 
         <div class="table-responsive">
@@ -1323,7 +1306,7 @@ $(document).ready(function(){
             </tr>
           </thead>
           <tbody>
-            <tr id="star444444HpOut">
+            <tr id="star444444HPOut">
               <td>HP</td>
               <td>0</td>
               <td>0</td>
@@ -1334,7 +1317,7 @@ $(document).ready(function(){
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star444444MpOut">
+            <tr id="star444444MPOut">
               <td>MP</td>
               <td>0</td>
               <td>0</td>
@@ -1345,7 +1328,7 @@ $(document).ready(function(){
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star444444AtackOut">
+            <tr id="star444444ATOut">
               <td>攻撃力</td>
               <td>0</td>
               <td>0</td>
@@ -1356,7 +1339,7 @@ $(document).ready(function(){
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star444444DefenOut">
+            <tr id="star444444DFOut">
               <td>防御力</td>
               <td>0</td>
               <td>0</td>
@@ -1367,7 +1350,7 @@ $(document).ready(function(){
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star444444SpeedOut">
+            <tr id="star444444SPOut">
               <td>素早さ</td>
               <td>0</td>
               <td>0</td>
@@ -1378,7 +1361,7 @@ $(document).ready(function(){
               <td>0</td>
               <td>0</td>
             </tr>
-            <tr id="star444444IntelOut">
+            <tr id="star444444INOut">
               <td>賢さ</td>
               <td>0</td>
               <td>0</td>
@@ -1421,44 +1404,44 @@ $(document).ready(function(){
           </tr>
         </tbody>
         <tbody>
-          <tr id="maxStatusHp">
+          <tr id="maxStatusHP">
             <td>HP</td>
-            <td><input class="input" id="maxStatusHp0" type="number" min="0"></td>
+            <td><input class="input" id="maxStatusHP0" type="number" min="0"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          <tr id="maxStatusMp">
+          <tr id="maxStatusMP">
             <td>MP</td>
-            <td><input class="input" id="maxStatusMp0" type="number" min="0" max="9999"></td>
+            <td><input class="input" id="maxStatusMP0" type="number" min="0" max="9999"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          <tr id="maxStatusAtack">
+          <tr id="maxStatusAT">
             <td>攻撃力</td>
-            <td><input class="input" id="maxStatusAtack0" type="number" min="0" max="9999"></td>
+            <td><input class="input" id="maxStatusAT0" type="number" min="0" max="9999"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          <tr id="maxStatusDefen">
+          <tr id="maxStatusDF">
             <td>防御力</td>
-            <td><input class="input" id="maxStatusDefen0" type="number" min="0" max="9999"></td>
+            <td><input class="input" id="maxStatusDF0" type="number" min="0" max="9999"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          <tr id="maxStatusSpeed">
+          <tr id="maxStatusSP">
             <td>素早さ</td>
-            <td><input class="input" id="maxStatusSpeed0" type="number" min="0" max="9999"></td>
+            <td><input class="input" id="maxStatusSP0" type="number" min="0" max="9999"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
           </tr>
-          <tr id="maxStatusIntel">
+          <tr id="maxStatusIN">
             <td>賢さ</td>
-            <td><input class="input" id="maxStatusIntel0" type="number" min="0" max="9999"></td>
+            <td><input class="input" id="maxStatusIN0" type="number" min="0" max="9999"></td>
             <td>0</td>
             <td>0</td>
             <td></td>
