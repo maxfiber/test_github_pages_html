@@ -561,13 +561,13 @@ function calcTransIncrement(star4Status, star0Status) {
 
 // calc from Star0 to Star44
 // ☆44計算(=転生前モンスター☆0☆4と転生後☆0から、転生後☆44ステ計算)
-function calcPowerupStar44(base0, before4, before0) {
-	var base_04 = Number(base0) + calcTransIncrement(before4, before0);
-	var base_1 = calcPowerup(base_04, base0);
-	var base_2 = calcPowerup(base_1, base0);
-	var base_3 = calcPowerup(base_2, base0);
-	var base_4 = calcPowerup(base_3, base0);
-	return base_4;
+function calcPowerupStar44(rankCurrent0, rankBeforePoweruped, rankBefore0) {
+	var rankCurrent04 = Number(rankCurrent0) + calcTransIncrement(rankBeforePoweruped, rankBefore0);
+	var rankCurrent14 = calcPowerup(rankCurrent04, rankCurrent0);
+	var rankCurrent24 = calcPowerup(rankCurrent14, rankCurrent0);
+	var rankCurrent34 = calcPowerup(rankCurrent24, rankCurrent0);
+	var rankCurrent44 = calcPowerup(rankCurrent34, rankCurrent0);
+	return rankCurrent44;
 }
 
 // ☆4シミュレータ合計値計算
