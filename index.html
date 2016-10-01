@@ -82,13 +82,13 @@ var NumStatusType = 6; // HP, MP, AT, DF, SP, IN
 var NumStatusTypeIncludeTotal = 7; // HP, MP, AT, DF, SP, IN, Total
 var NumRank = 8; // SS, S, A, B, C, D, E, F
 
-var indexStatusHP = 0;
-var indexStatusMP = 1;
-var indexStatusAT = 2;
-var indexStatusDF = 3;
-var indexStatusSP = 4;
-var indexStatusIN = 5;
-var indexStatusTotal = 6;
+var indexHP = 0;
+var indexMP = 1;
+var indexAT = 2;
+var indexDF = 3;
+var indexSP = 4;
+var indexIN = 5;
+var indexTotal = 6;
 
 // Star4 Caluclator
 var star4Calc =
@@ -607,7 +607,7 @@ function showStar4StatusTotal() {
 
 	// ☆1 〜 ☆4
 	for (var i = 0, len = td.length; i < len; i++) {
-		var tmpStr = star4Calc[6][1 + i] + "<br>(+" + Number(star4Calc[6][1+ i] - star4Calc[6][i]) + ")";
+		var tmpStr = star4Calc[6][1+i] + "<br>(+" + Number(star4Calc[6][1+ i] - star4Calc[6][i]) + ")";
 		td.eq(2 + i).html(tmpStr);
 	}
 }
@@ -626,7 +626,7 @@ function showStar4StatusHP() {
 	var td = $("#star4HP td");
 
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[0][1 + i]);
+		td.eq(2 + i).text(star4Calc[0][1+i]);
 		// eq(0) Status: HP
 		// eq(1) ☆0
 		// eq(2) ☆1
@@ -654,7 +654,7 @@ function showStar4StatusMP() {
 	// show
 	var td = $("#star4MP td");
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[1][1 + i]);
+		td.eq(2 + i).text(star4Calc[1][1+i]);
 	}
 	showStar4StatusTotal();
 }
@@ -672,7 +672,7 @@ function showStar4StatusAT() {
 	// show
 	var td = $("#star4AT td");
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[2][1 + i]);
+		td.eq(2 + i).text(star4Calc[2][1+i]);
 	}
 	showStar4StatusTotal();
 }
@@ -690,7 +690,7 @@ function showStar4StatusDF() {
 	// show
 	var td = $("#star4DF td");
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[3][1 + i]);
+		td.eq(2 + i).text(star4Calc[3][1+i]);
 	}
 	showStar4StatusTotal();
 }
@@ -708,7 +708,7 @@ function showStar4StatusSP() {
 	// show
 	var td = $("#star4SP td");
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[4][1 + i]);
+		td.eq(2 + i).text(star4Calc[4][1+i]);
 	}
 	showStar4StatusTotal();
 }
@@ -726,7 +726,7 @@ function showStar4StatusIN() {
 	// show
 	var td = $("#star4IN td");
 	for (var i = 0; i < NumStar4Powerup; i++) {
-		td.eq(2 + i).text(star4Calc[5][1 + i]);
+		td.eq(2 + i).text(star4Calc[5][1+i]);
 	}
 	showStar4StatusTotal();
 }
@@ -777,158 +777,178 @@ function calcStar444444() {
 	}
 
 	var td;
+  var indexRanks;
 
 	// for HP
+  indexTypes = indexHP;
 	// get
 	td = $("#star444444HPIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[0][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[0][7] = calcPowerupStar4(star444444CalcIn[0][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[0][6-i] = calcPowerupStar44(star444444CalcIn[0][6-i], star444444CalcOut[0][7-i], star444444CalcIn[0][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                        star444444CalcOut[indexTypes][7-i],
+                                                        star444444CalcIn[indexTypes][7-i]);
 	}
 
 	// show
 	td = $("#star444444HPOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[0][i] > 0) td.eq(1 + i).html(star444444CalcOut[0][i]);
+	for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 	// for MP
+  indexTypes = indexMP;
 	// get
 	td = $("#star444444MPIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[1][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[1][7] = calcPowerupStar4(star444444CalcIn[1][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[1][6-i] = calcPowerupStar44(star444444CalcIn[1][6-i], star444444CalcOut[1][7-i], star444444CalcIn[1][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                        star444444CalcOut[indexTypes][7-i],
+                                                        star444444CalcIn[indexTypes][7-i]);
 	}
 
 	// show
 	td = $("#star444444MPOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[1][i] > 0) td.eq(1 + i).html(star444444CalcOut[1][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 
 	// for atack
+  indexTypes = indexAT;
 	// get
 	td = $("#star444444ATIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[2][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[2][7] = calcPowerupStar4(star444444CalcIn[2][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[2][6-i] = calcPowerupStar44(star444444CalcIn[2][6-i], star444444CalcOut[2][7-i], star444444CalcIn[2][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                           star444444CalcOut[indexTypes][7-i],
+                                                           star444444CalcIn[indexTypes][7-i]);
 	}
 
 	// show
 	td = $("#star444444ATOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[2][i] > 0) td.eq(1 + i).html(star444444CalcOut[2][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 	// for defen
+  indexTypes = indexDF;
 	// get
 	td = $("#star444444DFIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[3][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[3][7] = calcPowerupStar4(star444444CalcIn[3][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[3][6-i] = calcPowerupStar44(star444444CalcIn[3][6-i], star444444CalcOut[3][7-i], star444444CalcIn[3][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                           star444444CalcOut[indexTypes][7-i],
+                                                           star444444CalcIn[indexTypes][7-i]);
 	}
 
 	// show
 	td = $("#star444444DFOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[3][i] > 0) td.eq(1 + i).html(star444444CalcOut[3][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 	// for speed
+  indexTypes = indexSP;
 	// get
 	td = $("#star444444SPIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[4][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[4][7] = calcPowerupStar4(star444444CalcIn[4][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[4][6-i] = calcPowerupStar44(star444444CalcIn[4][6-i], star444444CalcOut[4][7-i], star444444CalcIn[4][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                           star444444CalcOut[indexTypes][7-i],
+                                                           star444444CalcIn[indexTypes][7-i]);
  	}
 
 	// show
 	td = $("#star444444SPOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[4][i] > 0) td.eq(1 + i).html(star444444CalcOut[4][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 	// for intel
+  indexTypes = indexIN;
 	// get
 	td = $("#star444444INIn td");
 	for (var i = 0; i < NumRank; i++) {
-		star444444CalcIn[5][i] = td.eq(1 + i).children().val();
+		star444444CalcIn[indexTypes][i] = td.eq(1+i).children().val();
 	}
 
 	// calc
-	star444444CalcOut[5][7] = calcPowerupStar4(star444444CalcIn[5][7]);
+	star444444CalcOut[indexTypes][7] = calcPowerupStar4(star444444CalcIn[indexTypes][7]);
 	for (var i = 0; i < NumStatusTypeIncludeTotal; i++) {
-		star444444CalcOut[5][6-i] = calcPowerupStar44(star444444CalcIn[5][6-i], star444444CalcOut[5][7-i], star444444CalcIn[5][7-i]);
+		star444444CalcOut[indexTypes][6-i] = calcPowerupStar44(star444444CalcIn[indexTypes][6-i],
+                                                           star444444CalcOut[indexTypes][7-i],
+                                                           star444444CalcIn[indexTypes][7-i]);
 	}
 
 	// show
 	td = $("#star444444INOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[5][i] > 0) td.eq(1 + i).html(star444444CalcOut[5][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).html(star444444CalcOut[indexTypes][i]);
 	}
 
 	// total
+  indexTypes = indexTotal;
 	// calc
 	for (var i = 0; i < NumStatusType; i++) {
 		// ☆0の合計値計算
-		star444444CalcIn[6][7] += Number(star444444CalcIn[i][7]); //  F[total] +=  F[*]
-		star444444CalcIn[6][6] += Number(star444444CalcIn[i][6]); //  E[total] +=  E[*]
-		star444444CalcIn[6][5] += Number(star444444CalcIn[i][5]); //  D[total] +=  D[*]
-		star444444CalcIn[6][4] += Number(star444444CalcIn[i][4]); //  C[total] +=  C[*]
-		star444444CalcIn[6][3] += Number(star444444CalcIn[i][3]); //  B[total] +=  B[*]
-		star444444CalcIn[6][2] += Number(star444444CalcIn[i][2]); //  A[total] +=  A[*]
-		star444444CalcIn[6][1] += Number(star444444CalcIn[i][1]); //  S[total] +=  S[*]
-		star444444CalcIn[6][0] += Number(star444444CalcIn[i][0]); // SS[total] += SS[*]
+		star444444CalcIn[indexTypes][7] += Number(star444444CalcIn[i][7]); //  F[total] +=  F[*]
+		star444444CalcIn[indexTypes][6] += Number(star444444CalcIn[i][6]); //  E[total] +=  E[*]
+		star444444CalcIn[indexTypes][5] += Number(star444444CalcIn[i][5]); //  D[total] +=  D[*]
+		star444444CalcIn[indexTypes][4] += Number(star444444CalcIn[i][4]); //  C[total] +=  C[*]
+		star444444CalcIn[indexTypes][3] += Number(star444444CalcIn[i][3]); //  B[total] +=  B[*]
+		star444444CalcIn[indexTypes][2] += Number(star444444CalcIn[i][2]); //  A[total] +=  A[*]
+		star444444CalcIn[indexTypes][1] += Number(star444444CalcIn[i][1]); //  S[total] +=  S[*]
+		star444444CalcIn[indexTypes][0] += Number(star444444CalcIn[i][0]); // SS[total] += SS[*]
 
 		// ☆4~444444の合計値計算
-		star444444CalcOut[6][7] += star444444CalcOut[i][7];       //  F[total] +=  F[*]
-		star444444CalcOut[6][6] += star444444CalcOut[i][6];       //  E[total] +=  E[*]
-		star444444CalcOut[6][5] += star444444CalcOut[i][5];       //  D[total] +=  D[*]
-		star444444CalcOut[6][4] += star444444CalcOut[i][4];       //  C[total] +=  C[*]
-		star444444CalcOut[6][3] += star444444CalcOut[i][3];       //  B[total] +=  B[*]
-		star444444CalcOut[6][2] += star444444CalcOut[i][2];       //  A[total] +=  A[*]
-		star444444CalcOut[6][1] += star444444CalcOut[i][1];       //  S[total] +=  S[*]
-		star444444CalcOut[6][0] += star444444CalcOut[i][0];       // SS[total] += SS[*]
+		star444444CalcOut[indexTypes][7] += star444444CalcOut[i][7];       //  F[total] +=  F[*]
+		star444444CalcOut[indexTypes][6] += star444444CalcOut[i][6];       //  E[total] +=  E[*]
+		star444444CalcOut[indexTypes][5] += star444444CalcOut[i][5];       //  D[total] +=  D[*]
+		star444444CalcOut[indexTypes][4] += star444444CalcOut[i][4];       //  C[total] +=  C[*]
+		star444444CalcOut[indexTypes][3] += star444444CalcOut[i][3];       //  B[total] +=  B[*]
+		star444444CalcOut[indexTypes][2] += star444444CalcOut[i][2];       //  A[total] +=  A[*]
+		star444444CalcOut[indexTypes][1] += star444444CalcOut[i][1];       //  S[total] +=  S[*]
+		star444444CalcOut[indexTypes][0] += star444444CalcOut[i][0];       // SS[total] += SS[*]
 	}
 
 	// show
 	// ☆0の合計値表示。ランク毎に入力されている場合のみ結果を表示
 	td = $("#star444444TotalIn td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		if (star444444CalcIn[6][i] > 0) td.eq(1 + i).text(star444444CalcIn[6][i]);
+  for (var i = 0; i < NumRank; i++) {
+		if (star444444CalcIn[indexTypes][i] > 0) td.eq(1+i).text(star444444CalcIn[indexTypes][i]);
 	}
 
 	// ☆444444の合計値表示。ランク毎に入力されている場合のみ結果を表示
 	td = $("#star444444TotalOut td");
-	for (var i = 0, len = td.length; i < len; i++) {
-		var tmpStr = star444444CalcOut[6][0 + i] + "<br>" + "(+" + (star444444CalcOut[6][0 + i] - star444444CalcIn[6][0 + i]) + ")";
-		if (star444444CalcIn[6][0 + i] > 0) td.eq(1 + i).html(tmpStr);
+  for (var i = 0; i < NumRank; i++) {
+		var tmpStr = star444444CalcOut[indexTypes][0 + i] + "<br>" + "(+" + (star444444CalcOut[indexTypes][0 + i] - star444444CalcIn[indexTypes][0 + i]) + ")";
+		if (star444444CalcIn[indexTypes][0 + i] > 0) td.eq(1+i).html(tmpStr);
 	}
 }
 
@@ -958,21 +978,21 @@ function resetStar444444() {
 	}
 
 	for (var i = 0; i < NumRank; i++) {
-		tdHPIn.eq(1 + i).children().val("");
-		tdMPIn.eq(1 + i).children().val("");
-		tdATIn.eq(1 + i).children().val("");
-		tdDFIn.eq(1 + i).children().val("");
-		tdSPIn.eq(1 + i).children().val("");
-		tdINIn.eq(1 + i).children().val("");
-		tdTotalIn.eq(1 + i).text("");
+		tdHPIn.eq(1+i).children().val("");
+		tdMPIn.eq(1+i).children().val("");
+		tdATIn.eq(1+i).children().val("");
+		tdDFIn.eq(1+i).children().val("");
+		tdSPIn.eq(1+i).children().val("");
+		tdINIn.eq(1+i).children().val("");
+		tdTotalIn.eq(1+i).text("");
 
-		tdHPOut.eq(1 + i).text(0);
-		tdMPOut.eq(1 + i).text(0);
-		tdATOut.eq(1 + i).text(0);
-		tdDFOut.eq(1 + i).text(0);
-		tdSPOut.eq(1 + i).text(0);
-		tdINOut.eq(1 + i).text(0);
-		tdTotalOut.eq(1 + i).text(0);
+		tdHPOut.eq(1+i).text(0);
+		tdMPOut.eq(1+i).text(0);
+		tdATOut.eq(1+i).text(0);
+		tdDFOut.eq(1+i).text(0);
+		tdSPOut.eq(1+i).text(0);
+		tdINOut.eq(1+i).text(0);
+		tdTotalOut.eq(1+i).text(0);
 	}
 }
 
